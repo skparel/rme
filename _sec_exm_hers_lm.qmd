@@ -1,0 +1,224 @@
+## Example: HERS dataset {#sec-hers-lm-example}
+
+:::{.callout-note}
+This example is based on @vittinghoff2e, Chapter 4.
+:::
+
+::: notes
+
+{{< include _sec_hers_intro.qmd >}}
+
+:::
+
+### Load the data
+
+```{r}
+#| eval: false
+#| code-fold: show
+library(haven)
+hers <- haven::read_dta(
+  paste0(
+    "https://regression.ucsf.edu/sites/g/files",
+    "/tkssra6706/f/wysiwyg/home/data/hersdata.dta"
+  )
+)
+```
+
+```{r}
+#| include: false
+hers <- fs::path_package("rme", "extdata/hersdata.dta") |>
+  haven::read_dta()
+```
+
+:::{#tbl-hers-data-lm}
+
+```{r}
+hers |> head()
+```
+
+First six rows of the `hers` dataset
+
+:::
+
+### Research question
+
+::: notes
+What is the cross-sectional association between
+body mass index (BMI) and LDL cholesterol
+among women with coronary heart disease,
+adjusting for potential confounders?
+:::
+
+### Simple linear regression
+
+::: notes
+We begin with a simple linear regression of LDL cholesterol on BMI,
+following @vittinghoff2e Table 4.1.
+:::
+
+$$E[\text{LDL} \mid \text{BMI} = b] = \beta_0 + \beta_1 b$$ {#eq-hers-simple}
+
+#### Exploratory plot
+
+:::{#fig-hers-ldl-bmi}
+
+```{r}
+library(ggplot2)
+hers |>
+  ggplot(aes(x = BMI, y = LDL)) +
+  geom_point(alpha = 0.3) +
+  geom_smooth(method = "lm", formula = y ~ x) +
+  xlab("BMI (kg/m²)") +
+  ylab("LDL cholesterol (mg/dL)") +
+  theme_bw()
+```
+
+LDL cholesterol vs BMI in the HERS dataset, with linear regression fit
+
+:::
+
+#### Fit the model in R
+
+```{r}
+hers_lm_simple <- lm(
+  LDL ~ BMI,
+  data = hers,
+  na.action = na.exclude
+)
+```
+
+#### Parameter estimates
+
+:::{#tbl-hers-simple-params}
+
+```{r}
+library(parameters)
+hers_lm_simple |>
+  parameters() |>
+  print_md()
+```
+
+Parameter estimates for [Model @eq-hers-simple]
+
+:::
+
+#### Coefficient interpretation
+
+::: notes
+In [Model @eq-hers-simple]:
+:::
+
+-   $\beta_1$ is the difference in mean LDL cholesterol per
+    1 kg/m² difference in BMI.
+    From @tbl-hers-simple-params,
+    $\hat\beta_1 \approx `r round(coef(hers_lm_simple)["BMI"], 2)`$ mg/dL
+    per kg/m²,
+    with a 95% confidence interval of
+    `r paste(round(confint(hers_lm_simple)["BMI", ], 2), collapse = " to ")`
+    mg/dL per kg/m².
+
+-   $\beta_0$ is the mean LDL cholesterol for a woman with BMI = 0,
+    which is outside the range of the data and therefore not directly
+    interpretable.
+
+### Multiple linear regression
+
+::: notes
+Next, we add potential confounders to the model,
+following @vittinghoff2e Table 4.2.
+:::
+
+$$
+\begin{aligned}
+E[\text{LDL} \mid \vX = \vx] &= \beta_0 + \beta_{\text{BMI}} \cdot \text{BMI}
++ \beta_{\text{age}} \cdot \text{age}\\
+&\quad + \beta_{\text{nw}} \cdot \text{nonwhite}
++ \beta_{\text{smk}} \cdot \text{smoking}\\
+&\quad + \beta_{\text{drk}} \cdot \text{drinkany}
++ \beta_{\text{exr}} \cdot \text{exercise}
+\end{aligned}
+$$ {#eq-hers-multi}
+
+#### Fit the model in R
+
+```{r}
+hers_lm_multi <- lm(
+  LDL ~ BMI + age + nonwhite + smoking + drinkany + exercise,
+  data = hers,
+  na.action = na.exclude
+)
+```
+
+#### Parameter estimates
+
+:::{#tbl-hers-multi-params}
+
+```{r}
+hers_lm_multi |>
+  parameters() |>
+  print_md()
+```
+
+Parameter estimates for [Model @eq-hers-multi]
+
+:::
+
+#### Coefficient interpretation
+
+::: notes
+From @tbl-hers-multi-params:
+:::
+
+-   $\hat\beta_{\text{BMI}} \approx `r round(coef(hers_lm_multi)["BMI"], 2)`$
+    mg/dL per kg/m²,
+    after adjusting for age, race/ethnicity, smoking, alcohol use,
+    and exercise.
+    This is somewhat smaller than the unadjusted estimate
+    ($\hat\beta_1 \approx `r round(coef(hers_lm_simple)["BMI"], 2)`$
+    mg/dL per kg/m²) from [Model @eq-hers-simple],
+    suggesting that some of the crude association between BMI and LDL
+    is explained by the other covariates.
+
+-   $\hat\beta_{\text{age}} \approx `r round(coef(hers_lm_multi)["age"], 2)`$
+    mg/dL per year of age,
+    adjusting for the other covariates.
+
+### Comparing models
+
+::: notes
+To compare [Model @eq-hers-multi] and [Model @eq-hers-simple]
+using a likelihood ratio test,
+both models must be fit on the same observations.
+We restrict to complete cases for all variables in the larger model.
+:::
+
+```{r}
+library(dplyr)
+hers_complete <- hers |>
+  select(LDL, BMI, age, nonwhite, smoking, drinkany, exercise) |>
+  na.omit()
+```
+
+```{r}
+hers_lm_simple2 <- lm(
+  LDL ~ BMI,
+  data = hers_complete
+)
+
+hers_lm_multi2 <- lm(
+  LDL ~ BMI + age + nonwhite + smoking + drinkany + exercise,
+  data = hers_complete
+)
+```
+
+```{r}
+library(lmtest)
+lrtest(hers_lm_multi2, hers_lm_simple2)
+```
+
+::: notes
+The likelihood ratio test compares [Model @eq-hers-multi] to
+[Model @eq-hers-simple].
+A small p-value provides evidence that adding the additional
+covariates improves model fit.
+:::
