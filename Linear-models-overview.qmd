@@ -63,8 +63,6 @@ so everyone here should have some understanding of linear regression already.
 
 * @sec-infer-LMs: how to quantify uncertainty about our estimates
 
-* @sec-hers-lm-example: a worked example using the HERS dataset
-
 * @sec-diagnose-LMs: how to tell if your model is insufficiently complex
 
 
@@ -428,6 +426,10 @@ even before we estimated values for those parameters.
 
 {{< include _sec_linear_coef_interp_no_intxn.qmd >}}
 
+{{< include _sec_hers_lm_parallel.qmd >}}
+
+---
+
 ### Interactions {.smaller}
 
 ::: notes
@@ -680,6 +682,10 @@ In the model with an interaction term multiplying $A\times M$,
 the interpretation of $\b_A$ involves the reference level of $M$, 
 and interpretation of $\beta_M$ involves the reference level of $A$ (@tbl-compare-coef-interps).
 :::
+
+{{< include _sec_hers_lm_interact.qmd >}}
+
+---
 
 ### Stratified regression {.smaller}
 
@@ -1571,10 +1577,6 @@ plot_PIs_and_CIs(bw_lm2, bw)
 Confidence and prediction intervals for `birthweight` model [-@eq-BW-lm-interact]
 
 :::
-
-{{< include _sec_exm_hers_lm.qmd >}}
-
----
 
 ## Diagnostics {#sec-diagnose-LMs}
 

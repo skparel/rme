@@ -1,0 +1,158 @@
+### Motivating example: `hers` data {.smaller}
+
+:::{.callout-note}
+This section is based on @vittinghoff2e, Chapter 4.
+:::
+
+::: notes
+
+{{< include _sec_hers_intro.qmd >}}
+
+:::
+
+```{r}
+#| eval: false
+#| code-fold: show
+library(haven)
+hers <- haven::read_dta(
+  paste0(
+    "https://regression.ucsf.edu/sites/g/files",
+    "/tkssra6706/f/wysiwyg/home/data/hersdata.dta"
+  )
+)
+```
+
+```{r}
+#| include: false
+library(haven)
+hers <-
+  fs::path_package("rme", "extdata/hersdata.dta") |>
+  read_dta() |>
+  dplyr::mutate(HT = as_factor(HT))
+```
+
+::::: {.panel-tabset}
+
+#### Data as table
+
+```{r}
+#| label: tbl-hers-ch4
+#| tbl-cap: "`hers` data"
+hers |> head()
+```
+
+#### Data as graph
+
+```{r}
+#| label: fig-hers-scatter
+#| fig-cap: "`hers` data (@vittinghoff2e)"
+#| fig-height: 5
+#| fig-width: 7
+library(ggplot2)
+hers_scatter <-
+  hers |>
+  ggplot(aes(
+    x = BMI,
+    y = LDL,
+    shape = HT,
+    col = HT
+  )) +
+  theme_bw() +
+  xlab("BMI (kg/m²)") +
+  ylab("LDL cholesterol (mg/dL)") +
+  theme(legend.position = "bottom") +
+  geom_point(alpha = .3)
+print(hers_scatter + facet_wrap(~HT))
+```
+
+:::::
+
+---
+
+#### Data notation {.smaller}
+
+::: notes
+Let's define some notation to represent this data:
+:::
+
+-   $Y$: LDL cholesterol (mg/dL)
+-   $T$: hormone therapy treatment assignment
+    ("placebo" or "hormone therapy")
+-   $H$: indicator variable for $T$ = "hormone therapy"
+    -   $H = 0$ if $T$ = "placebo"
+    -   $H = 1$ if $T$ = "hormone therapy"
+-   $B$: BMI (kg/m²)
+
+::: notes
+"Placebo" is the **reference level** for the categorical variable $T$.
+The choice of reference level is arbitrary;
+it only affects the interpretation of the intercept and $\beta_H$.
+:::
+
+### Parallel lines regression for `hers` data {.smaller}
+
+::: notes
+We model the distribution of LDL cholesterol
+as a linear function of BMI,
+with a separate intercept for each treatment group:
+:::
+
+$$
+\ba
+Y|H,B &\sciid N(\mu(H,B), \sigma^2)\\
+\mu(h,b) &= \beta_0 + \beta_H h + \beta_B b
+\ea
+$$ {#eq-hers-parallel}
+
+::: {.column width=40%}
+
+::: {#tbl-hers-lm1}
+
+```{r}
+library(dplyr)
+hers_lm1 <- lm(
+  formula = LDL ~ HT + BMI,
+  data = hers,
+  na.action = na.exclude
+)
+
+library(parameters)
+hers_lm1 |>
+  parameters::parameters() |>
+  parameters::print_md(
+    include_reference = include_reference_lines,
+    select = "{estimate}"
+  )
+```
+
+Regression parameter estimates for [Model @eq-hers-parallel]
+
+:::
+
+:::
+
+:::{.column width=10%}
+:::
+
+:::{.column width=50%}
+
+:::{#fig-hers-parallel-fit}
+
+```{r}
+hers <-
+  hers |>
+  dplyr::mutate(`E[LDL|X=x]` = fitted(hers_lm1)) |>
+  dplyr::arrange(HT, BMI)
+
+hers_scatter2 <-
+  hers_scatter + hers +
+  geom_line(aes(y = `E[LDL|X=x]`))
+
+print(hers_scatter2)
+```
+
+Graph of [Model @eq-hers-parallel] for `hers` data
+
+:::
+
+:::

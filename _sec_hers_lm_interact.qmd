@@ -1,0 +1,73 @@
+### Interactions in `hers` data {.smaller}
+
+::: notes
+What if the slope of LDL with respect to BMI
+differs between treatment groups?
+Then we need an "interaction" between BMI $B$ and treatment $H$:
+:::
+
+$$
+\ba
+Y|H,B &\sciid N(\mu(H,B), \sigma^2)\\
+\mu(h,b) &= \beta_0 + \beta_H h + \beta_B b + \beta_{HB}(h \cdot b)
+\ea
+$$ {#eq-hers-interact}
+
+::: notes
+Now the slope of mean LDL with respect to BMI $B$
+depends on the value of treatment $H$:
+
+$$
+\ba
+\deriv{b}\mu(H=\red{0}, B=b) &= \beta_B\\
+\deriv{b}\mu(H=\red{1}, B=b) &= \beta_B + \beta_{HB}
+\ea
+$$
+:::
+
+::: {.column width=40%}
+
+```{r}
+#| label: tbl-hers-lm2
+#| tbl-cap: "HERS interaction model"
+hers_lm2 <- lm(
+  LDL ~ HT + BMI + HT:BMI,
+  data = hers,
+  na.action = na.exclude
+)
+
+hers_lm2 |>
+  parameters() |>
+  parameters::print_md(
+    include_reference = include_reference_lines,
+    select = "{estimate}"
+  )
+```
+
+:::
+
+:::{.column width=5%}
+:::
+
+:::{.column width=55%}
+
+```{r}
+#| label: fig-hers-interact-fit
+#| fig-cap: "HERS interaction model fit"
+hers <-
+  hers |>
+  dplyr::mutate(
+    predlm2_hers = predict(hers_lm2)
+  ) |>
+  dplyr::arrange(HT, BMI)
+
+hers_scatter3 <-
+  hers_scatter + hers +
+  geom_line(aes(y = predlm2_hers))
+
+print(hers_scatter3)
+```
+
+Graph of [Model @eq-hers-interact] for `hers` data
+
+:::
