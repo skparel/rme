@@ -145,8 +145,8 @@ hers <-
   dplyr::arrange(HT, BMI)
 
 hers_scatter2 <-
-  hers_scatter + hers +
-  geom_line(aes(y = `E[LDL|X=x]`))
+  hers_scatter +
+  geom_line(data = hers, aes(y = `E[LDL|X=x]`))
 
 print(hers_scatter2)
 ```

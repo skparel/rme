@@ -62,8 +62,8 @@ hers <-
   dplyr::arrange(HT, BMI)
 
 hers_scatter3 <-
-  hers_scatter + hers +
-  geom_line(aes(y = predlm2_hers))
+  hers_scatter +
+  geom_line(data = hers, aes(y = predlm2_hers))
 
 print(hers_scatter3)
 ```
