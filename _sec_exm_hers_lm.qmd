@@ -108,13 +108,20 @@ Parameter estimates for [Model @eq-hers-simple]
 In [Model @eq-hers-simple]:
 :::
 
+```{r}
+#| include: false
+beta1_simple <- round(coef(hers_lm_simple)["BMI"], 2)
+ci_bmi_simple <- round(confint(hers_lm_simple)["BMI", ], 2)
+ci_bmi_simple_str <- paste(ci_bmi_simple, collapse = " to ")
+```
+
 -   $\beta_1$ is the difference in mean LDL cholesterol per
     1 kg/m² difference in BMI.
     From @tbl-hers-simple-params,
-    $\hat\beta_1 \approx `r round(coef(hers_lm_simple)["BMI"], 2)`$ mg/dL
+    $\hat\beta_1 \approx `r beta1_simple`$ mg/dL
     per kg/m²,
     with a 95% confidence interval of
-    `r paste(round(confint(hers_lm_simple)["BMI", ], 2), collapse = " to ")`
+    `r ci_bmi_simple_str`
     mg/dL per kg/m².
 
 -   $\beta_0$ is the mean LDL cholesterol for a woman with BMI = 0,
@@ -169,17 +176,23 @@ Parameter estimates for [Model @eq-hers-multi]
 From @tbl-hers-multi-params:
 :::
 
--   $\hat\beta_{\text{BMI}} \approx `r round(coef(hers_lm_multi)["BMI"], 2)`$
+```{r}
+#| include: false
+beta_bmi_multi <- round(coef(hers_lm_multi)["BMI"], 2)
+beta_age_multi <- round(coef(hers_lm_multi)["age"], 2)
+```
+
+-   $\hat\beta_{\text{BMI}} \approx `r beta_bmi_multi`$
     mg/dL per kg/m²,
     after adjusting for age, race/ethnicity, smoking, alcohol use,
     and exercise.
     This is somewhat smaller than the unadjusted estimate
-    ($\hat\beta_1 \approx `r round(coef(hers_lm_simple)["BMI"], 2)`$
+    ($\hat\beta_1 \approx `r beta1_simple`$
     mg/dL per kg/m²) from [Model @eq-hers-simple],
     suggesting that some of the crude association between BMI and LDL
     is explained by the other covariates.
 
--   $\hat\beta_{\text{age}} \approx `r round(coef(hers_lm_multi)["age"], 2)`$
+-   $\hat\beta_{\text{age}} \approx `r beta_age_multi`$
     mg/dL per year of age,
     adjusting for the other covariates.
 
