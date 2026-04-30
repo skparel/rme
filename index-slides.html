@@ -7,6 +7,8 @@
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/quarto-contrib/div-anchors-1.0.0/div-anchors.js"></script>
+<link href="site_libs/quarto-contrib/div-anchors-1.0.0/div-anchors.css" rel="stylesheet">
 <script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><meta charset="utf-8">
@@ -249,14 +251,18 @@
 <section>
 <section id="preface" class="title-slide slide level1 unnumbered center">
 <h1>Preface</h1>
+
+</section>
+<section class="slide level2">
+
 <p>This web-book is derived from my lecture slides for Epidemiology 204: “Quantitative Epidemiology III: Statistical Models”, at UC Davis.</p>
 <p>I have drawn these materials from many sources, including but not limited to:</p>
 <ul>
 <li><p><a href="https://dmrocke.ucdavis.edu/">David Rocke</a>’s materials from the <a href="https://dmrocke.ucdavis.edu/Class/EPI204-Spring-2021/EPI204-Spring-2021.html">2021 edition of this course</a></p></li>
 <li><p><a href="https://hua-zhou.github.io/">Hua Zhou</a>’s materials from the <a href="https://ucla-biostat-200c-2020spring.github.io/schedule/schedule.html">2020 edition of Biostat 200C at UCLA</a></p></li>
-<li><p><span class="citation" data-cites="vittinghoff2e">Vittinghoff et al. (<a href="#/license" role="doc-biblioref" onclick="">2012</a>)</span></p></li>
-<li><p><span class="citation" data-cites="dobson4e">Dobson and Barnett (<a href="#/license" role="doc-biblioref" onclick="">2018</a>)</span></p></li>
-<li><p><span class="citation" data-cites="rms2e">Harrell (<a href="#/license" role="doc-biblioref" onclick="">2015</a>)</span></p></li>
+<li><p><span class="citation" data-cites="vittinghoff2e">Vittinghoff et al. (<a href="#/references" role="doc-biblioref" onclick="">2012</a>)</span></p></li>
+<li><p><span class="citation" data-cites="dobson4e">Dobson and Barnett (<a href="#/references" role="doc-biblioref" onclick="">2018</a>)</span></p></li>
+<li><p><span class="citation" data-cites="rms2e">Harrell (<a href="#/references" role="doc-biblioref" onclick="">2015</a>)</span></p></li>
 </ul>
 <div class="callout callout-important callout-titled callout-style-default">
 <div class="callout-body">
@@ -290,10 +296,10 @@
 <li><p><a href="https://quarto.org/docs/get-started/">Install Quarto</a></p></li>
 <li><p>Clone the project repository from <a href="https://github.com/d-morrison/rme">GitHub</a>, including the <code>latex-macros</code> <a href="https://git-scm.com/book/en/v2/Git-Tools-Submodules">submodule</a>:</p></li>
 </ol>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a></a><span class="fu">git</span> clone <span class="at">--recurse-submodules</span> https://github.com/d-morrison/rme.git</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a></a><span class="fu">git</span> clone <span class="at">--recurse-submodules</span> <span class="at">--single-branch</span> https://github.com/d-morrison/rme.git</span>
 <span id="cb1-2"><a></a><span class="bu">cd</span> rme</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>If you have already cloned the repository without the submodule, you can initialize it with:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a></a><span class="fu">git</span> submodule update <span class="at">--init</span> <span class="at">--recursive</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a></a><span class="fu">git</span> submodule update <span class="at">--init</span> <span class="at">--recursive</span> <span class="at">--single-branch</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ol start="3" type="1">
 <li>Install R package dependencies:</li>
 </ol>
@@ -344,9 +350,9 @@ Figure&nbsp;2: LaTeX source code window
 <p>Then include the macros immediately after the YAML front matter of each <code>.qmd</code> file:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a></a>{{&lt; include latex-macros/macros.qmd &gt;}}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>When cloning a repository that uses this submodule, run:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a></a><span class="fu">git</span> clone <span class="at">--recurse-submodules</span> <span class="op">&lt;</span>your-repo-url<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a></a><span class="fu">git</span> clone <span class="at">--recurse-submodules</span> <span class="at">--single-branch</span> <span class="op">&lt;</span>your-repo-url<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Or, if you have already cloned the repository without the submodule:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a></a><span class="fu">git</span> submodule update <span class="at">--init</span> <span class="at">--recursive</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a></a><span class="fu">git</span> submodule update <span class="at">--init</span> <span class="at">--recursive</span> <span class="at">--single-branch</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section class="slide level2">
 
@@ -368,59 +374,59 @@ Figure&nbsp;3: Palette toggle
 <p>These notes represent my still-developing perspective on regression models in epidemiology. Many other statisticians and epidemiologists have published their own perspectives, and I encourage you to explore your many options and find ones that resonate with you. I have attempted to cite my sources throughout these notes.</p>
 <p>Here are some additional resources that I’ve come across; I haven’t had time to read some of them thoroughly yet, but they’re all on my to-do list. I’ll add my thoughts on them over time.</p>
 <ul>
-<li><p><span class="citation" data-cites="dobson4e">Dobson and Barnett (<a href="#/license" role="doc-biblioref" onclick="">2018</a>)</span> is a classic textbook on GLMs. It was used in UCLA Biostatistics’s MS-level GLMs course (Biostat 200C) when I took it, and it helped me a lot. It is fairly mathematically rigorous and concise, bordering on terse. It covers GLMs in detail, and survival analysis briefly, and it also has helpful chapters on Bayesian methods. I have adapted examples and explanations from it extensively in these notes.</p></li>
-<li><p><span class="citation" data-cites="wakefield2013">Wakefield (<a href="#/license" role="doc-biblioref" onclick="">2013</a>)</span> covers GLMs and hierarchical models using both Bayesian and frequentist inference;</p>
+<li><p><span class="citation" data-cites="dobson4e">Dobson and Barnett (<a href="#/references" role="doc-biblioref" onclick="">2018</a>)</span> is a classic textbook on GLMs. It was used in UCLA Biostatistics’s MS-level GLMs course (Biostat 200C) when I took it, and it helped me a lot. It is fairly mathematically rigorous and concise, bordering on terse. It covers GLMs in detail, and survival analysis briefly, and it also has helpful chapters on Bayesian methods. I have adapted examples and explanations from it extensively in these notes.</p></li>
+<li><p><span class="citation" data-cites="wakefield2013">Wakefield (<a href="#/references" role="doc-biblioref" onclick="">2013</a>)</span> covers GLMs and hierarchical models using both Bayesian and frequentist inference;</p>
 <ul>
 <li>statistics PhD level</li>
 <li>author: UW biostatistics professor <a href="https://www.biostat.washington.edu/people/jon-wakefield">Jon Wakefield</a></li>
 <li>used in <a href="https://donatello-telesca.com/biostatistics-251-">UCLA Biostat 250C</a></li>
 </ul></li>
-<li><p><span class="citation" data-cites="hosmer2013applied">Hosmer et al. (<a href="#/license" role="doc-biblioref" onclick="">2013</a>)</span> is a classic text on logistic regression. I haven’t read it yet.</p></li>
-<li><p><span class="citation" data-cites="agresti2012categorical">Agresti (<a href="#/license" role="doc-biblioref" onclick="">2012</a>)</span> is another classic text for GLMs. I haven’t read it yet.</p></li>
-<li><p><span class="citation" data-cites="agresti2018introcat">Agresti (<a href="#/license" role="doc-biblioref" onclick="">2018</a>)</span> appears to be a more applied version of <span class="citation" data-cites="agresti2012categorical">Agresti (<a href="#/license" role="doc-biblioref" onclick="">2012</a>)</span>. I haven’t read it yet. There are <a href="https://bcs.wiley.com/he-bcs/Books?action=resource&amp;bcsId=11293&amp;itemId=1119405262&amp;resourceId=44770">extra exercises</a> and other resources available on the <a href="https://bcs.wiley.com/he-bcs/Books?action=index&amp;itemId=1119405262&amp;bcsId=11293">Student Companion Site</a></p></li>
-<li><p><span class="citation" data-cites="agresti2015foundations">Agresti (<a href="#/license" role="doc-biblioref" onclick="">2015</a>)</span> has “More than 400 exercises for readers to practice and extend the theory, methods, and data analysis”; might be more theoretical?</p></li>
-<li><p><span class="citation" data-cites="agresti2010ordinal">Agresti (<a href="#/license" role="doc-biblioref" onclick="">2010</a>)</span> is specifically about ordinal data.</p></li>
-<li><p><span class="citation" data-cites="dunn2018generalized">Dunn and Smyth (<a href="#/license" role="doc-biblioref" onclick="">2018</a>)</span> is a recent textbook on GLMs. It doesn’t cover time-to-event models, and it doesn’t use the modern <a href="https://tidyverse.org/"><code>tidyverse</code></a> packages (<a href="https://ggplot2.tidyverse.org/"><code>ggplot2</code></a>, <a href="https://dplyr.tidyverse.org/"><code>dplyr</code></a>, etc.), but otherwise it seems great. <span class="citation" data-cites="Edelmann2019">Edelmann (<a href="#/license" role="doc-biblioref" onclick="">2019</a>)</span> reviews this book formally.</p></li>
-<li><p><span class="citation" data-cites="moore2016applied">Moore (<a href="#/license" role="doc-biblioref" onclick="">2016</a>)</span> is a recent textbook on survival analysis. It also doesn’t use the <code>tidyverse</code>, but otherwise seems great.</p></li>
-<li><p><span class="citation" data-cites="klein2003survival">Klein and Moeschberger (<a href="#/license" role="doc-biblioref" onclick="">2003</a>)</span> is a classic text for survival analysis. I read most of it in grad school, and it was very helpful. Examples and explanations from it are borrowed extensively in the second half of these notes (partially filtered through David Rocke’s course notes.)</p></li>
-<li><p><span class="citation" data-cites="kalbfleisch2011statistical">Kalbfleisch and Prentice (<a href="#/license" role="doc-biblioref" onclick="">2011</a>)</span> is another classic survival analysis text; I haven’t read it yet.</p></li>
-<li><p><span class="citation" data-cites="kleinbaum2010logistic">Kleinbaum and Klein (<a href="#/license" role="doc-biblioref" onclick="">2010</a>)</span> is a mostly applied-level “self-learning” text for logistic regression; I read it cover-to-cover before grad school, and found it very helpful.</p></li>
-<li><p><span class="citation" data-cites="kleinbaum2012survival">Kleinbaum and Klein (<a href="#/license" role="doc-biblioref" onclick="">2012</a>)</span> is the corresponding “self-learning” text for survival analysis; I read it cover-to-cover before grad school, and found it very helpful.</p></li>
-<li><p><span class="citation" data-cites="kleinbaumEpi">Kleinbaum et al. (<a href="#/license" role="doc-biblioref" onclick="">1982</a>)</span>, by the same authors, has a solutions manual (<span class="citation" data-cites="kleinbaumEpiSols">Kleinbaum et al. (<a href="#/license" role="doc-biblioref" onclick="">1983</a>)</span>)</p></li>
-<li><p><span class="citation" data-cites="kleinbaum2014applied">Kleinbaum et al. (<a href="#/license" role="doc-biblioref" onclick="">2014</a>)</span> is also by the same group, in a similar style</p></li>
-<li><p><span class="citation" data-cites="rms2e">Harrell (<a href="#/license" role="doc-biblioref" onclick="">2015</a>)</span> is another popular textbook. It uses <a href="https://ggplot2.tidyverse.org/"><code>ggplot2</code></a> but not <a href="https://dplyr.tidyverse.org/"><code>dplyr</code></a>, and covers logistic regression and survival analysis (no Poisson or NB models?). An abbreviated but continuously updated version with audio clips is available at <a href="https://hbiostat.org/rmsc/" class="uri">https://hbiostat.org/rmsc/</a>.</p></li>
-<li><p><span class="citation" data-cites="fox2015applied">Fox (<a href="#/license" role="doc-biblioref" onclick="">2015</a>)</span> is another standard text. <sup>1</sup></p></li>
-<li><p><span class="citation" data-cites="mccullaghnelder">McCullagh and Nelder (<a href="#/license" role="doc-biblioref" onclick="">1989</a>)</span> is a classic, theoretical textbook on GLMs <sup>2</sup></p></li>
-<li><p><span class="citation" data-cites="dalgaardintroductory">Dalgaard (<a href="#/license" role="doc-biblioref" onclick="">2008</a>)</span> covers GLMs and survival analysis at an applied level, using base R</p></li>
-<li><p><span class="citation" data-cites="vittinghoff2e">Vittinghoff et al. (<a href="#/license" role="doc-biblioref" onclick="">2012</a>)</span> covers GLMs, survival analysis, and causal inference, using Stata. The authors are UCSF professors, and it is used for the core Epi PhD courses there. I read this book nearly cover-to-cover before grad school, and it was hugely helpful for me, both for statistical modeling and for causal inference (I think it provided my first exposure to DAGs).</p></li>
-<li><p><span class="citation" data-cites="mcculloch2008generalized">McCulloch et al. (<a href="#/license" role="doc-biblioref" onclick="">2008</a>)</span> is also by UCSF professors</p></li>
-<li><p><span class="citation" data-cites="faraway2016extending">Faraway (<a href="#/license" role="doc-biblioref" onclick="">2016</a>)</span> has GLMs but not survival analysis</p></li>
-<li><p><span class="citation" data-cites="selvin2001epidemiologic">Selvin (<a href="#/license" role="doc-biblioref" onclick="">2001</a>)</span> provides worked-out examples of applications for a wide range of statistical analysis techniques. The <a href="https://publichealth.berkeley.edu/people/steve-selvin">Author</a> is a retired UC Berkeley Biostatistics professor; he used it in a graduate-level biostat/epi course.</p></li>
-<li><p><span class="citation" data-cites="selvin2004">Selvin (<a href="#/license" role="doc-biblioref" onclick="">2004</a>)</span> is by the same author</p>
+<li><p><span class="citation" data-cites="hosmer2013applied">Hosmer et al. (<a href="#/references" role="doc-biblioref" onclick="">2013</a>)</span> is a classic text on logistic regression. I haven’t read it yet.</p></li>
+<li><p><span class="citation" data-cites="agresti2012categorical">Agresti (<a href="#/references" role="doc-biblioref" onclick="">2012</a>)</span> is another classic text for GLMs. I haven’t read it yet.</p></li>
+<li><p><span class="citation" data-cites="agresti2018introcat">Agresti (<a href="#/references" role="doc-biblioref" onclick="">2018</a>)</span> appears to be a more applied version of <span class="citation" data-cites="agresti2012categorical">Agresti (<a href="#/references" role="doc-biblioref" onclick="">2012</a>)</span>. I haven’t read it yet. There are <a href="https://bcs.wiley.com/he-bcs/Books?action=resource&amp;bcsId=11293&amp;itemId=1119405262&amp;resourceId=44770">extra exercises</a> and other resources available on the <a href="https://bcs.wiley.com/he-bcs/Books?action=index&amp;itemId=1119405262&amp;bcsId=11293">Student Companion Site</a></p></li>
+<li><p><span class="citation" data-cites="agresti2015foundations">Agresti (<a href="#/references" role="doc-biblioref" onclick="">2015</a>)</span> has “More than 400 exercises for readers to practice and extend the theory, methods, and data analysis”; might be more theoretical?</p></li>
+<li><p><span class="citation" data-cites="agresti2010ordinal">Agresti (<a href="#/references" role="doc-biblioref" onclick="">2010</a>)</span> is specifically about ordinal data.</p></li>
+<li><p><span class="citation" data-cites="dunn2018generalized">Dunn and Smyth (<a href="#/references" role="doc-biblioref" onclick="">2018</a>)</span> is a recent textbook on GLMs. It doesn’t cover time-to-event models, and it doesn’t use the modern <a href="https://tidyverse.org/"><code>tidyverse</code></a> packages (<a href="https://ggplot2.tidyverse.org/"><code>ggplot2</code></a>, <a href="https://dplyr.tidyverse.org/"><code>dplyr</code></a>, etc.), but otherwise it seems great. <span class="citation" data-cites="Edelmann2019">Edelmann (<a href="#/references" role="doc-biblioref" onclick="">2019</a>)</span> reviews this book formally.</p></li>
+<li><p><span class="citation" data-cites="moore2016applied">Moore (<a href="#/references" role="doc-biblioref" onclick="">2016</a>)</span> is a recent textbook on survival analysis. It also doesn’t use the <code>tidyverse</code>, but otherwise seems great.</p></li>
+<li><p><span class="citation" data-cites="klein2003survival">Klein and Moeschberger (<a href="#/references" role="doc-biblioref" onclick="">2003</a>)</span> is a classic text for survival analysis. I read most of it in grad school, and it was very helpful. Examples and explanations from it are borrowed extensively in the second half of these notes (partially filtered through David Rocke’s course notes.)</p></li>
+<li><p><span class="citation" data-cites="kalbfleisch2011statistical">Kalbfleisch and Prentice (<a href="#/references" role="doc-biblioref" onclick="">2011</a>)</span> is another classic survival analysis text; I haven’t read it yet.</p></li>
+<li><p><span class="citation" data-cites="kleinbaum2010logistic">Kleinbaum and Klein (<a href="#/references" role="doc-biblioref" onclick="">2010</a>)</span> is a mostly applied-level “self-learning” text for logistic regression; I read it cover-to-cover before grad school, and found it very helpful.</p></li>
+<li><p><span class="citation" data-cites="kleinbaum2012survival">Kleinbaum and Klein (<a href="#/references" role="doc-biblioref" onclick="">2012</a>)</span> is the corresponding “self-learning” text for survival analysis; I read it cover-to-cover before grad school, and found it very helpful.</p></li>
+<li><p><span class="citation" data-cites="kleinbaumEpi">Kleinbaum et al. (<a href="#/references" role="doc-biblioref" onclick="">1982</a>)</span>, by the same authors, has a solutions manual (<span class="citation" data-cites="kleinbaumEpiSols">Kleinbaum et al. (<a href="#/references" role="doc-biblioref" onclick="">1983</a>)</span>)</p></li>
+<li><p><span class="citation" data-cites="kleinbaum2014applied">Kleinbaum et al. (<a href="#/references" role="doc-biblioref" onclick="">2014</a>)</span> is also by the same group, in a similar style</p></li>
+<li><p><span class="citation" data-cites="rms2e">Harrell (<a href="#/references" role="doc-biblioref" onclick="">2015</a>)</span> is another popular textbook. It uses <a href="https://ggplot2.tidyverse.org/"><code>ggplot2</code></a> but not <a href="https://dplyr.tidyverse.org/"><code>dplyr</code></a>, and covers logistic regression and survival analysis (no Poisson or NB models?). An abbreviated but continuously updated version with audio clips is available at <a href="https://hbiostat.org/rmsc/" class="uri">https://hbiostat.org/rmsc/</a>.</p></li>
+<li><p><span class="citation" data-cites="fox2015applied">Fox (<a href="#/references" role="doc-biblioref" onclick="">2015</a>)</span> is another standard text. <sup>1</sup></p></li>
+<li><p><span class="citation" data-cites="mccullaghnelder">McCullagh and Nelder (<a href="#/references" role="doc-biblioref" onclick="">1989</a>)</span> is a classic, theoretical textbook on GLMs <sup>2</sup></p></li>
+<li><p><span class="citation" data-cites="dalgaardintroductory">Dalgaard (<a href="#/references" role="doc-biblioref" onclick="">2008</a>)</span> covers GLMs and survival analysis at an applied level, using base R</p></li>
+<li><p><span class="citation" data-cites="vittinghoff2e">Vittinghoff et al. (<a href="#/references" role="doc-biblioref" onclick="">2012</a>)</span> covers GLMs, survival analysis, and causal inference, using Stata. The authors are UCSF professors, and it is used for the core Epi PhD courses there. I read this book nearly cover-to-cover before grad school, and it was hugely helpful for me, both for statistical modeling and for causal inference (I think it provided my first exposure to DAGs).</p></li>
+<li><p><span class="citation" data-cites="mcculloch2008generalized">McCulloch et al. (<a href="#/references" role="doc-biblioref" onclick="">2008</a>)</span> is also by UCSF professors</p></li>
+<li><p><span class="citation" data-cites="faraway2016extending">Faraway (<a href="#/references" role="doc-biblioref" onclick="">2016</a>)</span> has GLMs but not survival analysis</p></li>
+<li><p><span class="citation" data-cites="selvin2001epidemiologic">Selvin (<a href="#/references" role="doc-biblioref" onclick="">2001</a>)</span> provides worked-out examples of applications for a wide range of statistical analysis techniques. The <a href="https://publichealth.berkeley.edu/people/steve-selvin">Author</a> is a retired UC Berkeley Biostatistics professor; he used it in a graduate-level biostat/epi course.</p></li>
+<li><p><span class="citation" data-cites="selvin2004">Selvin (<a href="#/references" role="doc-biblioref" onclick="">2004</a>)</span> is by the same author</p>
 <ul>
-<li>recommended by <span class="citation" data-cites="jewell2003statistics">Jewell (<a href="#/license" role="doc-biblioref" onclick="">2003</a>)</span> for Poisson regression</li>
+<li>recommended by <span class="citation" data-cites="jewell2003statistics">Jewell (<a href="#/references" role="doc-biblioref" onclick="">2003</a>)</span> for Poisson regression</li>
 </ul></li>
-<li><p><span class="citation" data-cites="jewell2003statistics">Jewell (<a href="#/license" role="doc-biblioref" onclick="">2003</a>)</span> is by another UC Berkeley <a href="https://publichealth.berkeley.edu/people/nicholas-jewell">professor</a>; it mostly covers logistic regression, with one chapter on survival analysis.</p></li>
+<li><p><span class="citation" data-cites="jewell2003statistics">Jewell (<a href="#/references" role="doc-biblioref" onclick="">2003</a>)</span> is by another UC Berkeley <a href="https://publichealth.berkeley.edu/people/nicholas-jewell">professor</a>; it mostly covers logistic regression, with one chapter on survival analysis.</p></li>
 <li><p><a href="https://ucla-biostat-200c-2020spring.github.io/schedule/schedule.html" class="uri">https://ucla-biostat-200c-2020spring.github.io/schedule/schedule.html</a> provides course notes for “Biostat 200C - Methods in Biostatistics C” at UCLA, which is at the Biostatistics MS level.</p></li>
 <li><p><a href="https://online.stat.psu.edu/stat504/book/" class="uri">https://online.stat.psu.edu/stat504/book/</a> provides course notes for “STAT 504 - Analysis of Discrete Data” at Penn State University. It includes logistic regression and Poisson regression, as well as 2-way tables and other related topics, and includes SAS code.</p></li>
-<li><p><span class="citation" data-cites="NahhasIRMPHR">Nahhas (<a href="#/license" role="doc-biblioref" onclick="">2024</a>)</span> is currently in-development</p></li>
-<li><p><span class="citation" data-cites="clayton2013statistical">Clayton and Hills (<a href="#/license" role="doc-biblioref" onclick="">2013</a>)</span> covers binary regression, count regression, and survival analysis. Haven’t started it yet.</p></li>
+<li><p><span class="citation" data-cites="NahhasIRMPHR">Nahhas (<a href="#/references" role="doc-biblioref" onclick="">2024</a>)</span> is currently in-development</p></li>
+<li><p><span class="citation" data-cites="clayton2013statistical">Clayton and Hills (<a href="#/references" role="doc-biblioref" onclick="">2013</a>)</span> covers binary regression, count regression, and survival analysis. Haven’t started it yet.</p></li>
 <li><p><a href="https://thomaselove.github.io/2020-432-book/index.html" class="uri">https://thomaselove.github.io/2020-432-book/index.html</a> is another set of lecture notes.</p></li>
-<li><p><span class="citation" data-cites="woodward2013epidemiology">Woodward (<a href="#/license" role="doc-biblioref" onclick="">2013</a>)</span> covers GLMs and survival; haven’t read it yet, but it looks comprehensive.</p></li>
-<li><p><span class="citation" data-cites="roback2021beyond">Roback and Legler (<a href="#/license" role="doc-biblioref" onclick="">2021</a>)</span> is recent and uses the <code>tidyverse</code>; doesn’t appear to cover survival analysis.</p></li>
-<li><p><span class="citation" data-cites="wood2017generalized">Wood (<a href="#/license" role="doc-biblioref" onclick="">2017</a>)</span> is about generalized <em>additive</em> models but includes a detailed summary of GLMs.</p></li>
-<li><p><span class="citation" data-cites="kutoyants2023introduction">Kutoyants (<a href="#/license" role="doc-biblioref" onclick="">2023</a>)</span> appears to be a complete book on Poisson models.</p></li>
-<li><p><span class="citation" data-cites="hardin2007generalized">Hardin and Hilbe (<a href="#/license" role="doc-biblioref" onclick="">2018</a>)</span> uses Stata.</p></li>
-<li><p><span class="citation" data-cites="andrews2012data">Andrews and Herzberg (<a href="#/license" role="doc-biblioref" onclick="">2012</a>)</span> is a classic “learn-by-example” book with many datasets amenable to GLMs</p></li>
-<li><p><span class="citation" data-cites="r4epi">Cannell and Livingston (<a href="#/license" role="doc-biblioref" onclick="">2024</a>)</span> is another open-source, online textbook like this one; it is primarily about statistical programming, but it includes full chapters on <a href="https://www.r4epi.com/linear-regression">linear regression</a>, <a href="https://www.r4epi.com/linear-regression-1">logistic regression</a>, and <a href="https://www.r4epi.com/poisson-regression">Poisson regression</a>. There is currently (2024/06) a placeholder chapter for <a href="https://www.r4epi.com/cox-proportional-hazards-regression">survival analysis</a>.</p></li>
-<li><p><span class="citation" data-cites="gelman2006data">Gelman and Hill (<a href="#/license" role="doc-biblioref" onclick="">2007</a>)</span> covers GLMs as well as hierarchical extensions of GLMs. No survival models?</p></li>
+<li><p><span class="citation" data-cites="woodward2013epidemiology">Woodward (<a href="#/references" role="doc-biblioref" onclick="">2013</a>)</span> covers GLMs and survival; haven’t read it yet, but it looks comprehensive.</p></li>
+<li><p><span class="citation" data-cites="roback2021beyond">Roback and Legler (<a href="#/references" role="doc-biblioref" onclick="">2021</a>)</span> is recent and uses the <code>tidyverse</code>; doesn’t appear to cover survival analysis.</p></li>
+<li><p><span class="citation" data-cites="wood2017generalized">Wood (<a href="#/references" role="doc-biblioref" onclick="">2017</a>)</span> is about generalized <em>additive</em> models but includes a detailed summary of GLMs.</p></li>
+<li><p><span class="citation" data-cites="kutoyants2023introduction">Kutoyants (<a href="#/references" role="doc-biblioref" onclick="">2023</a>)</span> appears to be a complete book on Poisson models.</p></li>
+<li><p><span class="citation" data-cites="hardin2007generalized">Hardin and Hilbe (<a href="#/references" role="doc-biblioref" onclick="">2018</a>)</span> uses Stata.</p></li>
+<li><p><span class="citation" data-cites="andrews2012data">Andrews and Herzberg (<a href="#/references" role="doc-biblioref" onclick="">2012</a>)</span> is a classic “learn-by-example” book with many datasets amenable to GLMs</p></li>
+<li><p><span class="citation" data-cites="r4epi">Cannell and Livingston (<a href="#/references" role="doc-biblioref" onclick="">2024</a>)</span> is another open-source, online textbook like this one; it is primarily about statistical programming, but it includes full chapters on <a href="https://www.r4epi.com/linear-regression">linear regression</a>, <a href="https://www.r4epi.com/linear-regression-1">logistic regression</a>, and <a href="https://www.r4epi.com/poisson-regression">Poisson regression</a>. There is currently (2024/06) a placeholder chapter for <a href="https://www.r4epi.com/cox-proportional-hazards-regression">survival analysis</a>.</p></li>
+<li><p><span class="citation" data-cites="gelman2006data">Gelman and Hill (<a href="#/references" role="doc-biblioref" onclick="">2007</a>)</span> covers GLMs as well as hierarchical extensions of GLMs. No survival models?</p></li>
 <li><p>In-development new Gelman et al book: <a href="https://bookdown.org/jl5522/MRP-case-studies/" class="uri">https://bookdown.org/jl5522/MRP-case-studies/</a></p></li>
-<li><p><span class="citation" data-cites="statproofbook">Soch (<a href="#/license" role="doc-biblioref" onclick="">2023</a>)</span> is a collection of proofs for results in probability, statistics, and related computational sciences.</p></li>
-<li><p><span class="citation" data-cites="suarez2017applications">Suárez et al. (<a href="#/license" role="doc-biblioref" onclick="">2017</a>)</span> covers GLMs but not survival analysis</p></li>
-<li><p><span class="citation" data-cites="Greenland2014">Greenland (<a href="#/license" role="doc-biblioref" onclick="">2014</a>)</span> is a lengthy chapter from the Handbook of Epidemiology</p></li>
-<li><p><span class="citation" data-cites="me4">Rothman et al. (<a href="#/license" role="doc-biblioref" onclick="">2021</a>)</span> contains several chapters on regression analyses in epidemiology</p></li>
-<li><p><span class="citation" data-cites="rawlings.regression">Rawlings et al. (<a href="#/license" role="doc-biblioref" onclick="">1998</a>)</span> is used in <a href="https://catalog.ucdavis.edu/search/?q=PLS+206">PLS 206</a></p></li>
-<li><p><span class="citation" data-cites="bolker.ecol.R">Bolker (<a href="#/license" role="doc-biblioref" onclick="">2008</a>)</span> is used in <a href="https://catalog.ucdavis.edu/search/?q=PLS+207">PLS 207</a></p></li>
+<li><p><span class="citation" data-cites="statproofbook">Soch (<a href="#/references" role="doc-biblioref" onclick="">2023</a>)</span> is a collection of proofs for results in probability, statistics, and related computational sciences.</p></li>
+<li><p><span class="citation" data-cites="suarez2017applications">Suárez et al. (<a href="#/references" role="doc-biblioref" onclick="">2017</a>)</span> covers GLMs but not survival analysis</p></li>
+<li><p><span class="citation" data-cites="Greenland2014">Greenland (<a href="#/references" role="doc-biblioref" onclick="">2014</a>)</span> is a lengthy chapter from the Handbook of Epidemiology</p></li>
+<li><p><span class="citation" data-cites="me4">Rothman et al. (<a href="#/references" role="doc-biblioref" onclick="">2021</a>)</span> contains several chapters on regression analyses in epidemiology</p></li>
+<li><p><span class="citation" data-cites="rawlings.regression">Rawlings et al. (<a href="#/references" role="doc-biblioref" onclick="">1998</a>)</span> is used in <a href="https://catalog.ucdavis.edu/search/?q=PLS+206">PLS 206</a></p></li>
+<li><p><span class="citation" data-cites="bolker.ecol.R">Bolker (<a href="#/references" role="doc-biblioref" onclick="">2008</a>)</span> is used in <a href="https://catalog.ucdavis.edu/search/?q=PLS+207">PLS 207</a></p></li>
 <li><p><a href="https://www.biostat.washington.edu/people/ken-rice">Ken Rice</a>’s slides from Stat/Biostat 570 at University of Washington are also useful: <a href="https://drive.google.com/file/d/1VwosGvHtRtKnC7P3ja7RAUawvvudgc9T/view" class="uri">https://drive.google.com/file/d/1VwosGvHtRtKnC7P3ja7RAUawvvudgc9T/view</a></p></li>
 </ul>
 <p>Other similar courses at UC Davis:</p>
@@ -439,11 +445,17 @@ Figure&nbsp;3: Palette toggle
 <li><a href="https://catalog.ucdavis.edu/search/?q=STA+207">STA 207</a> “Statistical Methods for Research II”</li>
 </ul>
 <aside><ol class="aside-footnotes"><li id="fn3"><p>I don’t have anything to say about this book, because I haven’t opened it yet, but I’ve heard it’s great!</p></li><li id="fn4"><p>haven’t opened it either</p></li></ol></aside></section>
-<section id="license" class="slide level2 unnumbered smaller scrollable">
+<section id="license" class="slide level2 unnumbered">
 <h2>License</h2>
 <p>This book is licensed to you under <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</p>
 <p>The code samples in this book are licensed under <a href="https://creativecommons.org/publicdomain/zero/1.0/">Creative Commons CC0 1.0 Universal (CC0 1.0)</a>, i.e.&nbsp;public domain.</p>
+</section></section>
+<section>
+<section id="references" class="title-slide slide level1 unnumbered center">
+<h1>References</h1>
 
+</section>
+<section class="slide level2 smaller scrollable" id="references">
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-agresti2010ordinal" class="csl-entry" role="listitem">
@@ -576,6 +588,8 @@ Wood, Simon N. 2017. <em>Generalized Additive Models: An Introduction with r</em
 Woodward, Mark. 2013. <em>Epidemiology: Study Design and Data Analysis</em>. CRC press. <a href="https://www.routledge.com/Epidemiology-Study-Design-and-Data-Analysis-Third-Edition/Woodward/p/book/9781439839706">https://www.routledge.com/Epidemiology-Study-Design-and-Data-Analysis-Third-Edition/Woodward/p/book/9781439839706</a>.
 </div>
 </div>
+
+
 </section></section>
 
     </div>

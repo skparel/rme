@@ -6,7 +6,9 @@
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/quarto-contrib/div-anchors-1.0.0/div-anchors.js"></script>
+<link href="site_libs/quarto-contrib/div-anchors-1.0.0/div-anchors.css" rel="stylesheet"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.9.37">
 <title>Regression Models for Epidemiology – Common Mistakes</title>
@@ -246,7 +248,9 @@
 <span id="cb1-23"><a></a><span class="fu">library</span>(webshot2) <span class="co"># convert interactive content to static for pdf</span></span>
 <span id="cb1-24"><a></a><span class="fu">library</span>(forcats) <span class="co"># functions for categorical variables ("factors")</span></span>
 <span id="cb1-25"><a></a><span class="fu">library</span>(stringr) <span class="co"># functions for dealing with strings</span></span>
-<span id="cb1-26"><a></a><span class="fu">library</span>(lubridate) <span class="co"># functions for dealing with dates and times</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-26"><a></a><span class="fu">library</span>(lubridate) <span class="co"># functions for dealing with dates and times</span></span>
+<span id="cb1-27"><a></a><span class="fu">library</span>(broom) <span class="co"># Summarizes key information about statistical objects in tidy tibbles</span></span>
+<span id="cb1-28"><a></a><span class="fu">library</span>(broom.helpers) <span class="co"># Provides suite of functions to work with regression model 'broom::tidy()' tibbles</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <p>Here are some R settings I use in this document:</p>
@@ -280,9 +284,10 @@
 .quarto-figure-center > figure {
 text-align: center;
 }
-</style></section><section id="parameters-versus-random-variables" class="title-slide slide level1 center" data-number="1"><h1>
+</style></section><section><section id="parameters-versus-random-variables" class="title-slide slide level1 center" data-number="1"><h1>
 <span class="header-section-number">1</span> Parameters versus random variables</h1>
-<p>The parameters of a probability distribution shouldn’t involve the random variables being modeled:</p>
+
+</section><section class="slide level2"><p>The parameters of a probability distribution shouldn’t involve the random variables being modeled:</p>
 <div class="callout callout-warning callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -300,7 +305,7 @@ text-align: center;
 <p><span class="proof-title"><em>Solution</em>. </span><span class="math display">\[\hat{\lambda}_{ML} \rightarrow_D N(\lambda, \lambda/n)\]</span></p>
 </div>
 <p>Expectations are means, not sums, despite the similarity of <span class="math inline">\(\Sigma\)</span> and <span class="math inline">\(\text{E}\)</span>. Really, we should use <span class="math inline">\(\mu\)</span> instead of <span class="math inline">\(\text{E}\)</span>.</p>
-</section><section><section id="r" class="title-slide slide level1 center" data-number="2"><h1>
+</section></section><section><section id="r" class="title-slide slide level1 center" data-number="2"><h1>
 <span class="header-section-number">2</span> R</h1>
 
 </section><section id="dont-copy-paste-code" class="slide level2" data-number="2.1"><h2>
@@ -324,16 +329,17 @@ text-align: center;
 <span class="header-section-number">3.2</span> <code>library(printr)</code> currently breaks <code>df-print: paged</code>
 </h2>
 <p>See <a href="https://github.com/yihui/printr/issues/41" class="uri">https://github.com/yihui/printr/issues/41</a></p>
-</section></section><section id="latex" class="title-slide slide level1 center" data-number="4"><h1>
+</section></section><section><section id="latex" class="title-slide slide level1 center" data-number="4"><h1>
 <span class="header-section-number">4</span> LaTeX</h1>
-<ul>
+
+</section><section class="slide level2"><ul>
 <li>don’t use <code>align*</code> or <code>align*</code> in quarto; only <code>aligned</code>
 </li>
 </ul>
 <p>Double superscript issues: <a href="https://www.overleaf.com/learn/latex/Errors/Double_superscript" class="uri">https://www.overleaf.com/learn/latex/Errors/Double_superscript</a></p>
 
 
-</section>
+</section></section>
 </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">

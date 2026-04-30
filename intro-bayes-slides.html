@@ -7,6 +7,8 @@
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/quarto-contrib/div-anchors-1.0.0/div-anchors.js"></script>
+<link href="site_libs/quarto-contrib/div-anchors-1.0.0/div-anchors.css" rel="stylesheet">
 <script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -268,7 +270,9 @@
 <span id="cb1-23"><a></a><span class="fu">library</span>(webshot2) <span class="co"># convert interactive content to static for pdf</span></span>
 <span id="cb1-24"><a></a><span class="fu">library</span>(forcats) <span class="co"># functions for categorical variables ("factors")</span></span>
 <span id="cb1-25"><a></a><span class="fu">library</span>(stringr) <span class="co"># functions for dealing with strings</span></span>
-<span id="cb1-26"><a></a><span class="fu">library</span>(lubridate) <span class="co"># functions for dealing with dates and times</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-26"><a></a><span class="fu">library</span>(lubridate) <span class="co"># functions for dealing with dates and times</span></span>
+<span id="cb1-27"><a></a><span class="fu">library</span>(broom) <span class="co"># Summarizes key information about statistical objects in tidy tibbles</span></span>
+<span id="cb1-28"><a></a><span class="fu">library</span>(broom.helpers) <span class="co"># Provides suite of functions to work with regression model 'broom::tidy()' tibbles</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <p>Here are some R settings I use in this document:</p>
@@ -395,8 +399,9 @@ p(M=\mu|X=x)
 </div>
 </section><section><section id="example-with-jags" class="title-slide slide level1 center" data-number="1"><h1>
 <span class="header-section-number">1</span> Example with JAGS</h1>
-<p>This example demonstrates Bayesian inference using JAGS (Just Another Gibbs Sampler) for a simple Bernoulli model from Dobson’s text.</p>
-</section><h3 id="load-required-packages">Load Required Packages</h3>
+
+</section><section class="slide level2"><p>This example demonstrates Bayesian inference using JAGS (Just Another Gibbs Sampler) for a simple Bernoulli model from Dobson’s text.</p>
+<h3 id="load-required-packages">Load Required Packages</h3>
 <div class="cell">
 <details open="" class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">library</span>(rjags)</span>
 <span id="cb7-2"><a></a><span class="fu">library</span>(runjags)</span>
@@ -453,9 +458,11 @@ p(M=\mu|X=x)
 <span id="cb9-8"><a></a><span class="co">#&gt;   5005 0.611863 0.583400</span></span>
 <span id="cb9-9"><a></a><span class="co">#&gt;   5006 0.565635 0.606325</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-</div></section><section id="other-resources" class="title-slide slide level1 smaller scrollable" data-number="2"><h1>
+</div>
+</section></section><section><section id="other-resources" class="title-slide slide level1 center" data-number="2"><h1>
 <span class="header-section-number">2</span> Other resources</h1>
-<p>UC Davis courses</p>
+
+</section><section class="slide level2"><p>UC Davis courses</p>
 <ul>
 <li>
 <a href="https://catalog.ucdavis.edu/search/?q=STA+015C">STA 015C</a>: “Introduction to Statistical Data Science III”</li>
@@ -477,10 +484,10 @@ p(M=\mu|X=x)
 <p>Books</p>
 <ul>
 <li>
-<span class="citation" data-cites="rossbayes">Ross (<a href="#/other-resources" role="doc-biblioref" onclick="">2022</a>)</span> is a free online textbook</li>
-<li>“Population health thinking with Bayesian networks” <span class="citation" data-cites="aragon2018population">(<a href="#/other-resources" role="doc-biblioref" onclick="">Aragon 2018</a>)</span> is on my to-read list</li>
+<span class="citation" data-cites="rossbayes">Ross (<a href="#/references" role="doc-biblioref" onclick="">2022</a>)</span> is a free online textbook</li>
+<li>“Population health thinking with Bayesian networks” <span class="citation" data-cites="aragon2018population">(<a href="#/references" role="doc-biblioref" onclick="">Aragon 2018</a>)</span> is on my to-read list</li>
 <li>
-<span class="citation" data-cites="statrethink2e">McElreath (<a href="#/other-resources" role="doc-biblioref" onclick="">2020</a>)</span>
+<span class="citation" data-cites="statrethink2e">McElreath (<a href="#/references" role="doc-biblioref" onclick="">2020</a>)</span>
 <ul>
 <li>very popular recently</li>
 <li>author used to be a UCD professor</li>
@@ -492,16 +499,15 @@ p(M=\mu|X=x)
 </li>
 </ul>
 </li>
-<li><span class="citation" data-cites="korner.bayes.ecology">Korner-Nievergelt and Korner-Nievergelt (<a href="#/other-resources" role="doc-biblioref" onclick="">2015</a>)</span></li>
-<li><span class="citation" data-cites="CowlesMaryKathryn2013ABSW">Cowles (<a href="#/other-resources" role="doc-biblioref" onclick="">2013</a>)</span></li>
-<li><span class="citation" data-cites="kery-bayes-pop">Kéry et al. (<a href="#/other-resources" role="doc-biblioref" onclick="">2012</a>)</span></li>
+<li><span class="citation" data-cites="korner.bayes.ecology">Korner-Nievergelt and Korner-Nievergelt (<a href="#/references" role="doc-biblioref" onclick="">2015</a>)</span></li>
+<li><span class="citation" data-cites="CowlesMaryKathryn2013ABSW">Cowles (<a href="#/references" role="doc-biblioref" onclick="">2013</a>)</span></li>
+<li><span class="citation" data-cites="kery-bayes-pop">Kéry et al. (<a href="#/references" role="doc-biblioref" onclick="">2012</a>)</span></li>
 <li>
-<span class="citation" data-cites="HobbsN.Thompson2015Bmas">Hobbs and Hooten (<a href="#/other-resources" role="doc-biblioref" onclick="">2015</a>)</span> has been used in <a href="https://catalog.ucdavis.edu/search/?q=PLS+207">PLS 207</a>
+<span class="citation" data-cites="HobbsN.Thompson2015Bmas">Hobbs and Hooten (<a href="#/references" role="doc-biblioref" onclick="">2015</a>)</span> has been used in <a href="https://catalog.ucdavis.edu/search/?q=PLS+207">PLS 207</a>
 </li>
-</ul>
+</ul></section></section><section><section id="references" class="title-slide slide level1 unnumbered center"><h1>References</h1>
 
-
-<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+</section><section class="slide level2 smaller scrollable" id="references"><div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-aragon2018population" class="csl-entry" role="listitem">
 Aragon, Tomas J. 2018. <em>Population Health Thinking with Bayesian Networks</em>. <a href="https://escholarship.org/uc/item/8000r5m5">https://escholarship.org/uc/item/8000r5m5</a>.
 </div>
@@ -524,7 +530,9 @@ McElreath, Richard. 2020. <em>Statistical Rethinking : A <span>Bayesian</span> C
 Ross, Kevin. 2022. <em>An Introduction to Bayesian Reasoning and Methods</em>. Online. <a href="https://bookdown.org/kevin_davisross/bayesian-reasoning-and-methods/">https://bookdown.org/kevin_davisross/bayesian-reasoning-and-methods/</a>.
 </div>
 </div>
-</section>
+
+
+</section></section>
 </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">

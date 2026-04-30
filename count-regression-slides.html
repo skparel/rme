@@ -7,6 +7,8 @@
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/quarto-contrib/div-anchors-1.0.0/div-anchors.js"></script>
+<link href="site_libs/quarto-contrib/div-anchors-1.0.0/div-anchors.css" rel="stylesheet">
 <script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -242,12 +244,13 @@
 </div>
 
 </section><section><section id="acknowledgements" class="title-slide slide level1 unnumbered center"><h1>Acknowledgements</h1>
-<p>This content is adapted from:</p>
+
+</section><section class="slide level2"><p>This content is adapted from:</p>
 <ul>
 <li>
-<span class="citation" data-cites="dobson4e">Dobson and Barnett (<a href="#/more-on-count-regression" role="doc-biblioref" onclick="">2018</a>)</span>, Chapter 9</li>
+<span class="citation" data-cites="dobson4e">Dobson and Barnett (<a href="#/references" role="doc-biblioref" onclick="">2018</a>)</span>, Chapter 9</li>
 <li>
-<span class="citation" data-cites="vittinghoff2e">Vittinghoff et al. (<a href="#/more-on-count-regression" role="doc-biblioref" onclick="">2012</a>)</span>, Chapter 8</li>
+<span class="citation" data-cites="vittinghoff2e">Vittinghoff et al. (<a href="#/references" role="doc-biblioref" onclick="">2012</a>)</span>, Chapter 8</li>
 </ul></section><section class="slide level2"><!-- ::: {.content-hidden when-format="revealjs"} --></section><section class="slide level2"><h3 class="unnumbered" id="configuring-r">Configuring R</h3>
 <p>Functions from these packages will be used throughout this document:</p>
 <div class="cell">
@@ -276,7 +279,9 @@
 <span id="cb1-23"><a></a><span class="fu">library</span>(webshot2) <span class="co"># convert interactive content to static for pdf</span></span>
 <span id="cb1-24"><a></a><span class="fu">library</span>(forcats) <span class="co"># functions for categorical variables ("factors")</span></span>
 <span id="cb1-25"><a></a><span class="fu">library</span>(stringr) <span class="co"># functions for dealing with strings</span></span>
-<span id="cb1-26"><a></a><span class="fu">library</span>(lubridate) <span class="co"># functions for dealing with dates and times</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-26"><a></a><span class="fu">library</span>(lubridate) <span class="co"># functions for dealing with dates and times</span></span>
+<span id="cb1-27"><a></a><span class="fu">library</span>(broom) <span class="co"># Summarizes key information about statistical objects in tidy tibbles</span></span>
+<span id="cb1-28"><a></a><span class="fu">library</span>(broom.helpers) <span class="co"># Provides suite of functions to work with regression model 'broom::tidy()' tibbles</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <p>Here are some R settings I use in this document:</p>
@@ -312,10 +317,8 @@ text-align: center;
 }
 </style></section></section><section><section id="introduction" class="title-slide slide level1 center" data-number="1"><h1>
 <span class="header-section-number">1</span> Introduction</h1>
-<!-- https://www.overleaf.com/learn/latex/Using_colors_in_LaTeX#Named_colors_provided_by_the_xcolor_package -->
-<!-- \def\or{\theta}  -->
-<!-- doesn't work for some reason -->
-<aside class="notes"><p>This chapter presents models for <a href="./probability.html#sec-count-vars">count data</a> outcomes. With covariates, the event rate <span class="math inline">\(\lambda\)</span> becomes a function of the covariates <span class="math inline">\(\tilde{X}= (X_1, \dots,X_n)\)</span>. Typically, count data models use a <span class="math inline">\(\text{log}{\left\{\right\}}\)</span> link function, and thus an <span class="math inline">\(\text{exp}{\left\{\right\}}\)</span> inverse-link function. That is:</p>
+
+</section><section class="slide level2"><!-- https://www.overleaf.com/learn/latex/Using_colors_in_LaTeX#Named_colors_provided_by_the_xcolor_package --><!-- \def\or{\theta}  --><!-- doesn't work for some reason --><aside class="notes"><p>This chapter presents models for <a href="./data.html#sec-count-vars">count data</a> outcomes. With covariates, the event rate <span class="math inline">\(\lambda\)</span> becomes a function of the covariates <span class="math inline">\(\tilde{X}= (X_1, \dots,X_n)\)</span>. Typically, count data models use a <span class="math inline">\(\text{log}{\left\{\right\}}\)</span> link function, and thus an <span class="math inline">\(\text{exp}{\left\{\right\}}\)</span> inverse-link function. That is:</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -374,7 +377,7 @@ text-align: center;
 &amp;=(\beta_0 +\beta_1 x_1+\dots + \beta_p x_p) + \log{t}\\
 \end{aligned}
 \]</span></p>
-<aside class="notes"><p>In contrast with the other covariates (represented by <span class="math inline">\(\tilde{X}\)</span>), <span class="math inline">\(t\)</span> enters this expression with a <span class="math inline">\(\log{}\)</span> transformation and without a corresponding <span class="math inline">\(\beta\)</span> coefficient; in other words, <span class="math inline">\(\text{log}{\left\{t\right\}}\)</span> is an <a href="./probability.html#def-offset">offset term</a>.</p>
+<aside class="notes"><p>In contrast with the other covariates (represented by <span class="math inline">\(\tilde{X}\)</span>), <span class="math inline">\(t\)</span> enters this expression with a <span class="math inline">\(\log{}\)</span> transformation and without a corresponding <span class="math inline">\(\beta\)</span> coefficient; in other words, <span class="math inline">\(\text{log}{\left\{t\right\}}\)</span> is an <a href="poisson.qmd#def-offset">offset term</a>.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -408,9 +411,10 @@ text-align: center;
 <li>15.01 infections per 1000 person-years at risk</li>
 </ul>
 </div>
-</section></section><section id="interpreting-poisson-regression-models" class="title-slide slide level1 smaller center" data-number="2"><h1>
+</section></section><section><section id="interpreting-poisson-regression-models" class="title-slide slide level1 smaller center" data-number="2"><h1>
 <span class="header-section-number">2</span> Interpreting Poisson regression models</h1>
-<aside class="notes"><p>Differences on the log-rate scale become ratios on the rate scale, because</p>
+
+</section><section class="slide level2"><aside class="notes"><p>Differences on the log-rate scale become ratios on the rate scale, because</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -456,9 +460,10 @@ text-align: center;
 \text{exp}{\left\{{\color{red}{\beta_j(a-b)}}\right\}}
 \end{aligned}
 \]</span></p>
-</section><section><section id="example-needle-sharing" class="title-slide slide level1 center" data-number="3"><h1>
+</section></section><section><section id="example-needle-sharing" class="title-slide slide level1 center" data-number="3"><h1>
 <span class="header-section-number">3</span> Example: needle-sharing</h1>
-<p>(adapted from <span class="citation" data-cites="vittinghoff2e">Vittinghoff et al. (<a href="#/more-on-count-regression" role="doc-biblioref" onclick="">2012</a>)</span>, §8)</p>
+
+</section><section class="slide level2"><p>(adapted from <span class="citation" data-cites="vittinghoff2e">Vittinghoff et al. (<a href="#/references" role="doc-biblioref" onclick="">2012</a>)</span>, §8)</p>
 </section><section class="slide level2"><div class="cell">
 <details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb3-2"><a></a><span class="fu">library</span>(haven)</span>
@@ -659,7 +664,7 @@ Table&nbsp;3: Counts of observations in <code>needles</code> dataset by sex, unh
 <span id="cb7-4"><a></a><span class="co">#&gt;     sex             homeless                 polydrug  </span></span>
 <span id="cb7-5"><a></a><span class="co">#&gt;  M    :97   not homeless:63   one drug used      :109  </span></span>
 <span id="cb7-6"><a></a><span class="co">#&gt;  F    :30   homeless    :61   multiple drugs used: 19  </span></span>
-<span id="cb7-7"><a></a><span class="co">#&gt;  Trans: 1   NA's        : 4</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb7-7"><a></a><span class="co">#&gt;  Trans: 1   NAs         : 4</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </figure>
@@ -793,7 +798,7 @@ Figure&nbsp;2
 </section></section><section><section id="inference-for-count-regression-models" class="title-slide slide level1 center" data-number="4"><h1>
 <span class="header-section-number">4</span> Inference for count regression models</h1>
 
-</section><h3 id="confidence-intervals-for-regression-coefficients-and-rate-ratios">Confidence intervals for regression coefficients and rate ratios</h3>
+</section><section class="slide level2"><h3 id="confidence-intervals-for-regression-coefficients-and-rate-ratios">Confidence intervals for regression coefficients and rate ratios</h3>
 <p>As usual:</p>
 <p><span class="math display">\[
 \beta \in \left[\hat \beta{\color{red}\pm} z_{1 - \frac{\alpha}{2}}\cdot \widehat{\text{se}}{\left(\hat \beta\right)}\right]
@@ -808,9 +813,11 @@ z = \frac{\hat \beta - \beta_0}{\widehat{\text{se}}{\left(\hat \beta\right)}}
 \]</span></p>
 <p>Compare <span class="math inline">\(z\)</span> or <span class="math inline">\(|z|\)</span> to the tails of the standard Gaussian distribution, according to the null hypothesis.</p>
 <h3 id="comparing-nested-models">Comparing nested models</h3>
-<p>log(likelihood ratio) tests, as usual.</p></section><section id="prediction" class="title-slide slide level1 center" data-number="5"><h1>
+<p>log(likelihood ratio) tests, as usual.</p>
+</section></section><section><section id="prediction" class="title-slide slide level1 center" data-number="5"><h1>
 <span class="header-section-number">5</span> Prediction</h1>
-<p><span class="math display">\[
+
+</section><section class="slide level2"><p><span class="math display">\[
 \begin{aligned}
 \hat y
 &amp;\stackrel{\text{def}}{=}\hat{\text{E}}[Y|\tilde{X}= \tilde{x},T=t]\\
@@ -820,10 +827,10 @@ z = \frac{\hat \beta - \beta_0}{\widehat{\text{se}}{\left(\hat \beta\right)}}
 &amp;=\text{exp}{\left\{\tilde{x}'\hat{\tilde{\beta}}\right\}} \cdot t
 \end{aligned}
 \]</span></p>
-</section><section><section id="diagnostics" class="title-slide slide level1 center" data-number="6"><h1>
+</section></section><section><section id="diagnostics" class="title-slide slide level1 center" data-number="6"><h1>
 <span class="header-section-number">6</span> Diagnostics</h1>
 
-</section><h3 id="residuals">Residuals</h3>
+</section><section class="slide level2"><h3 id="residuals">Residuals</h3>
 <h4 id="observation-residuals">Observation residuals</h4>
 <p><span class="math display">\[e \stackrel{\text{def}}{=}y - \hat y\]</span></p>
 <h4 id="pearson-residuals">Pearson residuals</h4>
@@ -858,7 +865,7 @@ d_k = \text{sign}(y - \hat y)\left\{\sqrt{2[\ell_{\text{full}}(y) - \ell(\hat\be
 </div>
 </div>
 </div>
-<section class="slide level2"><div class="cell">
+</section><section class="slide level2"><div class="cell">
 <details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">library</span>(ggfortify)</span>
 <span id="cb12-2"><a></a><span class="fu">autoplot</span>(glm1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details><div id="tbl-pois-model-diagnostics" class="cell quarto-float quarto-figure quarto-figure-center">
@@ -878,7 +885,7 @@ Table&nbsp;5: Diagnostics for Poisson model
 </section></section><section><section id="zero-inflation" class="title-slide slide level1 center" data-number="7"><h1>
 <span class="header-section-number">7</span> Zero-inflation</h1>
 
-</section><h3 id="models-for-zero-inflated-counts">Models for zero-inflated counts</h3>
+</section><section class="slide level2"><h3 id="models-for-zero-inflated-counts">Models for zero-inflated counts</h3>
 <p>We assume a latent (unobserved) binary variable, <span class="math inline">\(Z\)</span>, which we model using logistic regression:</p>
 <p><span class="math display">\[P(Z=1|X=x) = \pi(x) = \text{expit}(\gamma_0 + \gamma_1 x_1 +...)\]</span></p>
 <p>According to this model, if <span class="math inline">\(Z=1\)</span>, then <span class="math inline">\(Y\)</span> will always be zero, regardless of <span class="math inline">\(X\)</span> and <span class="math inline">\(T\)</span>:</p>
@@ -896,7 +903,7 @@ P(Y=y,Z=z|...)
 &amp;= P(Y=y|Z=z,...)P(Z=z|...)
 \end{aligned}
 \]</span></p>
-<section class="slide level2"><div id="exr-zinf-pmf" class="theorem exercise">
+</section><section class="slide level2"><div id="exr-zinf-pmf" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 4</strong></span> Expand <span class="math inline">\(P(Y=0|X=x,T=t)\)</span>, <span class="math inline">\(P(Y=1|X=x,T=t)\)</span> and <span class="math inline">\(P(Y=y|X=x,T=t)\)</span> into expressions involving <span class="math inline">\(P(Z=1|X=x,T=t)\)</span> and <span class="math inline">\(P(Y=y|Z=0,X=x,T=t)\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="exr-zinf-moments" class="theorem exercise">
@@ -919,7 +926,7 @@ P(Y=y,Z=z|...)
       }</style></aside><div id="def-overdispersion" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 1 (Overdispersion)</strong></span> A random variable <span class="math inline">\(X\)</span> is <strong>overdispersed</strong> relative to a model <span class="math inline">\(\text{p}(X=x)\)</span> if if its empirical variance in a dataset is larger than the value is predicted by the fitted model <span class="math inline">\(\hat{\text{p}}(X=x)\)</span>.</p>
 </div>
-<aside class="notes"><p>c.f. <span class="citation" data-cites="dobson4e">Dobson and Barnett (<a href="#/more-on-count-regression" role="doc-biblioref" onclick="">2018</a>)</span> §3.2.1, 7.7, 9.8; <span class="citation" data-cites="vittinghoff2e">Vittinghoff et al. (<a href="#/more-on-count-regression" role="doc-biblioref" onclick="">2012</a>)</span> §8.1.5; and <a href="https://en.wikipedia.org/wiki/Overdispersion" class="uri">https://en.wikipedia.org/wiki/Overdispersion</a>.</p>
+<aside class="notes"><p>c.f. <span class="citation" data-cites="dobson4e">Dobson and Barnett (<a href="#/references" role="doc-biblioref" onclick="">2018</a>)</span> §3.2.1, 7.7, 9.8; <span class="citation" data-cites="vittinghoff2e">Vittinghoff et al. (<a href="#/references" role="doc-biblioref" onclick="">2012</a>)</span> §8.1.5; and <a href="https://en.wikipedia.org/wiki/Overdispersion" class="uri">https://en.wikipedia.org/wiki/Overdispersion</a>.</p>
 <p>When we encounter overdispersion, we can try to reduce the residual variance by adding more covariates.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -1189,7 +1196,7 @@ Table&nbsp;8: Zero-inflated poisson model
 </figure>
 </div>
 </div>
-<aside class="notes"><p>Another R package for zero-inflated models is <a href="https://cran.r-project.org/web/packages/pscl/index.html"><code>pscl</code></a> (<span class="citation" data-cites="pscl08">Zeileis et al. (<a href="#/more-on-count-regression" role="doc-biblioref" onclick="">2008</a>)</span>).</p>
+<aside class="notes"><p>Another R package for zero-inflated models is <a href="https://cran.r-project.org/web/packages/pscl/index.html"><code>pscl</code></a> (<span class="citation" data-cites="pscl08">Zeileis et al. (<a href="#/references" role="doc-biblioref" onclick="">2008</a>)</span>).</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1371,16 +1378,98 @@ Table&nbsp;9: Zero-inflated negative binomial model
 <span class="header-section-number">8.2</span> Quasipoisson</h2>
 <p>An alternative to Negative binomial is the “quasipoisson” distribution. I’ve never used it, but it seems to be a method-of-moments type approach rather than maximum likelihood. It models the variance as <span class="math inline">\(\text{Var}{\left(Y\right)} = \mu\theta\)</span>, and estimates <span class="math inline">\(\theta\)</span> accordingly.</p>
 <p>See <code><a href="https://rdrr.io/r/stats/family.html">?quasipoisson</a></code> in R for more.</p>
-</section></section><section id="more-on-count-regression" class="title-slide slide level1 smaller scrollable" data-number="9"><h1>
+</section></section><section><section id="more-on-count-regression" class="title-slide slide level1 center" data-number="9"><h1>
 <span class="header-section-number">9</span> More on count regression</h1>
-<ul>
+
+</section><section class="slide level2"><ul>
 <li><a href="https://bookdown.org/roback/bookdown-BeyondMLR/ch-poissonreg.html" class="uri">https://bookdown.org/roback/bookdown-BeyondMLR/ch-poissonreg.html</a></li>
-</ul>
+</ul></section></section><section><section id="exercises" class="title-slide slide level1 unnumbered center"><h1>Exercises</h1>
 
+</section><section class="slide level2"><!-- https://www.overleaf.com/learn/latex/Using_colors_in_LaTeX#Named_colors_provided_by_the_xcolor_package --><!-- \def\or{\theta}  --><!-- doesn't work for some reason --><div id="exr-prac-glm-interp" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 6 (Interpreting Poisson regression coefficients)</strong></span> (adapted from <span class="citation" data-cites="dunn2018generalized">Dunn and Smyth (<a href="#/references" role="doc-biblioref" onclick="">2018</a>)</span>, Chapter 5, and <span class="citation" data-cites="dobson4e">Dobson and Barnett (<a href="#/references" role="doc-biblioref" onclick="">2018</a>)</span>, Chapter 9)</p>
+<p>Consider a Poisson log-linear model for the expected number of events <span class="math inline">\(\mu_i\)</span>:</p>
+<p><span class="math display">\[
+\text{log}{\left\{\mu_i\right\}} = \beta_0 + \beta_1 x_i,
+\]</span></p>
+<p>where <span class="math inline">\(x_i\)</span> is a binary indicator (<span class="math inline">\(x_i = 0\)</span> or <span class="math inline">\(x_i = 1\)</span>).</p>
+<p><strong>(a)</strong> Express <span class="math inline">\(\mu_i\)</span> as a function of <span class="math inline">\(x_i\)</span>.</p>
+<p><strong>(b)</strong> Interpret <span class="math inline">\(e^{\beta_0}\)</span>.</p>
+<p><strong>(c)</strong> Interpret <span class="math inline">\(e^{\beta_1}\)</span>.</p>
+<p><strong>(d)</strong> If <span class="math inline">\(\hat\beta_0 = 1.2\)</span> and <span class="math inline">\(\hat\beta_1 = 0.5\)</span>, compute the estimated mean event count for <span class="math inline">\(x_i = 0\)</span> and <span class="math inline">\(x_i = 1\)</span>.</p>
+</div>
+<div class="proof solution">
+<p><span class="proof-title"><em>Solution</em>. </span><strong>(a)</strong></p>
+<p><span class="math display">\[
+\mu_i = e^{\beta_0 + \beta_1 x_i} = e^{\beta_0} \cdot (e^{\beta_1})^{x_i}
+\]</span></p>
+<p>For <span class="math inline">\(x_i = 0\)</span>: <span class="math inline">\(\mu_0 = e^{\beta_0}\)</span>. For <span class="math inline">\(x_i = 1\)</span>: <span class="math inline">\(\mu_1 = e^{\beta_0 + \beta_1}\)</span>.</p>
+<p><strong>(b)</strong></p>
+<p><span class="math inline">\(e^{\beta_0}\)</span> is the expected mean count when <span class="math inline">\(x_i = 0\)</span> (the reference group).</p>
+<p><strong>(c)</strong></p>
+<p><span class="math display">\[
+e^{\beta_1}
+= \frac{\mu_1}{\mu_0}
+= \frac{e^{\beta_0+\beta_1}}{e^{\beta_0}}
+\]</span></p>
+<p><span class="math inline">\(e^{\beta_1}\)</span> is the <strong>rate ratio</strong> (or count ratio): the multiplicative factor by which the expected count changes when <span class="math inline">\(x_i\)</span> increases from 0 to 1.</p>
+<p>If <span class="math inline">\(\beta_1 &gt; 0\)</span>, the group with <span class="math inline">\(x_i = 1\)</span> has a higher expected count.</p>
+<p><strong>(d)</strong></p>
+<p>For <span class="math inline">\(x_i = 0\)</span>: <span class="math display">\[
+\hat\mu_0 = e^{1.2} \approx 3.32
+\]</span></p>
+<p>For <span class="math inline">\(x_i = 1\)</span>: <span class="math display">\[
+\hat\mu_1 = e^{1.2 + 0.5} = e^{1.7} \approx 5.47
+\]</span></p>
+<p>The estimated rate ratio is <span class="math inline">\(e^{0.5} \approx 1.65\)</span>, meaning the group with <span class="math inline">\(x_i = 1\)</span> has about 65% more events on average.</p>
+</div>
+</section><section class="slide level2"><!-- https://www.overleaf.com/learn/latex/Using_colors_in_LaTeX#Named_colors_provided_by_the_xcolor_package --><!-- \def\or{\theta}  --><!-- doesn't work for some reason --><div id="exr-prac-glm-score" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 7 (Score equations for a Poisson GLM)</strong></span> (adapted from <span class="citation" data-cites="dobson4e">Dobson and Barnett (<a href="#/references" role="doc-biblioref" onclick="">2018</a>)</span>, Chapter 4, and <span class="citation" data-cites="dunn2018generalized">Dunn and Smyth (<a href="#/references" role="doc-biblioref" onclick="">2018</a>)</span>, Chapter 4)</p>
+<p>Consider the Poisson log-linear model <span class="math inline">\(\text{log}{\left\{\mu_i\right\}} = \beta_0 + \beta_1 x_i\)</span>, with <span class="math inline">\(Y_i \mid x_i \ \sim_{\perp\!\!\!\perp}\ \text{Pois}(\mu_i)\)</span>.</p>
+<p><strong>(a)</strong> Write the log-likelihood <span class="math inline">\(\ell(\beta_0, \beta_1; \tilde{y}, \tilde{x})\)</span>.</p>
+<p><strong>(b)</strong> Derive the score equations <span class="math inline">\(\frac{\partial}{\partial \beta_0}\ell = 0\)</span> and <span class="math inline">\(\frac{\partial}{\partial \beta_1}\ell = 0\)</span>.</p>
+<p><strong>(c)</strong> Interpret the score equations: what condition on the fitted values <span class="math inline">\(\hat\mu_i\)</span> do they imply?</p>
+</div>
+<div class="proof solution">
+<p><span class="proof-title"><em>Solution</em>. </span><strong>(a)</strong></p>
+<p><span class="math display">\[
+\begin{aligned}
+\ell(\beta_0, \beta_1; \tilde{y}, \tilde{x})
+&amp;= \sum_{i=1}^n {\left(y_i \text{log}{\left\{\mu_i\right\}} - \mu_i - \text{log}{\left\{y_i!\right\}}\right)}
+\\
+&amp;\propto \sum_{i=1}^n {\left(y_i \text{log}{\left\{\mu_i\right\}} - \mu_i\right)}
+\end{aligned}
+\]</span></p>
+<p>where <span class="math inline">\(\text{log}{\left\{\mu_i\right\}} = \beta_0 + \beta_1 x_i\)</span>, so <span class="math inline">\(\mu_i = e^{\beta_0 + \beta_1 x_i}\)</span>.</p>
+<p><strong>(b)</strong></p>
+<p>Using the chain rule with <span class="math inline">\(\frac{\partial}{\partial \beta_j}\mu_i = \mu_i x_{ij}\)</span> (where <span class="math inline">\(x_{i0} = 1\)</span> and <span class="math inline">\(x_{i1} = x_i\)</span>):</p>
+<p><span class="math display">\[
+\frac{\partial}{\partial \beta_j}\ell
+= \sum_{i=1}^n {\left(\frac{y_i}{\mu_i} - 1\right)}\mu_i x_{ij}
+= \sum_{i=1}^n (y_i - \mu_i) x_{ij}
+\]</span></p>
+<p>Setting the score equations to zero:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\frac{\partial}{\partial \beta_0}\ell = 0
+&amp;\;\Rightarrow\; \sum_{i=1}^n (y_i - \mu_i) = 0
+\\
+\frac{\partial}{\partial \beta_1}\ell = 0
+&amp;\;\Rightarrow\; \sum_{i=1}^n x_i(y_i - \mu_i) = 0
+\end{aligned}
+\]</span></p>
+<p><strong>(c)</strong></p>
+<p>The first equation says <span class="math inline">\(\sum_i y_i = \sum_i \hat\mu_i\)</span>: the total fitted count equals the total observed count.</p>
+<p>The second equation says <span class="math inline">\(\sum_i x_i y_i = \sum_i x_i \hat\mu_i\)</span>: the fitted counts are balanced against observed counts, weighted by <span class="math inline">\(x_i\)</span>.</p>
+<p>More generally, these score equations say that the <strong>residuals <span class="math inline">\((y_i - \hat\mu_i)\)</span> are orthogonal to each predictor column</strong>. This is the GLM analogue of the OLS normal equations.</p>
+</div>
+</section></section><section><section id="references" class="title-slide slide level1 unnumbered center"><h1>References</h1>
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+</section><section class="slide level2 smaller scrollable" id="references"><div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-dobson4e" class="csl-entry" role="listitem">
 Dobson, Annette J, and Adrian G Barnett. 2018. <em>An Introduction to Generalized Linear Models</em>. 4th ed. CRC press. <a href="https://doi.org/10.1201/9781315182780">https://doi.org/10.1201/9781315182780</a>.
+</div>
+<div id="ref-dunn2018generalized" class="csl-entry" role="listitem">
+Dunn, Peter K, and Gordon K Smyth. 2018. <em>Generalized Linear Models with Examples in <span>R</span></em>. Vol. 53. Springer. <a href="https://link.springer.com/book/10.1007/978-1-4419-0118-7">https://link.springer.com/book/10.1007/978-1-4419-0118-7</a>.
 </div>
 <div id="ref-vittinghoff2e" class="csl-entry" role="listitem">
 Vittinghoff, Eric, David V Glidden, Stephen C Shiboski, and Charles E McCulloch. 2012. <em>Regression Methods in Biostatistics: Linear, Logistic, Survival, and Repeated Measures Models</em>. 2nd ed. Springer. <a href="https://doi.org/10.1007/978-1-4614-1353-0">https://doi.org/10.1007/978-1-4614-1353-0</a>.
@@ -1389,7 +1478,9 @@ Vittinghoff, Eric, David V Glidden, Stephen C Shiboski, and Charles E McCulloch.
 Zeileis, Achim, Christian Kleiber, and Simon Jackman. 2008. <span>“Regression Models for Count Data in <span>R</span>.”</span> <em>Journal of Statistical Software</em> 27 (8). <a href="https://www.jstatsoft.org/v27/i08/">https://www.jstatsoft.org/v27/i08/</a>.
 </div>
 </div>
-</section>
+
+
+</section></section>
 </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">

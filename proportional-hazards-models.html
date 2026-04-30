@@ -97,6 +97,8 @@ div.csl-indent {
 <link href="site_libs/bootstrap/bootstrap-775dd27f79ffe61a6982e96ad4efeaf8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/bootstrap/bootstrap-dark-2fba08c2571dd2da984cbd05b2f8805d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="site_libs/bootstrap/bootstrap-775dd27f79ffe61a6982e96ad4efeaf8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/div-anchors-1.0.0/div-anchors.js"></script>
+<link href="site_libs/quarto-contrib/div-anchors-1.0.0/div-anchors.css" rel="stylesheet">
 <script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><script id="quarto-search-options" type="application/json">{
@@ -142,7 +144,109 @@ gtag('config', 'G-VS314RJ2KP', { 'anonymize_ip': true});
     document.body.classList.add('hypothesis-enabled');
   });
 </script><link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
-<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script><script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script><style>
+div.callout-def.callout {
+  border-left-color: #1B5E20;
+}
+div.callout-def.callout-style-default .callout-header {
+  background-color: rgba(27, 94, 32, 0.13);
+}
+div.callout-def .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-def.callout-style-default .callout-icon::before, div.callout-def.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231B5E20" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-prp.callout {
+  border-left-color: #827717;
+}
+div.callout-prp.callout-style-default .callout-header {
+  background-color: rgba(130, 119, 23, 0.13);
+}
+div.callout-prp .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-prp.callout-style-default .callout-icon::before, div.callout-prp.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23827717" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-proof.callout {
+  border-left-color: #37474F;
+}
+div.callout-proof.callout-style-default .callout-header {
+  background-color: rgba(55, 71, 79, 0.13);
+}
+div.callout-proof .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-proof.callout-style-default .callout-icon::before, div.callout-proof.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2337474F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-remark.callout {
+  border-left-color: #AD1457;
+}
+div.callout-remark.callout-style-default .callout-header {
+  background-color: rgba(173, 20, 87, 0.13);
+}
+div.callout-remark .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-remark.callout-style-default .callout-icon::before, div.callout-remark.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23AD1457" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-cnj.callout {
+  border-left-color: #558B2F;
+}
+div.callout-cnj.callout-style-default .callout-header {
+  background-color: rgba(85, 139, 47, 0.13);
+}
+div.callout-cnj .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-cnj.callout-style-default .callout-icon::before, div.callout-cnj.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23558B2F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-lem.callout {
+  border-left-color: #1565C0;
+}
+div.callout-lem.callout-style-default .callout-header {
+  background-color: rgba(21, 101, 192, 0.13);
+}
+div.callout-lem .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-lem.callout-style-default .callout-icon::before, div.callout-lem.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231565C0" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-solution.callout {
+  border-left-color: #4E342E;
+}
+div.callout-solution.callout-style-default .callout-header {
+  background-color: rgba(78, 52, 46, 0.13);
+}
+div.callout-solution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-solution.callout-style-default .callout-icon::before, div.callout-solution.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%234E342E" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-exm.callout {
+  border-left-color: #6A1B9A;
+}
+div.callout-exm.callout-style-default .callout-header {
+  background-color: rgba(106, 27, 154, 0.13);
+}
+div.callout-exm .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-exm.callout-style-default .callout-icon::before, div.callout-exm.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236A1B9A" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-exr.callout {
+  border-left-color: #FFA500;
+}
+div.callout-exr.callout-style-default .callout-header {
+  background-color: rgba(255, 165, 0, 0.13);
+}
+div.callout-exr .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-exr.callout-style-default .callout-icon::before, div.callout-exr.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23FFA500" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-cor.callout {
+  border-left-color: #00838F;
+}
+div.callout-cor.callout-style-default .callout-header {
+  background-color: rgba(0, 131, 143, 0.13);
+}
+div.callout-cor .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-cor.callout-style-default .callout-icon::before, div.callout-cor.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2300838F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+</style>
+<script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
 const typesetMath = (el) => {
   if (window.MathJax) {
     // MathJax Typeset
@@ -377,6 +481,14 @@ window.Quarto = {
  <span class="dropdown-text">Count Regression</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="./causal-inference.html">
+ <span class="dropdown-text">Causal Inference</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./predictor-selection.html">
+ <span class="dropdown-text">Predictor Selection</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="./intro-multilevel-models.html">
  <span class="dropdown-text">Multilevel Models</span></a>
   </li>  
@@ -414,8 +526,20 @@ window.Quarto = {
  <span class="dropdown-text">Math Prerequisites</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="./data.html">
+ <span class="dropdown-text">Data</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./exploratory-descriptive.html">
+ <span class="dropdown-text">Exploratory and Descriptive Methods</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="./probability.html">
  <span class="dropdown-text">Probability</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./basic-statistical-methods.html">
+ <span class="dropdown-text">Basic Statistical Methods</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./classification.html">
@@ -424,6 +548,10 @@ window.Quarto = {
         <li>
     <a class="dropdown-item" href="./estimation.html">
  <span class="dropdown-text">Estimation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./nonparametric-models.html">
+ <span class="dropdown-text">Nonparametric Models</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./inference.html">
@@ -450,8 +578,12 @@ window.Quarto = {
  <span class="dropdown-text">Introduction to R</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./midterm-formula-sheet.html">
- <span class="dropdown-text">Midterm Formula Sheet</span></a>
+    <a class="dropdown-item" href="./exam-formula-sheet.html">
+ <span class="dropdown-text">Exam Formula Sheet</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./package-versions.html">
+ <span class="dropdown-text">Package Versions</span></a>
   </li>  
     </ul>
 </li>
@@ -583,7 +715,8 @@ window.Quarto = {
   <li><a href="#age-as-the-time-scale" id="toc-age-as-the-time-scale" class="nav-link" data-scroll-target="#age-as-the-time-scale"><span class="header-section-number">6.10</span> Age as the time scale</a></li>
   </ul>
 </li>
-  </ul><div class="toc-actions"><ul><li><a href="https://github.com/d-morrison/rme/edit/main/proportional-hazards-models.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/d-morrison/rme/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/d-morrison/rme/blob/main/proportional-hazards-models.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="proportional-hazards-models-slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li><li><a href="proportional-hazards-models-handout.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul><div class="toc-actions"><ul><li><a href="https://github.com/d-morrison/rme/edit/main/proportional-hazards-models.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/d-morrison/rme/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/d-morrison/rme/blob/main/proportional-hazards-models.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="proportional-hazards-models-slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li><li><a href="proportional-hazards-models-handout.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li><li><a href="proportional-hazards-models-handout.docx"><i class="bi bi-file-word"></i>MS Word</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
@@ -598,7 +731,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">Last modified: 2026-04-15: 7:23:47 (UTC)</p>
+      <p class="date">Last modified: 2026-04-30: 20:44:49 (UTC)</p>
     </div>
   </div>
   
@@ -636,7 +769,9 @@ window.Quarto = {
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rstudio.github.io/webshot2/">webshot2</a></span><span class="op">)</span> <span class="co"># convert interactive content to static for pdf</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://forcats.tidyverse.org/">forcats</a></span><span class="op">)</span> <span class="co"># functions for categorical variables ("factors")</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://stringr.tidyverse.org">stringr</a></span><span class="op">)</span> <span class="co"># functions for dealing with strings</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://lubridate.tidyverse.org">lubridate</a></span><span class="op">)</span> <span class="co"># functions for dealing with dates and times</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://lubridate.tidyverse.org">lubridate</a></span><span class="op">)</span> <span class="co"># functions for dealing with dates and times</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://broom.tidymodels.org/">broom</a></span><span class="op">)</span> <span class="co"># Summarizes key information about statistical objects in tidy tibbles</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://larmarange.github.io/broom.helpers/">broom.helpers</a></span><span class="op">)</span> <span class="co"># Provides suite of functions to work with regression model 'broom::tidy()' tibbles</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <p>Here are some R settings I use in this document:</p>
@@ -675,6 +810,12 @@ text-align: center;
 <!-- https://www.overleaf.com/learn/latex/Using_colors_in_LaTeX#Named_colors_provided_by_the_xcolor_package -->
 <!-- \def\or{\theta}  -->
 <!-- doesn't work for some reason -->
+<div class="callout callout-style-simple callout-exr no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="exr-review-exp-dist" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 1</strong></span> Recall the key characteristics of the exponential distribution:</p>
 <ul>
@@ -686,7 +827,22 @@ text-align: center;
 </li>
 </ul>
 </div>
+</div>
+</div>
+</div>
 <hr>
+<div class="callout callout-style-default callout-solution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Solution</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <div id="sol-review-exp-dist" class="proof solution">
 <p><span class="proof-title"><em>Solution 1</em>. </span><span class="math display">\[
 \begin{aligned}
@@ -697,6 +853,9 @@ text-align: center;
 \]</span></p>
 <div class="notes">
 <p>Note that the exponential distribution has <strong>constant hazard</strong>.</p>
+</div>
+</div>
+</div>
 </div>
 </div>
 </section><section id="understanding-proportional-hazards-models" class="level1" data-number="2"><h1 data-number="2">
@@ -712,17 +871,35 @@ text-align: center;
 <!-- https://www.overleaf.com/learn/latex/Using_colors_in_LaTeX#Named_colors_provided_by_the_xcolor_package -->
 <!-- \def\or{\theta}  -->
 <!-- doesn't work for some reason -->
+<div class="callout callout-style-simple callout-def no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="def-cond-hazard" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 1 (conditional hazard)</strong></span> The <strong>conditional hazard</strong> of outcome <span class="math inline">\(T\)</span> at value <span class="math inline">\(t\)</span>, given covariate vector <span class="math inline">\(\tilde{x}\)</span>, is the conditional density of the event <span class="math inline">\(T=t\)</span>, given <span class="math inline">\(T \ge t\)</span> and <span class="math inline">\(\tilde{X}= \tilde{x}\)</span>:</p>
 <p><span id="eq-def-cond-haz"><span class="math display">\[{\lambda}(t|\tilde{x}) \stackrel{\text{def}}{=}\text{p}(T=t|T\ge t, \tilde{X}= \tilde{x}) \tag{1}\]</span></span></p>
 </div>
+</div>
+</div>
+</div>
 <hr>
+<div class="callout callout-style-simple callout-def no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="def-base-hazard" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 2 (baseline hazard)</strong></span> &nbsp;</p>
 <div class="notes">
 <p>The <strong>baseline hazard</strong>, <strong>base hazard</strong>, or <strong>reference hazard</strong>, denoted <span class="math inline">\({\lambda}_0(t)\)</span> or <span class="math inline">\(\lambda_0(t)\)</span>, is the <a href="./intro-to-survival-analysis.html#def-hazard">hazard function</a> for the subpopulation of individuals whose covariates are all equal to their reference levels:</p>
 </div>
 <p><span id="eq-def-baseline-haz"><span class="math display">\[{\lambda}_0(t) \stackrel{\text{def}}{=}{\lambda}(t | \tilde{X}= \tilde{0}) \tag{2}\]</span></span></p>
+</div>
+</div>
+</div>
 </div>
 <div class="notes">
 <p>The baseline hazard is <em>somewhat</em> analogous to the intercept term in linear regression, but it is <strong>not</strong> a mean.</p>
@@ -731,6 +908,12 @@ text-align: center;
 <div class="notes">
 <p>Similarly:</p>
 </div>
+<div class="callout callout-style-simple callout-def no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="def-base-cuhaz" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 3 (baseline cumulative hazard)</strong></span> &nbsp;</p>
 <div class="notes">
@@ -738,18 +921,36 @@ text-align: center;
 </div>
 <p><span id="eq-def-baseline-cuhaz"><span class="math display">\[{\Lambda}_0(t) \stackrel{\text{def}}{=}{\Lambda}(t | \tilde{X}= \tilde{0}) \tag{3}\]</span></span></p>
 </div>
+</div>
+</div>
+</div>
 <hr>
 <div class="notes">
 <p>Also:</p>
 </div>
+<div class="callout callout-style-simple callout-def no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="def-baseline-surv" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 4 (Baseline survival function)</strong></span> The <strong>baseline survival function</strong> is the survival function for an individual whose covariates are all equal to their default values.</p>
 <p><span class="math display">\[\text{S}_0(t) \stackrel{\text{def}}{=}\text{S}(t | \tilde{X}= \tilde{0})\]</span></p>
+</div>
+</div>
+</div>
 </div>
 <hr>
 <div class="notes">
 <p>Now, let’s define <strong><em>how</em></strong> the hazard function depends on covariates. We typically use a log link to model the relationship between the hazard function, <span class="math inline">\({\lambda}(t|\tilde{x})\)</span>, and the linear component, <span class="math inline">\(\eta(t|\tilde{x})\)</span>, as we did for Poisson models in <a href="./count-regression.html#sec-count-reg">models for count outcomes</a>; that is:</p>
 </div>
+<div class="callout callout-style-simple callout-def no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="def-loghaz" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 5 (log-hazard)</strong></span> &nbsp;</p>
 <div class="notes">
@@ -757,7 +958,16 @@ text-align: center;
 </div>
 <p><span class="math display">\[\eta(t) \stackrel{\text{def}}{=}\text{log}{\left\{{\lambda}(t)\right\}}\]</span></p>
 </div>
+</div>
+</div>
+</div>
 <hr>
+<div class="callout callout-style-simple callout-def no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="def-cond-loghaz" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 6 (conditional log-hazard)</strong></span> &nbsp;</p>
 <div class="notes">
@@ -765,10 +975,19 @@ text-align: center;
 </div>
 <p><span class="math display">\[\eta(t | \tilde{x}) \stackrel{\text{def}}{=}\text{log}{\left\{{\lambda}(t | \tilde{x})\right\}}\]</span></p>
 </div>
+</div>
+</div>
+</div>
 <div class="note">
 <p>In contrast with Poisson regression, here <span class="math inline">\(\eta(t|\tilde{x})\)</span> depends on <strong>both</strong> <span class="math inline">\(t\)</span> <strong>and</strong> <span class="math inline">\(\tilde{x}\)</span>.</p>
 </div>
 <hr>
+<div class="callout callout-style-simple callout-def no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="def-base-loghaz" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 7 (baseline log-hazard)</strong></span> &nbsp;</p>
 <div class="notes">
@@ -776,7 +995,16 @@ text-align: center;
 </div>
 <p><span class="math display">\[\eta_0(t) \stackrel{\text{def}}{=}\eta(t | \tilde{X}= \tilde{0})\]</span></p>
 </div>
+</div>
+</div>
+</div>
 <hr>
+<div class="callout callout-style-simple callout-lem no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="thm-haz-from-loghaz" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 1</strong></span> <span class="math display">\[
 \begin{aligned}
@@ -784,17 +1012,50 @@ text-align: center;
 \end{aligned}
 \]</span></p>
 </div>
+</div>
+</div>
+</div>
 <hr>
+<div class="callout callout-style-simple callout-def no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="def-diffloghaz" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 8 (difference in log-hazards)</strong></span> The <strong>difference in log-hazards</strong> between covariate patterns <span class="math inline">\(\tilde{x}\)</span> and <span class="math inline">\({\tilde{x}^*}\)</span> at time <span class="math inline">\(t\)</span> is:</p>
 <p><span class="math display">\[\Delta \eta(t|\tilde{x}: {\tilde{x}^*}) \stackrel{\text{def}}{=}\eta(t|\tilde{x}) - \eta(t|{\tilde{x}^*})\]</span></p>
 </div>
+</div>
+</div>
+</div>
 <hr>
+<div class="callout callout-style-simple callout-lem no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="thm-diff-loghaz" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 2 (Difference of log-hazards vs hazard ratio)</strong></span> If <span class="math inline">\(\Delta \eta(t|\tilde{x}: {\tilde{x}^*})\)</span> is the difference in log-hazard between covariate patterns <span class="math inline">\(\tilde{x}\)</span> and <span class="math inline">\({\tilde{x}^*}\)</span> at time <span class="math inline">\(t\)</span>, and <span class="math inline">\(\theta(t| \tilde{x}: {\tilde{x}^*})\)</span> is corresponding hazard ratio, then:</p>
 <p><span class="math display">\[\Delta \eta(t|\tilde{x}: {\tilde{x}^*})= \text{log}{\left\{\theta(t| \tilde{x}: {\tilde{x}^*})\right\}}\]</span></p>
 </div>
+</div>
+</div>
+</div>
 <hr>
+<div class="callout callout-style-default callout-proof callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Proof</span>Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>Using the <a href="./intro-to-survival-analysis.html#def-hazard-ratio">hazard ratio definition</a>:</p>
 <p><span class="math display">\[
@@ -810,11 +1071,29 @@ text-align: center;
 \end{aligned}
 \]</span></p>
 </div>
+</div>
+</div>
+</div>
 <hr>
+<div class="callout callout-style-simple callout-cor no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="cor-hazard-ratio-diffloghaz" class="theorem corollary">
 <p><span class="theorem-title"><strong>Corollary 1 (Hazard ratio vs difference of log-odds)</strong></span> <span class="math display">\[\theta(t| \tilde{x}: {\tilde{x}^*}) = \text{exp}{\left\{\Delta \eta(t|\tilde{x}: {\tilde{x}^*})\right\}}\]</span></p>
 </div>
+</div>
+</div>
+</div>
 <hr>
+<div class="callout callout-style-simple callout-def no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="def-difflog-hazard-from-baseline" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 9 (difference in log-hazard from baseline)</strong></span> &nbsp;</p>
 <div class="notes">
@@ -827,7 +1106,16 @@ text-align: center;
 \end{aligned}
 \]</span></p>
 </div>
+</div>
+</div>
+</div>
 <hr>
+<div class="callout callout-style-simple callout-lem no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="thm-loghaz-decomp" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 3 (Decomposition of log-hazard)</strong></span> <span class="math display">\[
 \begin{aligned}
@@ -835,15 +1123,48 @@ text-align: center;
 \end{aligned}
 \]</span></p>
 </div>
+</div>
+</div>
+</div>
 <hr>
+<div class="callout callout-style-simple callout-def no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="def-hr-vs-baseline" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 10 (Hazard ratio versus baseline)</strong></span> <span id="eq-def-hr-vs-0"><span class="math display">\[\theta(t|\tilde{x}) \stackrel{\text{def}}{=}\theta(t| \tilde{x}: \tilde{0}) \tag{4}\]</span></span></p>
 </div>
+</div>
+</div>
+</div>
 <hr>
+<div class="callout callout-style-simple callout-cor no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="cor-hazard-ratio-vs-baseline" class="theorem corollary">
 <p><span class="theorem-title"><strong>Corollary 2</strong></span> <span class="math display">\[\theta(t|\tilde{x})= \text{exp}{\left\{\Delta \eta(t|\tilde{x})\right\}}\]</span></p>
 </div>
+</div>
+</div>
+</div>
 <hr>
+<div class="callout callout-style-default callout-proof callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Proof</span>Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span><span class="math display">\[
 \begin{aligned}
@@ -854,20 +1175,47 @@ text-align: center;
 \end{aligned}
 \]</span></p>
 </div>
+</div>
+</div>
+</div>
 <hr>
+<div class="callout callout-style-simple callout-cor no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="cor-difflogodds-log-HR" class="theorem corollary">
 <p><span class="theorem-title"><strong>Corollary 3</strong></span> <span class="math display">\[\Delta \eta(t|\tilde{x}) = \text{log}{\left\{\theta(t| \tilde{x})\right\}}\]</span></p>
+</div>
+</div>
+</div>
 </div>
 <hr>
 <div class="notes">
 <p>As the second generalization, we let the base hazard, cumulative hazard, and survival functions depend on <span class="math inline">\(t\)</span>, but not on any covariates (for now). We can do this using either parametric or semi-parametric approaches.</p>
 </div>
+<div class="callout callout-style-simple callout-def no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="def-ph-model" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 11 (Proportional hazards model)</strong></span> A <strong>proportional hazards</strong> model for a time-to-event outcome <span class="math inline">\(T\)</span> is a model where the difference in log-hazard from the baseline log-hazard is equal to a linear combination of the predictors:</p>
 <p><span id="eq-ph-diffloghaz"><span class="math display">\[\Delta \eta(t|\tilde{x}) = \tilde{x}\cdot \tilde{\beta} \tag{5}\]</span></span></p>
 </div>
+</div>
+</div>
+</div>
 <hr>
 <p>Equivalently:</p>
+<div class="callout callout-style-simple callout-lem no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="lem-ph-lincomp" class="theorem lemma">
 <p><span class="theorem-title"><strong>Lemma 1</strong></span> In a proportional hazards model (that is, if <a href="#eq-ph-diffloghaz" class="quarto-xref">Equation&nbsp;5</a> holds):</p>
 <p><span id="eq-ph-lincomp"><span class="math display">\[
@@ -878,10 +1226,19 @@ text-align: center;
 \end{aligned}
 \tag{6}\]</span></span></p>
 </div>
+</div>
+</div>
+</div>
 <div class="notes">
 <p>In a proportional hazards model, the baseline log-hazard is analogous to the intercept term in a generalized linear model, except that the baseline log-hazard depends on time, <span class="math inline">\(t\)</span>.</p>
 </div>
 <hr>
+<div class="callout callout-style-simple callout-lem no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="lem-diffloghaz-ph" class="theorem lemma">
 <p><span class="theorem-title"><strong>Lemma 2</strong></span> If <span class="math inline">\(\eta(t|\tilde{x}) = \eta_0(t) + \tilde{x}\cdot \tilde{\beta}\)</span>, then:</p>
 <p><span class="math display">\[
@@ -891,7 +1248,16 @@ text-align: center;
 \end{aligned}
 \]</span></p>
 </div>
+</div>
+</div>
+</div>
 <hr>
+<div class="callout callout-style-simple callout-lem no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="thm-hazard-ratio-ph" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 4</strong></span> If <span class="math inline">\(\eta(t|\tilde{x}) = \eta_0(t) + \tilde{x}\cdot \tilde{\beta}\)</span>, then:</p>
 <p><span class="math display">\[
@@ -903,18 +1269,51 @@ text-align: center;
 \end{aligned}
 \]</span></p>
 </div>
+</div>
+</div>
+</div>
 <p>So for proportional hazards models, we can write the hazard ratio using a shorthand notation:</p>
 <p><span class="math display">\[\theta(t| \tilde{x}: {\tilde{x}^*})  = \theta(\tilde{x}: {\tilde{x}^*})\]</span></p>
 <hr>
+<div class="callout callout-style-simple callout-lem no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="lem-ph-diffloghaz-0" class="theorem lemma">
 <p><span class="theorem-title"><strong>Lemma 3</strong></span> <span id="eq-diffloghaz-0-ph"><span class="math display">\[\Delta \eta(t|\tilde{x})= \tilde{x}\cdot \tilde{\beta} \tag{7}\]</span></span></p>
 </div>
+</div>
+</div>
+</div>
 <hr>
+<div class="callout callout-style-simple callout-lem no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="thm-hazard-ratio-vs-baseline-ph" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 5</strong></span> If <span class="math inline">\(\eta(t|\tilde{x}) = \eta_0(t) + \tilde{x}\cdot \tilde{\beta}\)</span>, then:</p>
 <p><span class="math display">\[\theta(t|\tilde{x}) = \text{exp}{\left\{\tilde{x}\cdot \tilde{\beta}\right\}}\]</span></p>
 </div>
+</div>
+</div>
+</div>
 <hr>
+<div class="callout callout-style-default callout-proof callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Proof</span>Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span><span class="math display">\[
 \begin{aligned}
@@ -927,12 +1326,30 @@ text-align: center;
 \end{aligned}
 \]</span></p>
 </div>
+</div>
+</div>
+</div>
 <hr>
+<div class="callout callout-style-simple callout-lem no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="thm-ph-haz-decomp" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 6</strong></span> <span class="math display">\[{\lambda}(t|x) = {\lambda}_0(t)\theta(x)\]</span></p>
 </div>
+</div>
+</div>
+</div>
 <hr>
 <p>Also:</p>
+<div class="callout callout-style-simple callout-lem no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="thm-ph-also" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 7</strong></span> <span class="math display">\[
 \begin{aligned}
@@ -947,6 +1364,9 @@ text-align: center;
 &amp;\stackrel{\text{def}}{=}\beta_1x_1+\cdots+\beta_px_p
 \end{aligned}
 \]</span></p>
+</div>
+</div>
+</div>
 </div>
 <div class="notes">
 <p>This model is <strong>semi-parametric</strong>, because the linear predictor depends on estimated parameters but the base hazard function is unspecified. There is no constant term in <span class="math inline">\(\eta(x)\)</span>, because it is absorbed in the base hazard.</p>
@@ -969,6 +1389,12 @@ text-align: center;
 <p>Under the proportional hazards model, this ratio (a.k.a. proportion) does not depend on <span class="math inline">\(t\)</span>. This property is a structural limitation of the model; it is called the <strong>proportional hazards assumption</strong>.</p>
 </div>
 <hr>
+<div class="callout callout-style-simple callout-def no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="def-pha" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 12 (proportional hazards)</strong></span> A conditional probability distribution <span class="math inline">\(p(T|X)\)</span> has <strong>proportional hazards</strong> if the hazard ratio <span class="math inline">\({\lambda}(t|\tilde{x}_1)/{\lambda}(t|\tilde{x}_2)\)</span> does not depend on <span class="math inline">\(t\)</span>. Mathematically, it can be written as:</p>
 <p><span class="math display">\[
@@ -976,10 +1402,19 @@ text-align: center;
 = \theta(\tilde{x}_1,\tilde{x}_2)
 \]</span></p>
 </div>
+</div>
+</div>
+</div>
 <div class="notes">
 <p>As we saw above, Cox’s proportional hazards model has this property, with <span class="math inline">\(\theta(\tilde{x}_1,\tilde{x}_2) = \frac{\theta(\tilde{x}_1)}{\theta(\tilde{x}_2)}\)</span>.</p>
 </div>
 <hr>
+<div class="callout callout-style-simple callout-lem no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="thm-haz-ratio-notations" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 8</strong></span> &nbsp;</p>
 <div class="notes">
@@ -987,6 +1422,9 @@ text-align: center;
 <p>Then:</p>
 </div>
 <p><span class="math display">\[\theta(\tilde{x}, {\tilde{x}^*}) = \frac{\theta(\tilde{x})}{\theta({\tilde{x}^*})}\]</span> <span class="math display">\[\theta(\tilde{0}) = \theta(\tilde{0}, \tilde{0}) = 1\]</span></p>
+</div>
+</div>
+</div>
 </div>
 <hr>
 <p>The proportional hazards model also has additional notable properties:</p>
@@ -1002,6 +1440,12 @@ text-align: center;
 \]</span></p>
 <hr>
 <p>Hence on the log scale, we have:</p>
+<div class="callout callout-style-simple callout-lem no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="thm-diff-loghaz-lincom" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 9</strong></span> <span class="math display">\[
 \begin{aligned}
@@ -1015,6 +1459,9 @@ text-align: center;
 &amp;= (\tilde{x}_1 - \tilde{x}_2)'\beta
 \end{aligned}
 \]</span></p>
+</div>
+</div>
+</div>
 </div>
 <hr>
 <p>If only one covariate <span class="math inline">\(x_j\)</span> is changing, then:</p>
@@ -1044,6 +1491,12 @@ text-align: center;
 <section id="additional-properties-of-the-proportional-hazards-model" class="level3" data-number="2.0.1"><h3 data-number="2.0.1" class="anchored" data-anchor-id="additional-properties-of-the-proportional-hazards-model">
 <span class="header-section-number">2.0.1</span> Additional properties of the proportional hazards model</h3>
 <p>If <span class="math inline">\({\lambda}(t|x)= {\lambda}_0(t)\theta(x)\)</span>, then:</p>
+<div class="callout callout-style-simple callout-lem no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="thm-ph-cuhaz" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 10 (Cumulative hazards are also proportional to <span class="math inline">\({\Lambda}_0(t)\)</span>)</strong></span> <span class="math display">\[
 \begin{aligned}
@@ -1056,24 +1509,66 @@ text-align: center;
 \]</span></p>
 <p>where <span class="math inline">\({\Lambda}_0(t) \stackrel{\text{def}}{=}{\Lambda}(t|0) = \int_{u=0}^t {\lambda}_0(u)du\)</span>.</p>
 </div>
+</div>
+</div>
+</div>
 <hr>
+<div class="callout callout-style-simple callout-lem no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="thm-log-cuhaz-parallel" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 11 (The logarithms of cumulative hazard should be parallel)</strong></span> <span class="math display">\[
 \text{log}{\left\{{\Lambda}(t|\tilde{x})\right\}} =\text{log}{\left\{{\Lambda}_0(t)\right\}}  + \tilde{x}\cdot \tilde{\beta}
 \]</span></p>
 </div>
+</div>
+</div>
+</div>
 <hr>
+<div class="callout callout-style-simple callout-cor no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="cor-log-nlog-surv" class="theorem corollary">
 <p><span class="theorem-title"><strong>Corollary 4 (linear model for log-negative-log survival)</strong></span> <span class="math display">\[
 \text{log}{\left\{-\text{log}{\left\{\text{S}(t|\tilde{x})\right\}}\right\}} =
 \text{log}{\left\{-\text{log}{\left\{\text{S}_0(t)\right\}}\right\}}  + \tilde{x}\cdot \tilde{\beta}
 \]</span></p>
 </div>
+</div>
+</div>
+</div>
 <hr>
+<div class="callout callout-style-simple callout-lem no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="thm-ph-surv" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 12 (Survival functions are exponential multiples of <span class="math inline">\(\text{S}_0(t)\)</span>)</strong></span> <span class="math display">\[\text{S}(t|x) = {\left[\text{S}_0(t)\right]}^{\theta(x)}\]</span></p>
 </div>
+</div>
+</div>
+</div>
 <hr>
+<div class="callout callout-style-default callout-proof callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Proof</span>Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span><span class="math display">\[
 \begin{aligned}
@@ -1084,6 +1579,9 @@ text-align: center;
 &amp;= {\left[\text{S}_0(t)\right]}^{\theta(x)}\\
 \end{aligned}
 \]</span></p>
+</div>
+</div>
+</div>
 </div>
 </section><section id="summary-of-proportional-hazards-model-structure-and-assumptions" class="level3" data-number="2.0.2"><h3 data-number="2.0.2" class="anchored" data-anchor-id="summary-of-proportional-hazards-model-structure-and-assumptions">
 <span class="header-section-number">2.0.2</span> Summary of proportional hazards model structure and assumptions</h3>
@@ -2189,6 +2687,12 @@ x_{ik}-\frac{\sum_{k\in R}x_{jk}\theta_k}{\sum_{k\in R}\theta_k}
 <p>which is the CDF of an exponential distribution with parameter <span class="math inline">\(\lambda=1\)</span>.</p>
 </div>
 <hr>
+<div class="callout callout-style-simple callout-def no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="def-CS-resid" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 13 (Cox-Snell generalized residuals)</strong></span> &nbsp;</p>
 <div class="notes">
@@ -2197,6 +2701,9 @@ x_{ik}-\frac{\sum_{k\in R}x_{jk}\theta_k}{\sum_{k\in R}\theta_k}
 <p><span class="math display">\[
 r^{CS}_i \stackrel{\text{def}}{=}\hat {\Lambda}(t_i|\tilde{x}_i)
 \]</span></p>
+</div>
+</div>
+</div>
 </div>
 <div class="notes">
 <p>If the estimate <span class="math inline">\(\hat S_i\)</span> is accurate, <span class="math inline">\(r^{CS}_i\)</span> should have an exponential distribution with constant hazard <span class="math inline">\(\lambda=1\)</span>, which means that these values should look like a censored sample from this exponential distribution.</p>
@@ -3659,12 +4166,8 @@ Note
 </section></section></section><section id="age-as-the-time-scale" class="level2" data-number="6.10"><h2 data-number="6.10" class="anchored" data-anchor-id="age-as-the-time-scale">
 <span class="header-section-number">6.10</span> Age as the time scale</h2>
 <p>See <span class="citation" data-cites="canchola2003cox"><span class="nocase">Canchola et al.</span> (<a href="#ref-canchola2003cox" role="doc-biblioref">2003</a>)</span>.</p>
-
-
-<!-- -->
-
-
-</section></section><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+</section></section><section id="references" class="level1 unnumbered"><h1 class="unnumbered">References</h1>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-canchola2003cox" class="csl-entry" role="listitem">
 <span class="nocase">Canchola, Alison J, Susan L Stewart, Leslie Bernstein, et al.</span> 2003. <span>“Cox Regression Using Different Time-Scales.”</span> <em>Western Users of SAS Software</em> (San Francisco, California). <a href="https://www.lexjansen.com/wuss/2003/DataAnalysis/i-cox_time_scales.pdf">https://www.lexjansen.com/wuss/2003/DataAnalysis/i-cox_time_scales.pdf</a>.
 </div>
@@ -3683,7 +4186,12 @@ Klein, John P, and Melvin L Moeschberger. 2003. <em>Survival Analysis: Technique
 <div id="ref-kleinbaum2012survival" class="csl-entry" role="listitem">
 Kleinbaum, David G, and Mitchel Klein. 2012. <em>Survival Analysis: A Self-Learning Text</em>. 3rd ed. Springer. <a href="https://link.springer.com/book/10.1007/978-1-4419-6646-9">https://link.springer.com/book/10.1007/978-1-4419-6646-9</a>.
 </div>
-</div></section></div></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</div>
+
+
+<!-- -->
+
+</section><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
     if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -4157,37 +4665,45 @@ Kleinbaum, David G, and Mitchel Klein. 2012. <em>Survival Analysis: A Self-Learn
 <span id="cb81-6"><a href="#cb81-6" aria-hidden="true" tabindex="-1"></a><span class="co">    output-file: proportional-hazards-models-slides.html</span></span>
 <span id="cb81-7"><a href="#cb81-7" aria-hidden="true" tabindex="-1"></a><span class="co">  pdf:</span></span>
 <span id="cb81-8"><a href="#cb81-8" aria-hidden="true" tabindex="-1"></a><span class="co">    output-file: proportional-hazards-models-handout.pdf</span></span>
-<span id="cb81-9"><a href="#cb81-9" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb81-10"><a href="#cb81-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb81-9"><a href="#cb81-9" aria-hidden="true" tabindex="-1"></a><span class="co">  docx:</span></span>
+<span id="cb81-10"><a href="#cb81-10" aria-hidden="true" tabindex="-1"></a><span class="co">    output-file: proportional-hazards-models-handout.docx</span></span>
 <span id="cb81-11"><a href="#cb81-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb81-12"><a href="#cb81-12" aria-hidden="true" tabindex="-1"></a>{{&lt; include shared-config.qmd &gt;}}</span>
+<span id="cb81-12"><a href="#cb81-12" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb81-13"><a href="#cb81-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb81-14"><a href="#cb81-14" aria-hidden="true" tabindex="-1"></a><span class="fu"># Introduction</span></span>
-<span id="cb81-15"><a href="#cb81-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb81-16"><a href="#cb81-16" aria-hidden="true" tabindex="-1"></a>{{&lt; include _subfiles/proportional-hazards-models/_exr-review-exp-dist.qmd &gt;}}</span>
-<span id="cb81-17"><a href="#cb81-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb81-18"><a href="#cb81-18" aria-hidden="true" tabindex="-1"></a><span class="fu"># Understanding proportional hazards models</span></span>
-<span id="cb81-19"><a href="#cb81-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb81-20"><a href="#cb81-20" aria-hidden="true" tabindex="-1"></a>{{&lt; include _subfiles/proportional-hazards-models/_sec-understand-coxph.qmd &gt;}}</span>
-<span id="cb81-21"><a href="#cb81-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb81-22"><a href="#cb81-22" aria-hidden="true" tabindex="-1"></a><span class="fu"># Testing the proportional hazards assumption</span></span>
-<span id="cb81-23"><a href="#cb81-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb81-24"><a href="#cb81-24" aria-hidden="true" tabindex="-1"></a>{{&lt; include _subfiles/proportional-hazards-models/_sec-test-ph-assumption.qmd &gt;}}</span>
-<span id="cb81-25"><a href="#cb81-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb81-26"><a href="#cb81-26" aria-hidden="true" tabindex="-1"></a><span class="fu"># Fitting proportional hazards models to data</span></span>
-<span id="cb81-27"><a href="#cb81-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb81-28"><a href="#cb81-28" aria-hidden="true" tabindex="-1"></a>{{&lt; include _subfiles/proportional-hazards-models/_sec_fit-coxph.qmd &gt;}}</span>
-<span id="cb81-29"><a href="#cb81-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb81-14"><a href="#cb81-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb81-15"><a href="#cb81-15" aria-hidden="true" tabindex="-1"></a>{{&lt; include shared-config.qmd &gt;}}</span>
+<span id="cb81-16"><a href="#cb81-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb81-17"><a href="#cb81-17" aria-hidden="true" tabindex="-1"></a><span class="fu"># Introduction</span></span>
+<span id="cb81-18"><a href="#cb81-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb81-19"><a href="#cb81-19" aria-hidden="true" tabindex="-1"></a>{{&lt; include _subfiles/proportional-hazards-models/_exr-review-exp-dist.qmd &gt;}}</span>
+<span id="cb81-20"><a href="#cb81-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb81-21"><a href="#cb81-21" aria-hidden="true" tabindex="-1"></a><span class="fu"># Understanding proportional hazards models</span></span>
+<span id="cb81-22"><a href="#cb81-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb81-23"><a href="#cb81-23" aria-hidden="true" tabindex="-1"></a>{{&lt; include _subfiles/proportional-hazards-models/_sec-understand-coxph.qmd &gt;}}</span>
+<span id="cb81-24"><a href="#cb81-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb81-25"><a href="#cb81-25" aria-hidden="true" tabindex="-1"></a><span class="fu"># Testing the proportional hazards assumption</span></span>
+<span id="cb81-26"><a href="#cb81-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb81-27"><a href="#cb81-27" aria-hidden="true" tabindex="-1"></a>{{&lt; include _subfiles/proportional-hazards-models/_sec-test-ph-assumption.qmd &gt;}}</span>
+<span id="cb81-28"><a href="#cb81-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb81-29"><a href="#cb81-29" aria-hidden="true" tabindex="-1"></a><span class="fu"># Fitting proportional hazards models to data</span></span>
 <span id="cb81-30"><a href="#cb81-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb81-31"><a href="#cb81-31" aria-hidden="true" tabindex="-1"></a><span class="fu"># Example: Proportional hazards model for the `bmt` data</span></span>
+<span id="cb81-31"><a href="#cb81-31" aria-hidden="true" tabindex="-1"></a>{{&lt; include _subfiles/proportional-hazards-models/_sec_fit-coxph.qmd &gt;}}</span>
 <span id="cb81-32"><a href="#cb81-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb81-33"><a href="#cb81-33" aria-hidden="true" tabindex="-1"></a>{{&lt; include _subfiles/proportional-hazards-models/_sec-exm-coxph-bmt.qmd &gt;}}</span>
-<span id="cb81-34"><a href="#cb81-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb81-35"><a href="#cb81-35" aria-hidden="true" tabindex="-1"></a><span class="fu"># Adjustment for Ties (optional)</span></span>
-<span id="cb81-36"><a href="#cb81-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb81-37"><a href="#cb81-37" aria-hidden="true" tabindex="-1"></a>{{&lt; include _subfiles/proportional-hazards-models/_sec_coxph-adjust_ties.qmd &gt;}}</span>
-<span id="cb81-38"><a href="#cb81-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb81-39"><a href="#cb81-39" aria-hidden="true" tabindex="-1"></a>{{&lt; include coxph-model-building.qmd &gt;}}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb81-33"><a href="#cb81-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb81-34"><a href="#cb81-34" aria-hidden="true" tabindex="-1"></a><span class="fu"># Example: Proportional hazards model for the `bmt` data</span></span>
+<span id="cb81-35"><a href="#cb81-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb81-36"><a href="#cb81-36" aria-hidden="true" tabindex="-1"></a>{{&lt; include _subfiles/proportional-hazards-models/_sec-exm-coxph-bmt.qmd &gt;}}</span>
+<span id="cb81-37"><a href="#cb81-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb81-38"><a href="#cb81-38" aria-hidden="true" tabindex="-1"></a><span class="fu"># Adjustment for Ties (optional)</span></span>
+<span id="cb81-39"><a href="#cb81-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb81-40"><a href="#cb81-40" aria-hidden="true" tabindex="-1"></a>{{&lt; include _subfiles/proportional-hazards-models/_sec_coxph-adjust_ties.qmd &gt;}}</span>
+<span id="cb81-41"><a href="#cb81-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb81-42"><a href="#cb81-42" aria-hidden="true" tabindex="-1"></a>{{&lt; include coxph-model-building.qmd &gt;}}</span>
+<span id="cb81-43"><a href="#cb81-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb81-44"><a href="#cb81-44" aria-hidden="true" tabindex="-1"></a><span class="fu"># References {.unnumbered}</span></span>
+<span id="cb81-45"><a href="#cb81-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb81-46"><a href="#cb81-46" aria-hidden="true" tabindex="-1"></a>::: {#refs}</span>
+<span id="cb81-47"><a href="#cb81-47" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer"><div class="nav-footer">

@@ -6,7 +6,9 @@
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/quarto-contrib/div-anchors-1.0.0/div-anchors.js"></script>
+<link href="site_libs/quarto-contrib/div-anchors-1.0.0/div-anchors.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.9.37">
 
   <title>Regression Models for Epidemiology – Notation</title>
@@ -288,8 +290,13 @@ Table&nbsp;1: Notation used in this book
 </figure>
 </div>
 <aside><ol class="aside-footnotes"><li id="fn1"><p>depending on whether it is applied to a matrix or a function</p></li></ol></aside></section>
+<section>
 <section id="information-matrices" class="title-slide slide level1 center" data-number="1">
 <h1><span class="header-section-number">1</span> Information matrices</h1>
+
+</section>
+<section class="slide level2">
+
 <p>There is no consistency in the notation for observed and expected information matrices (see <a href="#/tbl-info-mat-symbols" class="quarto-xref">Table&nbsp;2</a>).</p>
 <div id="tbl-info-mat-symbols" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-tbl">
@@ -332,10 +339,14 @@ Table&nbsp;2: notation for information matrices
 </figure>
 </div>
 <p>These notes currently have a mixture of notations, depending on my whims and what reference I had last looked at. Eventually, I will try to standardize my notation to <span class="math inline">\(I\)</span> for observed information and <span class="math inline">\(\mathcal{I}\)</span> for expected information.</p>
-</section>
-
+</section></section>
+<section>
 <section id="percent-sign" class="title-slide slide level1 center" data-number="2">
 <h1><span class="header-section-number">2</span> Percent sign (“%”)</h1>
+
+</section>
+<section class="slide level2">
+
 <p>The percent sign “%” is just a shorthand for “<span class="math inline">\(/100\)</span>”. The word “percent” comes from the Latin “per centum”; “centum” is Latin for 100, so “percent” means “per hundred” (c.f., <a href="https://en.wikipedia.org/wiki/Percentage" class="uri">https://en.wikipedia.org/wiki/Percentage</a>)</p>
 <p>So, contrary to what you may have learned previously, <span class="math inline">\(10\% = 0.1\)</span> is a true and correct equality, just as <span class="math inline">\(10 \text{kg} = 10,000 \text{g}\)</span> is true and correct.</p>
 <div class="proof">
@@ -348,8 +359,7 @@ Table&nbsp;2: notation for information matrices
 \]</span></p>
 </div>
 <p>You are welcome to switch between decimal and percent notation freely; just make sure you execute it correctly.</p>
-</section>
-
+</section></section>
 <section>
 <section id="proofs" class="title-slide slide level1 center" data-number="3">
 <h1><span class="header-section-number">3</span> Proofs</h1>
@@ -464,11 +474,17 @@ Table&nbsp;3: Comparison of “random”, “stochastic”, and “probabilistic
 <h1><span class="header-section-number">5</span> Why is notation in probability and statistics so inconsistent and disorganized?</h1>
 
 </section>
-<section class="slide level2 smaller scrollable" id="references">
+<section class="slide level2">
 
 <p>In grad school, we are asked to learn from increasingly disorganized materials and lectures. Not coincidentally, as the amount of organization decreases, the amount of complexity increases, the amount of difficulty increases, the number of reliable references decreases, and the amount of inconsistency in notation and content increases (both between multiple references and within single references!). In other words, as you approach the cutting-edge of most fields, you start to encounter into content that hasn’t been fully thought through or standardized. This lack of clarity is unfortunate and undesirable, but it is understandable and inevitable.</p>
 <p>It’s worth noting that calculus was formalized in the <a href="https://en.wikipedia.org/wiki/Leibniz%27s_notation">1600s</a>, elementary algebra was formalized around <a href="https://en.wikipedia.org/wiki/Al-Jabr">820</a>, and arithmetic <a href="https://en.wikipedia.org/wiki/Arithmetic#History">even earlier</a>. And calculus still has <a href="https://en.wikipedia.org/wiki/Notation_for_differentiation">several competing notation systems</a>. In contrast, the field of statistics only emerged in the <a href="https://en.wikipedia.org/wiki/History_of_statistics#Development_of_modern_statistics">late 1800s and early 1900s</a>, so it’s not surprising that the notation and terminology is still developing. Generalized linear models were only formalized in 1972 (<span class="citation" data-cites="nelder1972generalized">Nelder and Wedderburn (<a href="#/references" role="doc-biblioref" onclick="">1972</a>)</span>), which is very recent in terms of the <a href="https://en.wikipedia.org/wiki/The_Structure_of_Scientific_Revolutions">pace of scientific development</a>.</p>
+</section></section>
+<section>
+<section id="references" class="title-slide slide level1 unnumbered center">
+<h1>References</h1>
 
+</section>
+<section class="slide level2 smaller scrollable" id="references">
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-Adler2009random" class="csl-entry" role="listitem">
@@ -496,6 +512,8 @@ Stirzaker, David. 2005. <em>Stochastic Processes and Models</em>. Oxford Univers
 Wood, Simon N. 2017. <em>Generalized Additive Models: An Introduction with r</em>. Chapman; hall/CRC.
 </div>
 </div>
+
+
 </section></section>
 
     </div>

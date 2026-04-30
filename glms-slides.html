@@ -6,7 +6,9 @@
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/quarto-contrib/div-anchors-1.0.0/div-anchors.js"></script>
+<link href="site_libs/quarto-contrib/div-anchors-1.0.0/div-anchors.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.9.37">
 
   <title>Regression Models for Epidemiology – Generalized Linear Models</title>
@@ -30,7 +32,26 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-  </style>
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
   <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-4df01d85d5cf19cc6202400f4f043f84.css">
   <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-VS314RJ2KP"></script>
 
@@ -165,6 +186,45 @@
 <!-- doesn't work for some reason -->
 <p>This section is primarily adapted starting from the textbook “An Introduction to Generalized Linear Models” (4th edition, 2018) by Annette J. Dobson and Adrian G. Barnett:</p>
 <p><a href="https://doi.org/10.1201/9781315182780" class="uri">https://doi.org/10.1201/9781315182780</a></p>
+</section>
+<section>
+<section id="the-model-fitting-process" class="title-slide slide level1 center" data-number="1">
+<h1><span class="header-section-number">1</span> The model fitting process</h1>
+
+</section>
+<section class="slide level2 scrollable">
+
+<p><span class="citation" data-cites="dobson4e">Dobson and Barnett (<a href="#/references" role="doc-biblioref" onclick="">2018, sec. 2.1</a>)</span> describes the model fitting process as follows:</p>
+<blockquote>
+<p>The model fitting process described in this book involves four steps:</p>
+<ol type="1">
+<li><p>Model specification—a model is specified in two parts: an equation linking the response and explanatory variables and the probability distribution of the response variable.</p></li>
+<li><p>Estimation of the parameters of the model.</p></li>
+<li><p>Checking the adequacy of the model—how well it fits or summarizes the data.</p></li>
+<li><p>Inference—for classical or frequentist inference this involves calculating confidence intervals, testing hypotheses about the parameters in the model and interpreting the results.</p></li>
+</ol>
+</blockquote>
+<p>Note that <span class="citation" data-cites="dobson4e">Dobson and Barnett (<a href="#/references" role="doc-biblioref" onclick="">2018</a>)</span> omits exploratory data analysis (EDA) from this initial list, but describes it later as an important preliminary step (<span class="citation" data-cites="dobson4e">Dobson and Barnett (<a href="#/references" role="doc-biblioref" onclick="">2018, sec. 2.3.1</a>)</span>). We will treat EDA as a “step 0” that precedes the four steps above.</p>
+</section>
+<section id="step-0-exploratory-data-analysis" class="slide level2 scrollable" data-number="1.1">
+<h2><span class="header-section-number">1.1</span> Step 0: Exploratory data analysis</h2>
+<p><span class="citation" data-cites="dobson4e">Dobson and Barnett (<a href="#/references" role="doc-biblioref" onclick="">2018, sec. 2.3.1</a>)</span>:</p>
+<blockquote>
+<p>Any analysis of data should begin with a consideration of each variable separately, both to check on data quality (for example, are the values plausible?) and to help with model formulation.</p>
+<ol type="1">
+<li><p>What is the scale of measurement? Is it continuous or categorical? If it is categorical, how many categories does it have and are they nominal or ordinal?</p></li>
+<li><p>What is the shape of the distribution? This can be examined using frequency tables, dot plots, histograms and other graphical methods.</p></li>
+<li><p>How is it associated with other variables? Cross tabulations for categorical variables, scatter plots for continuous variables, side-by-side boxplots for continuous scale measurements grouped according to the factor levels of a categorical variable, and other such summaries can help to identify patterns of association. For example, do the points on a scatter plot suggest linear or non-linear associations? Do the group means increase or decrease consistently with an ordinal variable defining the groups?</p></li>
+</ol>
+</blockquote>
+</section></section>
+<section>
+<section id="choosing-a-model" class="title-slide slide level1 center" data-number="2">
+<h1><span class="header-section-number">2</span> Choosing a model</h1>
+
+</section>
+<section class="slide level2">
+
 <p>The type of predictive model one uses depends on several issues; one is the type of response.</p>
 <ul>
 <li><p>Measured values such as quantity of a protein, age, weight usually can be handled in an ordinary linear regression model, possibly after a log transformation.</p></li>
@@ -306,9 +366,22 @@
 </tr>
 </tbody>
 </table>
-
+</section></section>
+<section>
+<section id="references" class="title-slide slide level1 unnumbered center">
+<h1>References</h1>
 
 </section>
+<section class="slide level2 smaller scrollable" id="references">
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-dobson4e" class="csl-entry" role="listitem">
+Dobson, Annette J, and Adrian G Barnett. 2018. <em>An Introduction to Generalized Linear Models</em>. 4th ed. CRC press. <a href="https://doi.org/10.1201/9781315182780">https://doi.org/10.1201/9781315182780</a>.
+</div>
+</div>
+
+
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">

@@ -97,6 +97,8 @@ div.csl-indent {
 <link href="site_libs/bootstrap/bootstrap-775dd27f79ffe61a6982e96ad4efeaf8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/bootstrap/bootstrap-dark-2fba08c2571dd2da984cbd05b2f8805d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="site_libs/bootstrap/bootstrap-775dd27f79ffe61a6982e96ad4efeaf8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/div-anchors-1.0.0/div-anchors.js"></script>
+<link href="site_libs/quarto-contrib/div-anchors-1.0.0/div-anchors.css" rel="stylesheet">
 <script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><script id="quarto-search-options" type="application/json">{
@@ -142,7 +144,109 @@ gtag('config', 'G-VS314RJ2KP', { 'anonymize_ip': true});
     document.body.classList.add('hypothesis-enabled');
   });
 </script><link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
-<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script><script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script><style>
+div.callout-cnj.callout {
+  border-left-color: #558B2F;
+}
+div.callout-cnj.callout-style-default .callout-header {
+  background-color: rgba(85, 139, 47, 0.13);
+}
+div.callout-cnj .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-cnj.callout-style-default .callout-icon::before, div.callout-cnj.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23558B2F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-exr.callout {
+  border-left-color: #FFA500;
+}
+div.callout-exr.callout-style-default .callout-header {
+  background-color: rgba(255, 165, 0, 0.13);
+}
+div.callout-exr .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-exr.callout-style-default .callout-icon::before, div.callout-exr.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23FFA500" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-exm.callout {
+  border-left-color: #6A1B9A;
+}
+div.callout-exm.callout-style-default .callout-header {
+  background-color: rgba(106, 27, 154, 0.13);
+}
+div.callout-exm .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-exm.callout-style-default .callout-icon::before, div.callout-exm.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236A1B9A" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-remark.callout {
+  border-left-color: #AD1457;
+}
+div.callout-remark.callout-style-default .callout-header {
+  background-color: rgba(173, 20, 87, 0.13);
+}
+div.callout-remark .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-remark.callout-style-default .callout-icon::before, div.callout-remark.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23AD1457" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-cor.callout {
+  border-left-color: #00838F;
+}
+div.callout-cor.callout-style-default .callout-header {
+  background-color: rgba(0, 131, 143, 0.13);
+}
+div.callout-cor .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-cor.callout-style-default .callout-icon::before, div.callout-cor.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2300838F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-prp.callout {
+  border-left-color: #827717;
+}
+div.callout-prp.callout-style-default .callout-header {
+  background-color: rgba(130, 119, 23, 0.13);
+}
+div.callout-prp .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-prp.callout-style-default .callout-icon::before, div.callout-prp.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23827717" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-def.callout {
+  border-left-color: #1B5E20;
+}
+div.callout-def.callout-style-default .callout-header {
+  background-color: rgba(27, 94, 32, 0.13);
+}
+div.callout-def .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-def.callout-style-default .callout-icon::before, div.callout-def.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231B5E20" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-proof.callout {
+  border-left-color: #37474F;
+}
+div.callout-proof.callout-style-default .callout-header {
+  background-color: rgba(55, 71, 79, 0.13);
+}
+div.callout-proof .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-proof.callout-style-default .callout-icon::before, div.callout-proof.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2337474F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-solution.callout {
+  border-left-color: #4E342E;
+}
+div.callout-solution.callout-style-default .callout-header {
+  background-color: rgba(78, 52, 46, 0.13);
+}
+div.callout-solution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-solution.callout-style-default .callout-icon::before, div.callout-solution.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%234E342E" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-lem.callout {
+  border-left-color: #1565C0;
+}
+div.callout-lem.callout-style-default .callout-header {
+  background-color: rgba(21, 101, 192, 0.13);
+}
+div.callout-lem .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-lem.callout-style-default .callout-icon::before, div.callout-lem.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231565C0" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+</style>
+<script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
 const typesetMath = (el) => {
   if (window.MathJax) {
     // MathJax Typeset
@@ -377,6 +481,14 @@ window.Quarto = {
  <span class="dropdown-text">Count Regression</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="./causal-inference.html">
+ <span class="dropdown-text">Causal Inference</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./predictor-selection.html">
+ <span class="dropdown-text">Predictor Selection</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="./intro-multilevel-models.html">
  <span class="dropdown-text">Multilevel Models</span></a>
   </li>  
@@ -414,8 +526,20 @@ window.Quarto = {
  <span class="dropdown-text">Math Prerequisites</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="./data.html">
+ <span class="dropdown-text">Data</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./exploratory-descriptive.html">
+ <span class="dropdown-text">Exploratory and Descriptive Methods</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="./probability.html">
  <span class="dropdown-text">Probability</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./basic-statistical-methods.html">
+ <span class="dropdown-text">Basic Statistical Methods</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./classification.html">
@@ -424,6 +548,10 @@ window.Quarto = {
         <li>
     <a class="dropdown-item" href="./estimation.html">
  <span class="dropdown-text">Estimation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./nonparametric-models.html">
+ <span class="dropdown-text">Nonparametric Models</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./inference.html">
@@ -450,8 +578,12 @@ window.Quarto = {
  <span class="dropdown-text">Introduction to R</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./midterm-formula-sheet.html">
- <span class="dropdown-text">Midterm Formula Sheet</span></a>
+    <a class="dropdown-item" href="./exam-formula-sheet.html">
+ <span class="dropdown-text">Exam Formula Sheet</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./package-versions.html">
+ <span class="dropdown-text">Package Versions</span></a>
   </li>  
     </ul>
 </li>
@@ -528,7 +660,9 @@ window.Quarto = {
   </ul>
 </li>
   <li><a href="#more-on-count-regression" id="toc-more-on-count-regression" class="nav-link" data-scroll-target="#more-on-count-regression"><span class="header-section-number">9</span> More on count regression</a></li>
-  </ul><div class="toc-actions"><ul><li><a href="https://github.com/d-morrison/rme/edit/main/count-regression.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/d-morrison/rme/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/d-morrison/rme/blob/main/count-regression.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="count-regression-slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li><li><a href="count-regression-handout.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul><div class="toc-actions"><ul><li><a href="https://github.com/d-morrison/rme/edit/main/count-regression.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/d-morrison/rme/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/d-morrison/rme/blob/main/count-regression.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="count-regression-slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li><li><a href="count-regression-handout.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li><li><a href="count-regression-handout.docx"><i class="bi bi-file-word"></i>MS Word</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
@@ -544,7 +678,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">Last modified: 2026-04-15: 7:23:47 (UTC)</p>
+      <p class="date">Last modified: 2026-04-30: 20:44:49 (UTC)</p>
     </div>
   </div>
   
@@ -591,7 +725,9 @@ window.Quarto = {
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rstudio.github.io/webshot2/">webshot2</a></span><span class="op">)</span> <span class="co"># convert interactive content to static for pdf</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://forcats.tidyverse.org/">forcats</a></span><span class="op">)</span> <span class="co"># functions for categorical variables ("factors")</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://stringr.tidyverse.org">stringr</a></span><span class="op">)</span> <span class="co"># functions for dealing with strings</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://lubridate.tidyverse.org">lubridate</a></span><span class="op">)</span> <span class="co"># functions for dealing with dates and times</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://lubridate.tidyverse.org">lubridate</a></span><span class="op">)</span> <span class="co"># functions for dealing with dates and times</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://broom.tidymodels.org/">broom</a></span><span class="op">)</span> <span class="co"># Summarizes key information about statistical objects in tidy tibbles</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://larmarange.github.io/broom.helpers/">broom.helpers</a></span><span class="op">)</span> <span class="co"># Provides suite of functions to work with regression model 'broom::tidy()' tibbles</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <p>Here are some R settings I use in this document:</p>
@@ -631,7 +767,7 @@ text-align: center;
 <!-- \def\or{\theta}  -->
 <!-- doesn't work for some reason -->
 <div class="notes">
-<p>This chapter presents models for <a href="./probability.html#sec-count-vars">count data</a> outcomes. With covariates, the event rate <span class="math inline">\(\lambda\)</span> becomes a function of the covariates <span class="math inline">\(\tilde{X}= (X_1, \dots,X_n)\)</span>. Typically, count data models use a <span class="math inline">\(\text{log}{\left\{\right\}}\)</span> link function, and thus an <span class="math inline">\(\text{exp}{\left\{\right\}}\)</span> inverse-link function. That is:</p>
+<p>This chapter presents models for <a href="./data.html#sec-count-vars">count data</a> outcomes. With covariates, the event rate <span class="math inline">\(\lambda\)</span> becomes a function of the covariates <span class="math inline">\(\tilde{X}= (X_1, \dots,X_n)\)</span>. Typically, count data models use a <span class="math inline">\(\text{log}{\left\{\right\}}\)</span> link function, and thus an <span class="math inline">\(\text{exp}{\left\{\right\}}\)</span> inverse-link function. That is:</p>
 </div>
 <p><span id="eq-mean-poisson"><span class="math display">\[
 \begin{aligned}
@@ -645,12 +781,36 @@ text-align: center;
 <p><span class="math inline">\(T=t\)</span> is called the <a href="./probability.html#def-exposure">exposure magnitude</a> and has a special role in this model.</p>
 </div>
 <hr>
+<div class="callout callout-style-simple callout-exr no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="exr-analogy-pois-offset-binom" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 1</strong></span> Where have we seen a relationship like <span class="math display">\[\mu = \lambda \cdot t\]</span> before?</p>
 </div>
+</div>
+</div>
+</div>
 <hr>
+<div class="callout callout-style-default callout-solution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Solution</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <div id="sol-analogy-pois-offset-binom" class="proof solution">
 <p><span class="proof-title"><em>Solution 1</em>. </span>The relationship <span class="math display">\[\mu = \lambda \cdot t\]</span> in count regression models is analogous to the relationship <span class="math display">\[\mu = n \pi\]</span> in Binomial models.</p>
+</div>
+</div>
+</div>
 </div>
 <hr>
 <div class="notes">
@@ -669,13 +829,34 @@ text-align: center;
 \end{aligned}
 \]</span></p>
 <div class="notes">
-<p>In contrast with the other covariates (represented by <span class="math inline">\(\tilde{X}\)</span>), <span class="math inline">\(t\)</span> enters this expression with a <span class="math inline">\(\log{}\)</span> transformation and without a corresponding <span class="math inline">\(\beta\)</span> coefficient; in other words, <span class="math inline">\(\text{log}{\left\{t\right\}}\)</span> is an <a href="./probability.html#def-offset">offset term</a>.</p>
+<p>In contrast with the other covariates (represented by <span class="math inline">\(\tilde{X}\)</span>), <span class="math inline">\(t\)</span> enters this expression with a <span class="math inline">\(\log{}\)</span> transformation and without a corresponding <span class="math inline">\(\beta\)</span> coefficient; in other words, <span class="math inline">\(\text{log}{\left\{t\right\}}\)</span> is an <a href="poisson.qmd#def-offset">offset term</a>.</p>
 </div>
 <hr>
+<div class="callout callout-style-simple callout-exr no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="exr-eq-mean-poisson" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 2</strong></span> What are the units of <span class="math inline">\(\mu\)</span> in <a href="#eq-mean-poisson" class="quarto-xref">Equation&nbsp;1</a>?</p>
 </div>
+</div>
+</div>
+</div>
 <hr>
+<div class="callout callout-style-default callout-solution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Solution</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <div id="sol-eq-mean-poisson" class="proof solution">
 <p><span class="proof-title"><em>Solution 2</em>. </span><span class="math inline">\(\mu\)</span> is the mean of <span class="math inline">\(Y\)</span>, and <span class="math inline">\(Y\)</span> is a count, so <span class="math inline">\(\mu\)</span> is also a count; for example:</p>
 <ul>
@@ -684,11 +865,35 @@ text-align: center;
 <li>15.01 infections</li>
 </ul>
 </div>
+</div>
+</div>
+</div>
 <hr>
+<div class="callout callout-style-simple callout-exr no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="exr-eq-rate-poisson" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 3</strong></span> What are the units of <span class="math inline">\(\lambda\)</span> in <a href="#eq-mean-poisson" class="quarto-xref">Equation&nbsp;1</a>?</p>
 </div>
+</div>
+</div>
+</div>
 <hr>
+<div class="callout callout-style-default callout-solution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Solution</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <div id="sol-eq-rate-poisson" class="proof solution">
 <p><span class="proof-title"><em>Solution 3</em>. </span><span class="math inline">\(\lambda = \mu/t\)</span>, so <span class="math inline">\(\lambda\)</span> is a rate of counts per unit of <span class="math inline">\(t\)</span>. For example:</p>
 <ul>
@@ -697,6 +902,9 @@ text-align: center;
 <li>2.023 ER visits per 10 person-years</li>
 <li>15.01 infections per 1000 person-years at risk</li>
 </ul>
+</div>
+</div>
+</div>
 </div>
 </section><section id="interpreting-poisson-regression-models" class="level1 smaller" data-number="2"><h1 class="smaller" data-number="2">
 <span class="header-section-number">2</span> Interpreting Poisson regression models</h1>
@@ -945,7 +1153,7 @@ Table&nbsp;3: Counts of observations in <code>needles</code> dataset by sex, unh
 <span><span class="co">#&gt;     sex             homeless                 polydrug  </span></span>
 <span><span class="co">#&gt;  M    :97   not homeless:63   one drug used      :109  </span></span>
 <span><span class="co">#&gt;  F    :30   homeless    :61   multiple drugs used: 19  </span></span>
-<span><span class="co">#&gt;  Trans: 1   NA's        : 4</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span><span class="co">#&gt;  Trans: 1   NAs         : 4</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </figure>
@@ -1191,12 +1399,30 @@ P(Y=y,Z=z|...)
 \end{aligned}
 \]</span></p>
 <hr>
+<div class="callout callout-style-simple callout-exr no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="exr-zinf-pmf" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 4</strong></span> Expand <span class="math inline">\(P(Y=0|X=x,T=t)\)</span>, <span class="math inline">\(P(Y=1|X=x,T=t)\)</span> and <span class="math inline">\(P(Y=y|X=x,T=t)\)</span> into expressions involving <span class="math inline">\(P(Z=1|X=x,T=t)\)</span> and <span class="math inline">\(P(Y=y|Z=0,X=x,T=t)\)</span>.</p>
 </div>
+</div>
+</div>
+</div>
 <hr>
+<div class="callout callout-style-simple callout-exr no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="exr-zinf-moments" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 5</strong></span> Derive the expected value and variance of <span class="math inline">\(Y\)</span>, conditional on <span class="math inline">\(X\)</span> and <span class="math inline">\(T\)</span>, as functions of <span class="math inline">\(P(Z=1|X=x,T=t)\)</span> and <span class="math inline">\(\text{E}[Y|Z=0,X=x,T=t]\)</span>.</p>
+</div>
+</div>
+</div>
 </div>
 </section></section><section id="over-dispersion" class="level1" data-number="8"><h1 data-number="8">
 <span class="header-section-number">8</span> Over-dispersion</h1>
@@ -1204,8 +1430,17 @@ P(Y=y,Z=z|...)
 <div class="notes">
 <p>The Poisson distribution model <strong>forces</strong> the variance to equal the mean. In practice, many count distributions will have a variance substantially larger than the mean (or occasionally, smaller).</p>
 </div>
+<div class="callout callout-style-simple callout-def no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="def-overdispersion" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 1 (Overdispersion)</strong></span> A random variable <span class="math inline">\(X\)</span> is <strong>overdispersed</strong> relative to a model <span class="math inline">\(\text{p}(X=x)\)</span> if if its empirical variance in a dataset is larger than the value is predicted by the fitted model <span class="math inline">\(\hat{\text{p}}(X=x)\)</span>.</p>
+</div>
+</div>
+</div>
 </div>
 <div class="notes">
 <p>c.f. <span class="citation" data-cites="dobson4e">Dobson and Barnett (<a href="#ref-dobson4e" role="doc-biblioref">2018</a>)</span> §3.2.1, 7.7, 9.8; <span class="citation" data-cites="vittinghoff2e">Vittinghoff et al. (<a href="#ref-vittinghoff2e" role="doc-biblioref">2012</a>)</span> §8.1.5; and <a href="https://en.wikipedia.org/wiki/Overdispersion" class="uri">https://en.wikipedia.org/wiki/Overdispersion</a>.</p>
@@ -1644,15 +1879,143 @@ Table&nbsp;9: Zero-inflated negative binomial model
 <span class="header-section-number">9</span> More on count regression</h1>
 <ul>
 <li><a href="https://bookdown.org/roback/bookdown-BeyondMLR/ch-poissonreg.html" class="uri">https://bookdown.org/roback/bookdown-BeyondMLR/ch-poissonreg.html</a></li>
-</ul>
-
-
-<!-- -->
-
-
-</section><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+</ul></section><section id="exercises" class="level1 unnumbered"><h1 class="unnumbered">Exercises</h1>
+<!-- https://www.overleaf.com/learn/latex/Using_colors_in_LaTeX#Named_colors_provided_by_the_xcolor_package -->
+<!-- \def\or{\theta}  -->
+<!-- doesn't work for some reason -->
+<div class="callout callout-style-simple callout-exr no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-prac-glm-interp" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 6 (Interpreting Poisson regression coefficients)</strong></span> (adapted from <span class="citation" data-cites="dunn2018generalized">Dunn and Smyth (<a href="#ref-dunn2018generalized" role="doc-biblioref">2018</a>)</span>, Chapter 5, and <span class="citation" data-cites="dobson4e">Dobson and Barnett (<a href="#ref-dobson4e" role="doc-biblioref">2018</a>)</span>, Chapter 9)</p>
+<p>Consider a Poisson log-linear model for the expected number of events <span class="math inline">\(\mu_i\)</span>:</p>
+<p><span class="math display">\[
+\text{log}{\left\{\mu_i\right\}} = \beta_0 + \beta_1 x_i,
+\]</span></p>
+<p>where <span class="math inline">\(x_i\)</span> is a binary indicator (<span class="math inline">\(x_i = 0\)</span> or <span class="math inline">\(x_i = 1\)</span>).</p>
+<p><strong>(a)</strong> Express <span class="math inline">\(\mu_i\)</span> as a function of <span class="math inline">\(x_i\)</span>.</p>
+<p><strong>(b)</strong> Interpret <span class="math inline">\(e^{\beta_0}\)</span>.</p>
+<p><strong>(c)</strong> Interpret <span class="math inline">\(e^{\beta_1}\)</span>.</p>
+<p><strong>(d)</strong> If <span class="math inline">\(\hat\beta_0 = 1.2\)</span> and <span class="math inline">\(\hat\beta_1 = 0.5\)</span>, compute the estimated mean event count for <span class="math inline">\(x_i = 0\)</span> and <span class="math inline">\(x_i = 1\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-solution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Solution</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="proof solution">
+<p><span class="proof-title"><em>Solution</em>. </span><strong>(a)</strong></p>
+<p><span class="math display">\[
+\mu_i = e^{\beta_0 + \beta_1 x_i} = e^{\beta_0} \cdot (e^{\beta_1})^{x_i}
+\]</span></p>
+<p>For <span class="math inline">\(x_i = 0\)</span>: <span class="math inline">\(\mu_0 = e^{\beta_0}\)</span>. For <span class="math inline">\(x_i = 1\)</span>: <span class="math inline">\(\mu_1 = e^{\beta_0 + \beta_1}\)</span>.</p>
+<p><strong>(b)</strong></p>
+<p><span class="math inline">\(e^{\beta_0}\)</span> is the expected mean count when <span class="math inline">\(x_i = 0\)</span> (the reference group).</p>
+<p><strong>(c)</strong></p>
+<p><span class="math display">\[
+e^{\beta_1}
+= \frac{\mu_1}{\mu_0}
+= \frac{e^{\beta_0+\beta_1}}{e^{\beta_0}}
+\]</span></p>
+<p><span class="math inline">\(e^{\beta_1}\)</span> is the <strong>rate ratio</strong> (or count ratio): the multiplicative factor by which the expected count changes when <span class="math inline">\(x_i\)</span> increases from 0 to 1.</p>
+<p>If <span class="math inline">\(\beta_1 &gt; 0\)</span>, the group with <span class="math inline">\(x_i = 1\)</span> has a higher expected count.</p>
+<p><strong>(d)</strong></p>
+<p>For <span class="math inline">\(x_i = 0\)</span>: <span class="math display">\[
+\hat\mu_0 = e^{1.2} \approx 3.32
+\]</span></p>
+<p>For <span class="math inline">\(x_i = 1\)</span>: <span class="math display">\[
+\hat\mu_1 = e^{1.2 + 0.5} = e^{1.7} \approx 5.47
+\]</span></p>
+<p>The estimated rate ratio is <span class="math inline">\(e^{0.5} \approx 1.65\)</span>, meaning the group with <span class="math inline">\(x_i = 1\)</span> has about 65% more events on average.</p>
+</div>
+</div>
+</div>
+</div>
+<hr>
+<!-- https://www.overleaf.com/learn/latex/Using_colors_in_LaTeX#Named_colors_provided_by_the_xcolor_package --><!-- \def\or{\theta}  --><!-- doesn't work for some reason --><div class="callout callout-style-simple callout-exr no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-prac-glm-score" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 7 (Score equations for a Poisson GLM)</strong></span> (adapted from <span class="citation" data-cites="dobson4e">Dobson and Barnett (<a href="#ref-dobson4e" role="doc-biblioref">2018</a>)</span>, Chapter 4, and <span class="citation" data-cites="dunn2018generalized">Dunn and Smyth (<a href="#ref-dunn2018generalized" role="doc-biblioref">2018</a>)</span>, Chapter 4)</p>
+<p>Consider the Poisson log-linear model <span class="math inline">\(\text{log}{\left\{\mu_i\right\}} = \beta_0 + \beta_1 x_i\)</span>, with <span class="math inline">\(Y_i \mid x_i \ \sim_{\perp\!\!\!\perp}\ \text{Pois}(\mu_i)\)</span>.</p>
+<p><strong>(a)</strong> Write the log-likelihood <span class="math inline">\(\ell(\beta_0, \beta_1; \tilde{y}, \tilde{x})\)</span>.</p>
+<p><strong>(b)</strong> Derive the score equations <span class="math inline">\(\frac{\partial}{\partial \beta_0}\ell = 0\)</span> and <span class="math inline">\(\frac{\partial}{\partial \beta_1}\ell = 0\)</span>.</p>
+<p><strong>(c)</strong> Interpret the score equations: what condition on the fitted values <span class="math inline">\(\hat\mu_i\)</span> do they imply?</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-solution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Solution</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="proof solution">
+<p><span class="proof-title"><em>Solution</em>. </span><strong>(a)</strong></p>
+<p><span class="math display">\[
+\begin{aligned}
+\ell(\beta_0, \beta_1; \tilde{y}, \tilde{x})
+&amp;= \sum_{i=1}^n {\left(y_i \text{log}{\left\{\mu_i\right\}} - \mu_i - \text{log}{\left\{y_i!\right\}}\right)}
+\\
+&amp;\propto \sum_{i=1}^n {\left(y_i \text{log}{\left\{\mu_i\right\}} - \mu_i\right)}
+\end{aligned}
+\]</span></p>
+<p>where <span class="math inline">\(\text{log}{\left\{\mu_i\right\}} = \beta_0 + \beta_1 x_i\)</span>, so <span class="math inline">\(\mu_i = e^{\beta_0 + \beta_1 x_i}\)</span>.</p>
+<p><strong>(b)</strong></p>
+<p>Using the chain rule with <span class="math inline">\(\frac{\partial}{\partial \beta_j}\mu_i = \mu_i x_{ij}\)</span> (where <span class="math inline">\(x_{i0} = 1\)</span> and <span class="math inline">\(x_{i1} = x_i\)</span>):</p>
+<p><span class="math display">\[
+\frac{\partial}{\partial \beta_j}\ell
+= \sum_{i=1}^n {\left(\frac{y_i}{\mu_i} - 1\right)}\mu_i x_{ij}
+= \sum_{i=1}^n (y_i - \mu_i) x_{ij}
+\]</span></p>
+<p>Setting the score equations to zero:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\frac{\partial}{\partial \beta_0}\ell = 0
+&amp;\;\Rightarrow\; \sum_{i=1}^n (y_i - \mu_i) = 0
+\\
+\frac{\partial}{\partial \beta_1}\ell = 0
+&amp;\;\Rightarrow\; \sum_{i=1}^n x_i(y_i - \mu_i) = 0
+\end{aligned}
+\]</span></p>
+<p><strong>(c)</strong></p>
+<p>The first equation says <span class="math inline">\(\sum_i y_i = \sum_i \hat\mu_i\)</span>: the total fitted count equals the total observed count.</p>
+<p>The second equation says <span class="math inline">\(\sum_i x_i y_i = \sum_i x_i \hat\mu_i\)</span>: the fitted counts are balanced against observed counts, weighted by <span class="math inline">\(x_i\)</span>.</p>
+<p>More generally, these score equations say that the <strong>residuals <span class="math inline">\((y_i - \hat\mu_i)\)</span> are orthogonal to each predictor column</strong>. This is the GLM analogue of the OLS normal equations.</p>
+</div>
+</div>
+</div>
+</div>
+</section><section id="references" class="level1 unnumbered"><h1 class="unnumbered">References</h1>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-dobson4e" class="csl-entry" role="listitem">
 Dobson, Annette J, and Adrian G Barnett. 2018. <em>An Introduction to Generalized Linear Models</em>. 4th ed. CRC press. <a href="https://doi.org/10.1201/9781315182780">https://doi.org/10.1201/9781315182780</a>.
+</div>
+<div id="ref-dunn2018generalized" class="csl-entry" role="listitem">
+Dunn, Peter K, and Gordon K Smyth. 2018. <em>Generalized Linear Models with Examples in <span>R</span></em>. Vol. 53. Springer. <a href="https://link.springer.com/book/10.1007/978-1-4419-0118-7">https://link.springer.com/book/10.1007/978-1-4419-0118-7</a>.
 </div>
 <div id="ref-vittinghoff2e" class="csl-entry" role="listitem">
 Vittinghoff, Eric, David V Glidden, Stephen C Shiboski, and Charles E McCulloch. 2012. <em>Regression Methods in Biostatistics: Linear, Logistic, Survival, and Repeated Measures Models</em>. 2nd ed. Springer. <a href="https://doi.org/10.1007/978-1-4614-1353-0">https://doi.org/10.1007/978-1-4614-1353-0</a>.
@@ -1660,7 +2023,12 @@ Vittinghoff, Eric, David V Glidden, Stephen C Shiboski, and Charles E McCulloch.
 <div id="ref-pscl08" class="csl-entry" role="listitem">
 Zeileis, Achim, Christian Kleiber, and Simon Jackman. 2008. <span>“Regression Models for Count Data in <span>R</span>.”</span> <em>Journal of Statistical Software</em> 27 (8). <a href="https://www.jstatsoft.org/v27/i08/">https://www.jstatsoft.org/v27/i08/</a>.
 </div>
-</div></section></div></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</div>
+
+
+<!-- -->
+
+</section><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
     if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -2135,91 +2503,107 @@ Zeileis, Achim, Christian Kleiber, and Simon Jackman. 2008. <span>“Regression 
 <span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="co">    output-file: count-regression-slides.html</span></span>
 <span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="co">  pdf:</span></span>
 <span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="co">    output-file: count-regression-handout.pdf</span></span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="co">  docx:</span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="co">    output-file: count-regression-handout.docx</span></span>
 <span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="fu"># Acknowledgements {.unnumbered}</span></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>This content is adapted from:</span>
-<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>@dobson4e, Chapter 9</span>
-<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>@vittinghoff2e, Chapter 8</span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a><span class="fu"># Acknowledgements {.unnumbered}</span></span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>This content is adapted from:</span>
 <span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>{{&lt; include shared-config.qmd &gt;}}</span>
-<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a><span class="fu"># Introduction</span></span>
-<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a>{{&lt; include _subfiles/count-regression/_sec_pois-reg_intro.qmd &gt;}}</span>
-<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-28"><a href="#cb18-28" aria-hidden="true" tabindex="-1"></a><span class="fu"># Interpreting Poisson regression models {.smaller}</span></span>
-<span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-30"><a href="#cb18-30" aria-hidden="true" tabindex="-1"></a>{{&lt; include _subfiles/count-regression/_sec_poisson_RRs.qmd &gt;}}</span>
-<span id="cb18-31"><a href="#cb18-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-32"><a href="#cb18-32" aria-hidden="true" tabindex="-1"></a><span class="fu"># Example: needle-sharing</span></span>
-<span id="cb18-33"><a href="#cb18-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-34"><a href="#cb18-34" aria-hidden="true" tabindex="-1"></a>(adapted from @vittinghoff2e, §8)</span>
-<span id="cb18-35"><a href="#cb18-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-36"><a href="#cb18-36" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb18-37"><a href="#cb18-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-38"><a href="#cb18-38" aria-hidden="true" tabindex="-1"></a>{{&lt; include exr-needle-sharing.qmd &gt;}}</span>
-<span id="cb18-39"><a href="#cb18-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-40"><a href="#cb18-40" aria-hidden="true" tabindex="-1"></a><span class="fu"># Inference for count regression models</span></span>
-<span id="cb18-41"><a href="#cb18-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-42"><a href="#cb18-42" aria-hidden="true" tabindex="-1"></a>{{&lt; include _subfiles/count-regression/_sec_poisson_inference.qmd &gt;}}</span>
-<span id="cb18-43"><a href="#cb18-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-44"><a href="#cb18-44" aria-hidden="true" tabindex="-1"></a><span class="fu"># Prediction</span></span>
-<span id="cb18-45"><a href="#cb18-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-46"><a href="#cb18-46" aria-hidden="true" tabindex="-1"></a>{{&lt; include _subfiles/count-regression/_sec_pois-reg-preds.qmd &gt;}}</span>
-<span id="cb18-47"><a href="#cb18-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-48"><a href="#cb18-48" aria-hidden="true" tabindex="-1"></a><span class="fu"># Diagnostics</span></span>
-<span id="cb18-49"><a href="#cb18-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-50"><a href="#cb18-50" aria-hidden="true" tabindex="-1"></a>{{&lt; include _subfiles/count-regression/_sec_poisson_dx.qmd &gt;}}</span>
-<span id="cb18-51"><a href="#cb18-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-52"><a href="#cb18-52" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb18-53"><a href="#cb18-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-54"><a href="#cb18-54" aria-hidden="true" tabindex="-1"></a>{{&lt; include _subfiles/count-regression/_exm-needle-sharing-dx.qmd &gt;}}</span>
-<span id="cb18-55"><a href="#cb18-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-56"><a href="#cb18-56" aria-hidden="true" tabindex="-1"></a><span class="fu"># Zero-inflation</span></span>
-<span id="cb18-57"><a href="#cb18-57" aria-hidden="true" tabindex="-1"></a>{{&lt; include _subfiles/count-regression/_sec_zero-inflation.qmd &gt;}}</span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>@dobson4e, Chapter 9</span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>@vittinghoff2e, Chapter 8</span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>{{&lt; include shared-config.qmd &gt;}}</span>
+<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a><span class="fu"># Introduction</span></span>
+<span id="cb18-28"><a href="#cb18-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a>{{&lt; include _subfiles/count-regression/_sec_pois-reg_intro.qmd &gt;}}</span>
+<span id="cb18-30"><a href="#cb18-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-31"><a href="#cb18-31" aria-hidden="true" tabindex="-1"></a><span class="fu"># Interpreting Poisson regression models {.smaller}</span></span>
+<span id="cb18-32"><a href="#cb18-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-33"><a href="#cb18-33" aria-hidden="true" tabindex="-1"></a>{{&lt; include _subfiles/count-regression/_sec_poisson_RRs.qmd &gt;}}</span>
+<span id="cb18-34"><a href="#cb18-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-35"><a href="#cb18-35" aria-hidden="true" tabindex="-1"></a><span class="fu"># Example: needle-sharing</span></span>
+<span id="cb18-36"><a href="#cb18-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-37"><a href="#cb18-37" aria-hidden="true" tabindex="-1"></a>(adapted from @vittinghoff2e, §8)</span>
+<span id="cb18-38"><a href="#cb18-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-39"><a href="#cb18-39" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb18-40"><a href="#cb18-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-41"><a href="#cb18-41" aria-hidden="true" tabindex="-1"></a>{{&lt; include exr-needle-sharing.qmd &gt;}}</span>
+<span id="cb18-42"><a href="#cb18-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-43"><a href="#cb18-43" aria-hidden="true" tabindex="-1"></a><span class="fu"># Inference for count regression models</span></span>
+<span id="cb18-44"><a href="#cb18-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-45"><a href="#cb18-45" aria-hidden="true" tabindex="-1"></a>{{&lt; include _subfiles/count-regression/_sec_poisson_inference.qmd &gt;}}</span>
+<span id="cb18-46"><a href="#cb18-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-47"><a href="#cb18-47" aria-hidden="true" tabindex="-1"></a><span class="fu"># Prediction</span></span>
+<span id="cb18-48"><a href="#cb18-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-49"><a href="#cb18-49" aria-hidden="true" tabindex="-1"></a>{{&lt; include _subfiles/count-regression/_sec_pois-reg-preds.qmd &gt;}}</span>
+<span id="cb18-50"><a href="#cb18-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-51"><a href="#cb18-51" aria-hidden="true" tabindex="-1"></a><span class="fu"># Diagnostics</span></span>
+<span id="cb18-52"><a href="#cb18-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-53"><a href="#cb18-53" aria-hidden="true" tabindex="-1"></a>{{&lt; include _subfiles/count-regression/_sec_poisson_dx.qmd &gt;}}</span>
+<span id="cb18-54"><a href="#cb18-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-55"><a href="#cb18-55" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb18-56"><a href="#cb18-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-57"><a href="#cb18-57" aria-hidden="true" tabindex="-1"></a>{{&lt; include _subfiles/count-regression/_exm-needle-sharing-dx.qmd &gt;}}</span>
 <span id="cb18-58"><a href="#cb18-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-59"><a href="#cb18-59" aria-hidden="true" tabindex="-1"></a><span class="fu"># Over-dispersion</span></span>
-<span id="cb18-60"><a href="#cb18-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-61"><a href="#cb18-61" aria-hidden="true" tabindex="-1"></a>{{&lt; include _subfiles/count-regression/_sec-overdispersion.qmd &gt;}}</span>
-<span id="cb18-62"><a href="#cb18-62" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb18-59"><a href="#cb18-59" aria-hidden="true" tabindex="-1"></a><span class="fu"># Zero-inflation</span></span>
+<span id="cb18-60"><a href="#cb18-60" aria-hidden="true" tabindex="-1"></a>{{&lt; include _subfiles/count-regression/_sec_zero-inflation.qmd &gt;}}</span>
+<span id="cb18-61"><a href="#cb18-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-62"><a href="#cb18-62" aria-hidden="true" tabindex="-1"></a><span class="fu"># Over-dispersion</span></span>
 <span id="cb18-63"><a href="#cb18-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-64"><a href="#cb18-64" aria-hidden="true" tabindex="-1"></a>{{&lt; include _subfiles/count-regression/_note_glm-naming.qmd &gt;}}</span>
-<span id="cb18-65"><a href="#cb18-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-66"><a href="#cb18-66" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb18-67"><a href="#cb18-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-68"><a href="#cb18-68" aria-hidden="true" tabindex="-1"></a><span class="fu">## Negative binomial models</span></span>
-<span id="cb18-69"><a href="#cb18-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-70"><a href="#cb18-70" aria-hidden="true" tabindex="-1"></a>::: notes</span>
-<span id="cb18-71"><a href="#cb18-71" aria-hidden="true" tabindex="-1"></a>There are alternatives to the Poisson model.</span>
-<span id="cb18-72"><a href="#cb18-72" aria-hidden="true" tabindex="-1"></a>Most notably, </span>
-<span id="cb18-73"><a href="#cb18-73" aria-hidden="true" tabindex="-1"></a>the <span class="co">[</span><span class="ot">negative binomial model</span><span class="co">](probability.qmd#sec-nb-dist)</span>.</span>
-<span id="cb18-74"><a href="#cb18-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-75"><a href="#cb18-75" aria-hidden="true" tabindex="-1"></a>We can still model $\mu$ as a function of $X$ and $T$ as before, </span>
-<span id="cb18-76"><a href="#cb18-76" aria-hidden="true" tabindex="-1"></a>and we can combine this model with zero-inflation </span>
-<span id="cb18-77"><a href="#cb18-77" aria-hidden="true" tabindex="-1"></a>(as the conditional distribution for the non-zero component).</span>
-<span id="cb18-78"><a href="#cb18-78" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb18-79"><a href="#cb18-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-80"><a href="#cb18-80" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb18-81"><a href="#cb18-81" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-82"><a href="#cb18-82" aria-hidden="true" tabindex="-1"></a><span class="fu">### Example: needle-sharing</span></span>
-<span id="cb18-83"><a href="#cb18-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-84"><a href="#cb18-84" aria-hidden="true" tabindex="-1"></a>{{&lt; include exr-needle-sharing-extensions.qmd &gt;}}</span>
-<span id="cb18-85"><a href="#cb18-85" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-86"><a href="#cb18-86" aria-hidden="true" tabindex="-1"></a><span class="fu">## Quasipoisson</span></span>
-<span id="cb18-87"><a href="#cb18-87" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-88"><a href="#cb18-88" aria-hidden="true" tabindex="-1"></a>An alternative to Negative binomial is the "quasipoisson" distribution. I've never used it, but it seems to be a method-of-moments type approach rather than maximum likelihood. It models the variance as $\Var{Y} = \mu\theta$, and estimates $\theta$ accordingly.</span>
-<span id="cb18-89"><a href="#cb18-89" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-90"><a href="#cb18-90" aria-hidden="true" tabindex="-1"></a>See <span class="in">`?quasipoisson`</span> in R for more.</span>
-<span id="cb18-91"><a href="#cb18-91" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-92"><a href="#cb18-92" aria-hidden="true" tabindex="-1"></a><span class="fu"># More on count regression</span></span>
-<span id="cb18-93"><a href="#cb18-93" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-94"><a href="#cb18-94" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="ot">&lt;https://bookdown.org/roback/bookdown-BeyondMLR/ch-poissonreg.html&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb18-64"><a href="#cb18-64" aria-hidden="true" tabindex="-1"></a>{{&lt; include _subfiles/count-regression/_sec-overdispersion.qmd &gt;}}</span>
+<span id="cb18-65"><a href="#cb18-65" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb18-66"><a href="#cb18-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-67"><a href="#cb18-67" aria-hidden="true" tabindex="-1"></a>{{&lt; include _subfiles/count-regression/_note_glm-naming.qmd &gt;}}</span>
+<span id="cb18-68"><a href="#cb18-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-69"><a href="#cb18-69" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb18-70"><a href="#cb18-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-71"><a href="#cb18-71" aria-hidden="true" tabindex="-1"></a><span class="fu">## Negative binomial models</span></span>
+<span id="cb18-72"><a href="#cb18-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-73"><a href="#cb18-73" aria-hidden="true" tabindex="-1"></a>::: notes</span>
+<span id="cb18-74"><a href="#cb18-74" aria-hidden="true" tabindex="-1"></a>There are alternatives to the Poisson model.</span>
+<span id="cb18-75"><a href="#cb18-75" aria-hidden="true" tabindex="-1"></a>Most notably, </span>
+<span id="cb18-76"><a href="#cb18-76" aria-hidden="true" tabindex="-1"></a>the <span class="co">[</span><span class="ot">negative binomial model</span><span class="co">](probability.qmd#sec-nb-dist)</span>.</span>
+<span id="cb18-77"><a href="#cb18-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-78"><a href="#cb18-78" aria-hidden="true" tabindex="-1"></a>We can still model $\mu$ as a function of $X$ and $T$ as before, </span>
+<span id="cb18-79"><a href="#cb18-79" aria-hidden="true" tabindex="-1"></a>and we can combine this model with zero-inflation </span>
+<span id="cb18-80"><a href="#cb18-80" aria-hidden="true" tabindex="-1"></a>(as the conditional distribution for the non-zero component).</span>
+<span id="cb18-81"><a href="#cb18-81" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb18-82"><a href="#cb18-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-83"><a href="#cb18-83" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb18-84"><a href="#cb18-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-85"><a href="#cb18-85" aria-hidden="true" tabindex="-1"></a><span class="fu">### Example: needle-sharing</span></span>
+<span id="cb18-86"><a href="#cb18-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-87"><a href="#cb18-87" aria-hidden="true" tabindex="-1"></a>{{&lt; include exr-needle-sharing-extensions.qmd &gt;}}</span>
+<span id="cb18-88"><a href="#cb18-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-89"><a href="#cb18-89" aria-hidden="true" tabindex="-1"></a><span class="fu">## Quasipoisson</span></span>
+<span id="cb18-90"><a href="#cb18-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-91"><a href="#cb18-91" aria-hidden="true" tabindex="-1"></a>An alternative to Negative binomial is the "quasipoisson" distribution. I've never used it, but it seems to be a method-of-moments type approach rather than maximum likelihood. It models the variance as $\Var{Y} = \mu\theta$, and estimates $\theta$ accordingly.</span>
+<span id="cb18-92"><a href="#cb18-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-93"><a href="#cb18-93" aria-hidden="true" tabindex="-1"></a>See <span class="in">`?quasipoisson`</span> in R for more.</span>
+<span id="cb18-94"><a href="#cb18-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-95"><a href="#cb18-95" aria-hidden="true" tabindex="-1"></a><span class="fu"># More on count regression</span></span>
+<span id="cb18-96"><a href="#cb18-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-97"><a href="#cb18-97" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="ot">&lt;https://bookdown.org/roback/bookdown-BeyondMLR/ch-poissonreg.html&gt;</span></span>
+<span id="cb18-98"><a href="#cb18-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-99"><a href="#cb18-99" aria-hidden="true" tabindex="-1"></a><span class="fu"># Exercises {.unnumbered}</span></span>
+<span id="cb18-100"><a href="#cb18-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-101"><a href="#cb18-101" aria-hidden="true" tabindex="-1"></a>{{&lt; include _subfiles/count-regression/_exr-prac-glm-interp.qmd &gt;}}</span>
+<span id="cb18-102"><a href="#cb18-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-103"><a href="#cb18-103" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb18-104"><a href="#cb18-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-105"><a href="#cb18-105" aria-hidden="true" tabindex="-1"></a>{{&lt; include _subfiles/count-regression/_exr-prac-glm-score.qmd &gt;}}</span>
+<span id="cb18-106"><a href="#cb18-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-107"><a href="#cb18-107" aria-hidden="true" tabindex="-1"></a><span class="fu"># References {.unnumbered}</span></span>
+<span id="cb18-108"><a href="#cb18-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-109"><a href="#cb18-109" aria-hidden="true" tabindex="-1"></a>::: {#refs}</span>
+<span id="cb18-110"><a href="#cb18-110" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer"><div class="nav-footer">

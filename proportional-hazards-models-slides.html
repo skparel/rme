@@ -7,6 +7,8 @@
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/quarto-contrib/div-anchors-1.0.0/div-anchors.js"></script>
+<link href="site_libs/quarto-contrib/div-anchors-1.0.0/div-anchors.css" rel="stylesheet">
 <script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -268,7 +270,9 @@
 <span id="cb1-23"><a></a><span class="fu">library</span>(webshot2) <span class="co"># convert interactive content to static for pdf</span></span>
 <span id="cb1-24"><a></a><span class="fu">library</span>(forcats) <span class="co"># functions for categorical variables ("factors")</span></span>
 <span id="cb1-25"><a></a><span class="fu">library</span>(stringr) <span class="co"># functions for dealing with strings</span></span>
-<span id="cb1-26"><a></a><span class="fu">library</span>(lubridate) <span class="co"># functions for dealing with dates and times</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-26"><a></a><span class="fu">library</span>(lubridate) <span class="co"># functions for dealing with dates and times</span></span>
+<span id="cb1-27"><a></a><span class="fu">library</span>(broom) <span class="co"># Summarizes key information about statistical objects in tidy tibbles</span></span>
+<span id="cb1-28"><a></a><span class="fu">library</span>(broom.helpers) <span class="co"># Provides suite of functions to work with regression model 'broom::tidy()' tibbles</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <p>Here are some R settings I use in this document:</p>
@@ -304,10 +308,8 @@ text-align: center;
 }
 </style></section><section><section id="introduction" class="title-slide slide level1 center" data-number="1"><h1>
 <span class="header-section-number">1</span> Introduction</h1>
-<!-- https://www.overleaf.com/learn/latex/Using_colors_in_LaTeX#Named_colors_provided_by_the_xcolor_package -->
-<!-- \def\or{\theta}  -->
-<!-- doesn't work for some reason -->
-<div id="exr-review-exp-dist" class="theorem exercise">
+
+</section><section class="slide level2"><!-- https://www.overleaf.com/learn/latex/Using_colors_in_LaTeX#Named_colors_provided_by_the_xcolor_package --><!-- \def\or{\theta}  --><!-- doesn't work for some reason --><div id="exr-review-exp-dist" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 1</strong></span> Recall the key characteristics of the exponential distribution:</p>
 <ul>
 <li>density function <span class="math inline">\(\text{f}(t)\)</span>
@@ -341,11 +343,8 @@ text-align: center;
 </div>
 </section></section><section><section id="understanding-proportional-hazards-models" class="title-slide slide level1 center" data-number="2"><h1>
 <span class="header-section-number">2</span> Understanding proportional hazards models</h1>
-<!-- https://www.overleaf.com/learn/latex/Using_colors_in_LaTeX#Named_colors_provided_by_the_xcolor_package -->
-<!-- \def\or{\theta}  -->
-<!-- doesn't work for some reason -->
-<!-- {{< include _subfiles/misc/_sec_cox-bio.qmd >}} -->
-</section><section class="slide level2"><aside class="notes"><p>Let’s make two generalizations. First, we let the hazard depend on some covariates <span class="math inline">\(x_1,x_2, \dots, x_p\)</span>; we will indicate this dependence by extending our notation for hazard:</p>
+
+</section><section class="slide level2"><!-- https://www.overleaf.com/learn/latex/Using_colors_in_LaTeX#Named_colors_provided_by_the_xcolor_package --><!-- \def\or{\theta}  --><!-- doesn't work for some reason --><!-- {{< include _subfiles/misc/_sec_cox-bio.qmd >}} --></section><section class="slide level2"><aside class="notes"><p>Let’s make two generalizations. First, we let the hazard depend on some covariates <span class="math inline">\(x_1,x_2, \dots, x_p\)</span>; we will indicate this dependence by extending our notation for hazard:</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -881,7 +880,8 @@ text-align: center;
 <p><span class="math display">\[\Delta \eta(t|\tilde{x}) = \tilde{x}\cdot \tilde{\beta}\stackrel{\text{def}}{=}\beta_1 x_1 + \cdots + \beta_p x_p\]</span></p>
 </section></section><section><section id="testing-the-proportional-hazards-assumption" class="title-slide slide level1 center" data-number="3"><h1>
 <span class="header-section-number">3</span> Testing the proportional hazards assumption</h1>
-<aside class="notes"><p>The Nelson-Aalen estimate of the cumulative hazard is usually used for estimates of the hazard and often the cumulative hazard.</p>
+
+</section><section class="slide level2"><aside class="notes"><p>The Nelson-Aalen estimate of the cumulative hazard is usually used for estimates of the hazard and often the cumulative hazard.</p>
 <p>If the hazards of the three groups are proportional, that means that the ratio of the hazards is constant over <span class="math inline">\(t\)</span>. We can test this using the ratios of the estimated cumulative hazards, which also would be proportional, as shown above.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -1053,10 +1053,8 @@ Figure&nbsp;5: Smoothed Hazard Rate Estimates by Disease Group
           display:block!important;
       }</style></aside></section></section><section><section id="fitting-proportional-hazards-models-to-data" class="title-slide slide level1 center" data-number="4"><h1>
 <span class="header-section-number">4</span> Fitting proportional hazards models to data</h1>
-<!-- https://www.overleaf.com/learn/latex/Using_colors_in_LaTeX#Named_colors_provided_by_the_xcolor_package -->
-<!-- \def\or{\theta}  -->
-<!-- doesn't work for some reason -->
-</section><section class="slide level2"><aside class="notes"><p>How do we fit a proportional hazards regression model? We need to estimate the coefficients of the covariates, and we need to estimate the base hazard <span class="math inline">\({\lambda}_0(t)\)</span>. For the covariates, supposing for simplicity that there are no tied event times, let the event times for the whole data set be <span class="math inline">\(t_1, t_2,\ldots,t_D\)</span>. Let the risk set at time <span class="math inline">\(t_i\)</span> be <span class="math inline">\(R(t_i)\)</span> and</p>
+
+</section><section class="slide level2"><!-- https://www.overleaf.com/learn/latex/Using_colors_in_LaTeX#Named_colors_provided_by_the_xcolor_package --><!-- \def\or{\theta}  --><!-- doesn't work for some reason --></section><section class="slide level2"><aside class="notes"><p>How do we fit a proportional hazards regression model? We need to estimate the coefficients of the covariates, and we need to estimate the base hazard <span class="math inline">\({\lambda}_0(t)\)</span>. For the covariates, supposing for simplicity that there are no tied event times, let the event times for the whole data set be <span class="math inline">\(t_1, t_2,\ldots,t_D\)</span>. Let the risk set at time <span class="math inline">\(t_i\)</span> be <span class="math inline">\(R(t_i)\)</span> and</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1144,7 +1142,7 @@ Figure&nbsp;5: Smoothed Hazard Rate Estimates by Disease Group
       }</style></aside></section></section><section><section id="example-proportional-hazards-model-for-the-bmt-data" class="title-slide slide level1 center" data-number="5"><h1>
 <span class="header-section-number">5</span> Example: Proportional hazards model for the <code>bmt</code> data</h1>
 
-</section><h3 id="fit-the-model">Fit the model</h3>
+</section><section class="slide level2"><h3 id="fit-the-model">Fit the model</h3>
 <div class="cell">
 <details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">library</span>(survival)</span>
 <span id="cb9-2"><a></a>bmt.cox <span class="ot">&lt;-</span> <span class="fu">coxph</span>(<span class="fu">Surv</span>(t2, d3) <span class="sc">~</span> group, <span class="at">data =</span> bmt)</span>
@@ -1225,7 +1223,7 @@ Figure&nbsp;6: Survival Functions for Three Groups by KM and Cox Model
 </div>
 </div>
 <p>When we use <code>survfit()</code> with a Cox model, we have to specify the covariate levels we are interested in; the argument <code>newdata</code> should include a <code>data.frame</code> with the same named columns as the predictors in the Cox model and one or more levels of each.</p>
-<section class="slide level2"><p>From <code>?survfit.coxph</code>:</p>
+</section><section class="slide level2"><p>From <code>?survfit.coxph</code>:</p>
 <blockquote>
 <p>If the <code>newdata</code> argument is missing, a curve is produced for a single “pseudo” subject with covariate values equal to the means component of the fit. The resulting curve(s) almost never make sense, but the default remains due to an unwarranted attachment to the option shown by some users and by other packages. Two particularly egregious examples are factor variables and interactions. Suppose one were studying interspecies transmission of a virus, and the data set has a factor variable with levels (“pig”, “chicken”) and about equal numbers of observations for each. The “mean” covariate level will be 0.5 – is this a flying pig?</p>
 </blockquote>
@@ -1890,7 +1888,7 @@ x_{ik}-\frac{\sum_{k\in R}x_{jk}\theta_k}{\sum_{k\in R}\theta_k}
 <p>This residual measures how typical the individual subject is with respect to the covariate at the time of the event. Since subjects should fail more or less uniformly according to risk, the Schoenfeld residuals should be approximately level over time, not increasing or decreasing.</p>
 <p>We can test this with the correlation with time on some scale, which could be the time itself, the log time, or the rank in the set of failure times.</p>
 <p>The default is to use the KM curve as a transform, which is similar to the rank but deals better with censoring.</p>
-<p>The <code>cox.zph()</code> function implements a score test proposed in <span class="citation" data-cites="grambsch1994proportional">Grambsch and Therneau (<a href="#/age-as-the-time-scale" role="doc-biblioref" onclick="">1994</a>)</span>.</p>
+<p>The <code>cox.zph()</code> function implements a score test proposed in <span class="citation" data-cites="grambsch1994proportional">Grambsch and Therneau (<a href="#/references" role="doc-biblioref" onclick="">1994</a>)</span>.</p>
 <div class="cell">
 <details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a></span>
 <span id="cb24-2"><a></a>hodg.zph <span class="ot">=</span> <span class="fu">cox.zph</span>(hodg.cox1)</span>
@@ -1962,7 +1960,7 @@ x_{ik}-\frac{\sum_{k\in R}x_{jk}\theta_k}{\sum_{k\in R}\theta_k}
 <li>Both the statistical tests and the plots are useful.</li>
 </ul></section><section id="sec-cox-snell" class="slide level2" data-number="6.4"><h2>
 <span class="header-section-number">6.4</span> Goodness of Fit using the Cox-Snell Residuals</h2>
-<p>(references: <span class="citation" data-cites="klein2003survival">Klein and Moeschberger (<a href="#/age-as-the-time-scale" role="doc-biblioref" onclick="">2003</a>)</span>, §11.2, and <span class="citation" data-cites="dobson4e">Dobson and Barnett (<a href="#/age-as-the-time-scale" role="doc-biblioref" onclick="">2018</a>)</span>, §10.6)</p>
+<p>(references: <span class="citation" data-cites="klein2003survival">Klein and Moeschberger (<a href="#/references" role="doc-biblioref" onclick="">2003</a>)</span>, §11.2, and <span class="citation" data-cites="dobson4e">Dobson and Barnett (<a href="#/references" role="doc-biblioref" onclick="">2018</a>)</span>, §10.6)</p>
 </section><section class="slide level2"><aside class="notes"><p>Suppose that an individual has a survival time <span class="math inline">\(T\)</span> which has survival function <span class="math inline">\(\text{S}(t)\)</span>, meaning that <span class="math inline">\(\Pr(T&gt; t) = \text{S}(t)\)</span>. Then <span class="math inline">\(S(T)\)</span> has a uniform distribution on <span class="math inline">\((0,1)\)</span>:</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -2429,7 +2427,7 @@ Table&nbsp;2: Observations to Examine by Residuals and Influence
 <span class="header-section-number">6.7</span> Stratified survival models</h2>
 <h3 id="revisiting-the-leukemia-dataset-anderson">Revisiting the leukemia dataset (<code>anderson</code>)</h3>
 <p>We will analyze remission survival times on 42 leukemia patients, half on new treatment, half on standard treatment.</p>
-<p>This is the same data as the <code>drug6mp</code> data from <code>KMsurv</code>, but with two other variables and without the pairing. This version comes from <span class="citation" data-cites="kleinbaum2012survival">Kleinbaum and Klein (<a href="#/age-as-the-time-scale" role="doc-biblioref" onclick="">2012</a>)</span> (e.g., p281):</p>
+<p>This is the same data as the <code>drug6mp</code> data from <code>KMsurv</code>, but with two other variables and without the pairing. This version comes from <span class="citation" data-cites="kleinbaum2012survival">Kleinbaum and Klein (<a href="#/references" role="doc-biblioref" onclick="">2012</a>)</span> (e.g., p281):</p>
 <div class="cell">
 <details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a></a></span>
 <span id="cb50-2"><a></a>anderson <span class="ot">=</span> </span>
@@ -2768,7 +2766,7 @@ Figure&nbsp;12: Cumulative hazard (cloglog scale) for <code>anderson</code> data
 </div>
 </section><section id="time-varying-covariates" class="slide level2" data-number="6.8"><h2>
 <span class="header-section-number">6.8</span> Time-varying covariates</h2>
-<p>(adapted from <span class="citation" data-cites="klein2003survival">Klein and Moeschberger (<a href="#/age-as-the-time-scale" role="doc-biblioref" onclick="">2003</a>)</span>, §9.2)</p>
+<p>(adapted from <span class="citation" data-cites="klein2003survival">Klein and Moeschberger (<a href="#/references" role="doc-biblioref" onclick="">2003</a>)</span>, §9.2)</p>
 <h3 id="motivating-example-back-to-the-leukemia-dataset">Motivating example: back to the leukemia dataset</h3>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a></a><span class="co"># load the data:</span></span>
@@ -2786,7 +2784,7 @@ Figure&nbsp;12: Cumulative hazard (cloglog scale) for <code>anderson</code> data
 <span id="cb62-13"><a></a><span class="co">#&gt; # ℹ 9 more variables: z2 &lt;int&gt;, z3 &lt;int&gt;, z4 &lt;int&gt;, z5 &lt;int&gt;, z6 &lt;int&gt;,</span></span>
 <span id="cb62-14"><a></a><span class="co">#&gt; #   z7 &lt;int&gt;, z8 &lt;int&gt;, z9 &lt;int&gt;, z10 &lt;int&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>This dataset comes from the <span class="citation" data-cites="copelan1991treatment">Copelan et al. (<a href="#/age-as-the-time-scale" role="doc-biblioref" onclick="">1991</a>)</span> study of allogenic bone marrow transplant therapy for acute myeloid leukemia (AML) and acute lymphoblastic leukemia (ALL).</p>
+<p>This dataset comes from the <span class="citation" data-cites="copelan1991treatment">Copelan et al. (<a href="#/references" role="doc-biblioref" onclick="">1991</a>)</span> study of allogenic bone marrow transplant therapy for acute myeloid leukemia (AML) and acute lymphoblastic leukemia (ALL).</p>
 <h5 id="outcomes-endpoints">Outcomes (endpoints)</h5>
 <ul>
 <li>The main endpoint is disease-free survival (<code>t2</code> and <code>d3</code>) for the three risk groups, “ALL”, “AML Low Risk”, and “AML High Risk”.</li>
@@ -3249,7 +3247,7 @@ Figure&nbsp;12: Cumulative hazard (cloglog scale) for <code>anderson</code> data
 </div>
 </section><section id="recurrent-events" class="slide level2" data-number="6.9"><h2>
 <span class="header-section-number">6.9</span> Recurrent Events</h2>
-<p>(Adapted from <span class="citation" data-cites="kleinbaum2012survival">Kleinbaum and Klein (<a href="#/age-as-the-time-scale" role="doc-biblioref" onclick="">2012</a>)</span>, Ch 8)</p>
+<p>(Adapted from <span class="citation" data-cites="kleinbaum2012survival">Kleinbaum and Klein (<a href="#/references" role="doc-biblioref" onclick="">2012</a>)</span>, Ch 8)</p>
 <ul>
 <li>Sometimes an appropriate analysis requires consideration of recurrent events.</li>
 <li>A patient with arthritis may have more than one flareup. The same is true of many recurring-remitting diseases.</li>
@@ -3257,7 +3255,7 @@ Figure&nbsp;12: Cumulative hazard (cloglog scale) for <code>anderson</code> data
 <li>We have to use a “robust” variance estimator to account for correlation of time-to-events within a patient.</li>
 </ul>
 <h3 id="bladder-cancer-data-set">Bladder Cancer Data Set</h3>
-<p>The bladder cancer dataset from <span class="citation" data-cites="kleinbaum2012survival">Kleinbaum and Klein (<a href="#/age-as-the-time-scale" role="doc-biblioref" onclick="">2012</a>)</span> contains recurrent event outcome information for eighty-six cancer patients followed for the recurrence of bladder cancer tumor after transurethral surgical excision (Byar and Green 1980). The exposure of interest is the effect of the drug treatment of thiotepa. Control variables are the initial number and initial size of tumors. The data layout is suitable for a counting processes approach.</p>
+<p>The bladder cancer dataset from <span class="citation" data-cites="kleinbaum2012survival">Kleinbaum and Klein (<a href="#/references" role="doc-biblioref" onclick="">2012</a>)</span> contains recurrent event outcome information for eighty-six cancer patients followed for the recurrence of bladder cancer tumor after transurethral surgical excision (Byar and Green 1980). The exposure of interest is the effect of the drug treatment of thiotepa. Control variables are the initial number and initial size of tumors. The data layout is suitable for a counting processes approach.</p>
 <p>This drug is still a possible choice for some patients. Another therapeutic choice is Bacillus Calmette-Guerin (BCG), a live bacterium related to cow tuberculosis.</p>
 <h4 id="data-dictionary">Data dictionary</h4>
 <table class="caption-top">
@@ -3479,12 +3477,12 @@ Figure&nbsp;12: Cumulative hazard (cloglog scale) for <code>anderson</code> data
 <li>interaction with time</li>
 </ul>
 </div>
-</section><section id="age-as-the-time-scale" class="slide level2 smaller scrollable" data-number="6.10"><h2>
+</section><section id="age-as-the-time-scale" class="slide level2" data-number="6.10"><h2>
 <span class="header-section-number">6.10</span> Age as the time scale</h2>
-<p>See <span class="citation" data-cites="canchola2003cox"><span class="nocase">Canchola et al.</span> (<a href="#/age-as-the-time-scale" role="doc-biblioref" onclick="">2003</a>)</span>.</p>
+<p>See <span class="citation" data-cites="canchola2003cox"><span class="nocase">Canchola et al.</span> (<a href="#/references" role="doc-biblioref" onclick="">2003</a>)</span>.</p>
+</section></section><section><section id="references" class="title-slide slide level1 unnumbered center"><h1>References</h1>
 
-
-<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+</section><section class="slide level2 smaller scrollable" id="references"><div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-canchola2003cox" class="csl-entry" role="listitem">
 <span class="nocase">Canchola, Alison J, Susan L Stewart, Leslie Bernstein, et al.</span> 2003. <span>“Cox Regression Using Different Time-Scales.”</span> <em>Western Users of SAS Software</em> (San Francisco, California). <a href="https://www.lexjansen.com/wuss/2003/DataAnalysis/i-cox_time_scales.pdf">https://www.lexjansen.com/wuss/2003/DataAnalysis/i-cox_time_scales.pdf</a>.
 </div>
@@ -3504,6 +3502,8 @@ Klein, John P, and Melvin L Moeschberger. 2003. <em>Survival Analysis: Technique
 Kleinbaum, David G, and Mitchel Klein. 2012. <em>Survival Analysis: A Self-Learning Text</em>. 3rd ed. Springer. <a href="https://link.springer.com/book/10.1007/978-1-4419-6646-9">https://link.springer.com/book/10.1007/978-1-4419-6646-9</a>.
 </div>
 </div>
+
+
 </section></section>
 </div>
   <div class="quarto-auto-generated-content" style="display: none;">

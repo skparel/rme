@@ -7,6 +7,8 @@
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/quarto-contrib/div-anchors-1.0.0/div-anchors.js"></script>
+<link href="site_libs/quarto-contrib/div-anchors-1.0.0/div-anchors.css" rel="stylesheet">
 <script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><meta charset="utf-8">
@@ -33,7 +35,26 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-  </style>
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
   <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-4df01d85d5cf19cc6202400f4f043f84.css">
   <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-VS314RJ2KP"></script>
 
@@ -161,18 +182,27 @@
 </div>
 
 </section>
+<section>
 <section id="we-use-different-probability-models-for-different-data-types" class="title-slide slide level1 center" data-number="1">
 <h1><span class="header-section-number">1</span> We use different probability models for different data types</h1>
+
+</section>
+<section class="slide level2">
+
 <ul>
 <li>Binary outcomes: Bernoulli models</li>
 <li>Event rate outcomes: Poisson/Negative binomial models</li>
 <li>Time-to-event outcomes: Survival models</li>
 <li>Catch-all: Gaussian models</li>
 </ul>
-</section>
-
+</section></section>
+<section>
 <section id="we-use-different-link-functions-to-connect-these-models-with-covariates" class="title-slide slide level1 center" data-number="2">
 <h1><span class="header-section-number">2</span> We use different link functions to connect these models with covariates</h1>
+
+</section>
+<section class="slide level2">
+
 <ul>
 <li>Bernoulli models: logit link</li>
 <li>Count models: log link + offset</li>
@@ -190,20 +220,28 @@ Figure&nbsp;1: Parallel Model Structures
 </div>
 </figure>
 </div>
-</section>
-
+</section></section>
+<section>
 <section id="we-use-maximum-likelihood-estimation-to-fit-models-to-data" class="title-slide slide level1 center" data-number="3">
 <h1><span class="header-section-number">3</span> We use maximum likelihood estimation to fit models to data</h1>
+
+</section>
+<section class="slide level2">
+
 <ul>
 <li>likelihood</li>
 <li>log-likelihood</li>
 <li>score function</li>
 <li>hessian</li>
 </ul>
-</section>
-
+</section></section>
+<section>
 <section id="we-use-asymptotic-normality-of-mles-to-quantify-uncertainty-about-models" class="title-slide slide level1 center" data-number="4">
 <h1><span class="header-section-number">4</span> We use asymptotic normality of MLEs to quantify uncertainty about models</h1>
+
+</section>
+<section class="slide level2">
+
 <ul>
 <li>observed information matrix</li>
 <li>expected information matrix</li>
@@ -211,14 +249,29 @@ Figure&nbsp;1: Parallel Model Structures
 <li>confidence intervals</li>
 <li>p-values</li>
 </ul>
-</section>
-
+</section></section>
+<section>
 <section id="we-use-log-likelihood-ratios-to-compare-models" class="title-slide slide level1 center" data-number="5">
 <h1><span class="header-section-number">5</span> We use (log) likelihood ratios to compare models</h1>
-<p>Sometimes we adjust these comparisons for model size (AIC, BIC)</p>
-
 
 </section>
+<section class="slide level2">
+
+<p>Sometimes we adjust these comparisons for model size (AIC, BIC)</p>
+</section></section>
+<section>
+<section id="references" class="title-slide slide level1 unnumbered center">
+<h1>References</h1>
+
+</section>
+<section class="slide level2 smaller scrollable" id="references">
+
+<div id="refs" role="list">
+
+</div>
+
+
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
